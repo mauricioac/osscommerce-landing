@@ -9,6 +9,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // We handle i18n manually through our middleware and locale provider
 }
 
 export default nextConfig
