@@ -1,5 +1,3 @@
-'use client'
-
 import React from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -9,7 +7,6 @@ import { LocaleLink } from "@/components/locale-link"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { useLocale } from "@/components/locale-provider"
 import { getAppById, appsConfig } from "@/lib/apps-config"
 import { notFound } from "next/navigation"
 import { type Locale } from "@/lib/i18n/config"
@@ -21,9 +18,8 @@ interface AppPageProps {
   }>
 }
 
-export default function AppPage({ params }: AppPageProps) {
-  const { t } = useLocale()
-  const { appId } = React.use(params)
+export default async function AppPage({ params }: AppPageProps) {
+  const { locale, appId } = await params
   const app = getAppById(appId)
   
   if (!app) {
