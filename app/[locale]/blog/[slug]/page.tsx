@@ -19,7 +19,7 @@ interface BlogPostPageProps {
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { slug } = params
+  const { slug } = await params
   const post = getPostBySlug(slug)
   
   if (!post) {
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = params
+  const { slug } = await params
   const post = getPostBySlug(slug)
   
   if (!post) {
@@ -68,7 +68,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     .slice(0, 3)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1E0D43] via-[#2a1458] to-[#1E0D43]">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <StructuredData data={articleSchema({
         title: post.title,
         description: post.excerpt || post.title,
@@ -87,7 +87,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <Button
                 variant="outline"
                 size="sm"
-                className="border-white/30 text-white hover:bg-white/10 mb-8"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50 mb-8"
                 asChild
               >
                 <Link href="/blog">
@@ -107,7 +107,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   <Badge
                     key={tag}
                     variant="outline"
-                    className="border-white/30 text-white/70"
+                    className="border-gray-300 text-gray-700"
                   >
                     <Tag className="mr-1 h-3 w-3" />
                     {tag}
@@ -116,20 +116,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
 
               {/* Title */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 {post.title}
               </h1>
 
               {/* Excerpt */}
               {post.excerpt && (
-                <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
+                <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
                   {post.excerpt}
                 </p>
               )}
 
               {/* Author and Date */}
-              <div className="flex items-center justify-between mb-8 pb-8 border-b border-white/10">
-                <div className="flex items-center gap-6 text-white/60">
+              <div className="flex items-center justify-between mb-8 pb-8 border-b border-gray-200">
+                <div className="flex items-center gap-6 text-gray-600">
                   <div className="flex items-center gap-2">
                     <User className="h-5 w-5" />
                     <span>{post.author}</span>
@@ -167,21 +167,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </section>
 
         {/* Article Content */}
-        <section className="py-20 bg-gradient-to-r from-slate-900/50 to-[#1E0D43]/50">
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
+              <Card className="bg-white border-gray-200 shadow-lg">
                 <CardContent className="p-8 md:p-12">
-                  <div 
-                    className="prose prose-invert prose-lg max-w-none
-                      prose-headings:text-white prose-headings:font-bold
-                      prose-p:text-white/90 prose-p:leading-relaxed
+                  <div
+                    className="prose prose-gray prose-lg max-w-none
+                      prose-headings:text-gray-900 prose-headings:font-bold
+                      prose-p:text-gray-800 prose-p:leading-relaxed
                       prose-a:text-[#F6B86C] prose-a:no-underline hover:prose-a:underline
-                      prose-strong:text-white prose-strong:font-semibold
-                      prose-code:text-[#F6B86C] prose-code:bg-white/10 prose-code:px-2 prose-code:py-1 prose-code:rounded
-                      prose-blockquote:border-l-[#F6B86C] prose-blockquote:text-white/80
-                      prose-ul:text-white/90 prose-ol:text-white/90
-                      prose-li:text-white/90"
+                      prose-strong:text-gray-900 prose-strong:font-semibold
+                      prose-code:text-[#F6B86C] prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded
+                      prose-blockquote:border-l-[#F6B86C] prose-blockquote:text-gray-700
+                      prose-ul:text-gray-800 prose-ol:text-gray-800
+                      prose-li:text-gray-800"
                     dangerouslySetInnerHTML={{ __html: post.content }}
                   />
                 </CardContent>
@@ -192,7 +192,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Navigation */}
         {(prevPost || nextPost) && (
-          <section className="py-20">
+          <section className="py-20 bg-gray-50">
             <div className="container mx-auto px-4">
               <div className="max-w-4xl mx-auto">
                 <div className="grid md:grid-cols-2 gap-8">

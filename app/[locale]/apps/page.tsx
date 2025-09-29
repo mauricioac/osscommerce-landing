@@ -28,9 +28,9 @@ export const metadata: Metadata = {
 }
 
 const statusColors = {
-  available: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-  'coming-soon': "bg-yellow-500/20 text-yellow-300 border-yellow-500/30",
-  beta: "bg-blue-500/20 text-blue-300 border-blue-500/30"
+  available: "bg-emerald-100 text-emerald-800 border-emerald-200",
+  'coming-soon': "bg-yellow-100 text-yellow-800 border-yellow-200",
+  beta: "bg-blue-100 text-blue-800 border-blue-200"
 }
 
 const statusLabels = {
@@ -49,7 +49,7 @@ const categoryIcons = {
 
 function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean }) {
   return (
-    <Card className={`bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300 group h-full ${featured ? 'ring-2 ring-[#F6B86C]/50' : ''}`}>
+    <Card className={`bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group h-full ${featured ? 'ring-2 ring-[#F6B86C]/50' : ''}`}>
       {featured && (
         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
           <Badge className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] text-[#1E0D43] font-semibold shadow-lg">
@@ -77,24 +77,24 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
         
         <div className="flex items-center gap-2 mb-2">
           <span className="text-lg">{categoryIcons[app.category]}</span>
-          <CardTitle className="text-xl text-white group-hover:text-[#F6B86C] transition-colors">
+          <CardTitle className="text-xl text-gray-900 group-hover:text-[#F6B86C] transition-colors">
             {app.name}
           </CardTitle>
         </div>
         
-        <p className="text-white/80 text-sm leading-relaxed mb-4">
+        <p className="text-gray-700 text-sm leading-relaxed mb-4">
           {app.description}
         </p>
 
         {/* Features */}
         <div className="space-y-2">
-          <h4 className="text-sm font-medium text-white/90">Key Features:</h4>
+          <h4 className="text-sm font-medium text-gray-800">Key Features:</h4>
           <div className="flex flex-wrap gap-1">
             {app.features.slice(0, 3).map((feature) => (
               <Badge
                 key={feature}
                 variant="outline"
-                className="border-white/30 text-white/70 text-xs"
+                className="border-gray-300 text-gray-700 text-xs"
               >
                 {feature}
               </Badge>
@@ -102,7 +102,7 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
             {app.features.length > 3 && (
               <Badge
                 variant="outline"
-                className="border-white/30 text-white/70 text-xs"
+                className="border-gray-300 text-gray-700 text-xs"
               >
                 +{app.features.length - 3} more
               </Badge>
@@ -149,7 +149,7 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
               <Button
                 variant="outline"
                 size="sm"
-                className="flex-1 border-white/30 text-white hover:bg-white/10"
+                className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50"
                 asChild
               >
                 <LocaleLink href={app.landingPage}>Learn More</LocaleLink>
@@ -159,7 +159,7 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
             <Button
               variant="outline"
               size="sm"
-              className="flex-1 border-white/30 text-white hover:bg-white/10"
+              className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50"
               asChild
             >
               <LocaleLink href={`/docs/${app.id}`}>
@@ -179,7 +179,7 @@ export default function AppsPage() {
   const upcomingApps = appsConfig.filter(app => app.status !== 'available')
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1E0D43] via-[#2a1458] to-[#1E0D43]">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Header />
       
       <main>
@@ -190,13 +190,13 @@ export default function AppsPage() {
               <Badge className="bg-gradient-to-r from-[#F6B86C]/20 to-[#FF8C42]/20 text-[#F6B86C] border-[#F6B86C]/30 hover:bg-[#F6B86C]/10 mb-6">
                 🚀 Our Shopify Apps
               </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                 Integrated{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
                   Ecosystem
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Powerful Shopify applications designed to work together seamlessly. Each app excels individually, 
                 but together they create an integrated ecosystem that transforms your e-commerce operations.
               </p>
@@ -207,24 +207,24 @@ export default function AppsPage() {
                   <div className="w-12 h-12 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-3">
                     <Zap className="h-6 w-6 text-[#1E0D43]" />
                   </div>
-                  <h3 className="font-semibold text-white mb-1">Better Together</h3>
-                  <p className="text-white/70 text-sm">Apps share data and enhance each other's capabilities</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">Better Together</h3>
+                  <p className="text-gray-600 text-sm">Apps share data and enhance each other's capabilities</p>
                 </div>
                 
                 <div className="text-center">
                   <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Users className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="font-semibold text-white mb-1">Single Support</h3>
-                  <p className="text-white/70 text-sm">One team, one experience, no finger-pointing</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">Single Support</h3>
+                  <p className="text-gray-600 text-sm">One team, one experience, no finger-pointing</p>
                 </div>
                 
                 <div className="text-center">
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Star className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="font-semibold text-white mb-1">Volume Savings</h3>
-                  <p className="text-white/70 text-sm">Save up to 30% with multiple app installations</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">Volume Savings</h3>
+                  <p className="text-gray-600 text-sm">Save up to 30% with multiple app installations</p>
                 </div>
               </div>
             </div>
@@ -232,16 +232,16 @@ export default function AppsPage() {
         </section>
 
         {/* Available Apps */}
-        <section className="py-20 bg-gradient-to-r from-slate-900/50 to-[#1E0D43]/50">
+        <section className="py-20 bg-slate-800">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Available{" "}
                 <span className="bg-gradient-to-r from-emerald-400 to-[#F6B86C] bg-clip-text text-transparent">
                   Applications
                 </span>
               </h2>
-              <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                 Ready-to-install Shopify applications that are transforming e-commerce businesses worldwide.
               </p>
             </div>
@@ -258,7 +258,7 @@ export default function AppsPage() {
                   <Zap className="h-12 w-12 text-[#1E0D43]" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Apps Coming Soon</h3>
-                <p className="text-white/80 mb-8 max-w-md mx-auto">
+                <p className="text-gray-700 mb-8 max-w-md mx-auto">
                   We're putting the finishing touches on our first applications. Check back soon!
                 </p>
               </div>
@@ -268,16 +268,16 @@ export default function AppsPage() {
 
         {/* Upcoming Apps */}
         {upcomingApps.length > 0 && (
-          <section className="py-20 bg-gradient-to-r from-slate-900/30 to-[#1E0D43]/30">
+          <section className="py-20 bg-gray-50">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                   Coming{" "}
                   <span className="bg-gradient-to-r from-purple-400 to-[#F6B86C] bg-clip-text text-transparent">
                     Soon
                   </span>
                 </h2>
-                <p className="text-xl text-white/80 max-w-3xl mx-auto">
+                <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                   Exciting new applications in development. Be the first to know when they launch.
                 </p>
               </div>
@@ -292,16 +292,16 @@ export default function AppsPage() {
         )}
 
         {/* Ecosystem Benefits */}
-        <section className="py-20 bg-gradient-to-r from-[#F6B86C]/10 to-purple-500/10">
+        <section className="py-20 bg-gray-100">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Ecosystem{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
                   Advantages
                 </span>
               </h2>
-              <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                 The more OS² Commerce apps you use, the more powerful and cost-effective your setup becomes.
               </p>
             </div>
@@ -309,52 +309,52 @@ export default function AppsPage() {
             <div className="max-w-4xl mx-auto">
               <div className="grid md:grid-cols-3 gap-6">
                 {/* 2 Apps */}
-                <Card className="bg-white/10 border-white/20 text-center hover:from-white/15 hover:to-white/10 transition-all duration-300 backdrop-blur-sm">
+                <Card className="bg-white border-gray-200 text-center shadow-lg hover:shadow-xl transition-all duration-300">
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 bg-transparent border-2 border-white rounded-full flex items-center justify-center mx-auto mb-6">
-                      <span className="text-2xl font-bold text-white">2</span>
+                    <div className="w-16 h-16 bg-transparent border-2 border-gray-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <span className="text-2xl font-bold text-gray-900">2</span>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Starter Ecosystem</h3>
-                    <div className="text-3xl font-bold text-emerald-400 mb-4">Save 10%</div>
-                    <p className="text-white/80 text-sm">Perfect for growing stores ready to unify their operations</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Starter Ecosystem</h3>
+                    <div className="text-3xl font-bold text-emerald-600 mb-4">Save 10%</div>
+                    <p className="text-gray-700 text-sm">Perfect for growing stores ready to unify their operations</p>
                   </CardContent>
                 </Card>
 
                 {/* 3 Apps - Most Popular */}
-                <Card className="bg-white/10 border-[#F6B86C] text-center hover:from-white/20 hover:to-white/15 transition-all duration-300 relative backdrop-blur-sm shadow-lg shadow-[#F6B86C]/25">
+                <Card className="bg-white border-[#F6B86C] text-center shadow-xl hover:shadow-2xl transition-all duration-300 relative">
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <Badge className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] text-[#1E0D43] font-semibold shadow-lg">
                       Most Popular
                     </Badge>
                   </div>
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 bg-transparent border-2 border-white rounded-full flex items-center justify-center mx-auto mb-6">
-                      <span className="text-2xl font-bold text-white">3</span>
+                    <div className="w-16 h-16 bg-transparent border-2 border-gray-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <span className="text-2xl font-bold text-gray-900">3</span>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Growth Ecosystem</h3>
-                    <div className="text-3xl font-bold text-emerald-400 mb-4">Save 20%</div>
-                    <p className="text-white/80 text-sm">Ideal for established stores scaling their operations</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Growth Ecosystem</h3>
+                    <div className="text-3xl font-bold text-emerald-600 mb-4">Save 20%</div>
+                    <p className="text-gray-700 text-sm">Ideal for established stores scaling their operations</p>
                   </CardContent>
                 </Card>
 
                 {/* 4+ Apps */}
-                <Card className="bg-white/10 border-white/20 text-center hover:from-white/15 hover:to-white/10 transition-all duration-300 backdrop-blur-sm">
+                <Card className="bg-white border-gray-200 text-center shadow-lg hover:shadow-xl transition-all duration-300">
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 bg-transparent border-2 border-white rounded-full flex items-center justify-center mx-auto mb-6">
-                      <span className="text-2xl font-bold text-white">4+</span>
+                    <div className="w-16 h-16 bg-transparent border-2 border-gray-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <span className="text-2xl font-bold text-gray-900">4+</span>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Complete Ecosystem</h3>
-                    <div className="text-3xl font-bold text-emerald-400 mb-4">Save 30%</div>
-                    <p className="text-white/80 text-sm">Maximum efficiency and savings for serious merchants</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Complete Ecosystem</h3>
+                    <div className="text-3xl font-bold text-emerald-600 mb-4">Save 30%</div>
+                    <p className="text-gray-700 text-sm">Maximum efficiency and savings for serious merchants</p>
                   </CardContent>
                 </Card>
               </div>
 
               <div className="text-center mt-12">
-                <div className="bg-gradient-to-r from-white/10 to-white/5 rounded-lg p-6 max-w-2xl mx-auto backdrop-blur-sm border border-white/10">
-                  <h4 className="text-white font-semibold mb-2">🎯 Automatic Discounts</h4>
-                  <p className="text-white/80 text-sm">
-                    Volume discounts are automatically applied to your Shopify subscription. 
+                <div className="bg-white rounded-lg p-6 max-w-2xl mx-auto shadow-lg border border-gray-200">
+                  <h4 className="text-gray-900 font-semibold mb-2">🎯 Automatic Discounts</h4>
+                  <p className="text-gray-700 text-sm">
+                    Volume discounts are automatically applied to your Shopify subscription.
                     Start with one app and save more as your ecosystem grows.
                   </p>
                 </div>
@@ -364,13 +364,13 @@ export default function AppsPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20">
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Ready to Transform Your Store?
               </h2>
-              <p className="text-xl text-white/80 mb-8 leading-relaxed">
+              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
                 Start with any OS² Commerce app and experience the power of integrated e-commerce tools. 
                 Join thousands of merchants who have already upgraded their operations.
               </p>

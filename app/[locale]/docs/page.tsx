@@ -9,9 +9,9 @@ import { Footer } from "@/components/footer"
 import { appsConfig, AppConfig } from "@/lib/apps-config"
 
 const statusColors = {
-  available: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-  'coming-soon': "bg-yellow-500/20 text-yellow-300 border-yellow-500/30",
-  beta: "bg-blue-500/20 text-blue-300 border-blue-500/30"
+  available: "bg-emerald-100 text-emerald-800 border-emerald-200",
+  'coming-soon': "bg-yellow-100 text-yellow-800 border-yellow-200",
+  beta: "bg-blue-100 text-blue-800 border-blue-200"
 }
 
 const statusLabels = {
@@ -22,7 +22,7 @@ const statusLabels = {
 
 function AppDocumentationCard({ app }: { app: AppConfig }) {
   return (
-    <Card className="bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300 group h-full">
+    <Card className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group h-full">
       <CardHeader className="p-6">
         <div className="flex items-center justify-between mb-4">
           <div className="w-16 h-16 relative">
@@ -39,11 +39,11 @@ function AppDocumentationCard({ app }: { app: AppConfig }) {
           </Badge>
         </div>
         
-        <CardTitle className="text-xl text-white group-hover:text-[#F6B86C] transition-colors">
+        <CardTitle className="text-xl text-gray-900 group-hover:text-[#F6B86C] transition-colors">
           {app.name} Documentation
         </CardTitle>
-        
-        <p className="text-white/80 text-sm leading-relaxed">
+
+        <p className="text-gray-700 text-sm leading-relaxed">
           {app.description}
         </p>
       </CardHeader>
@@ -58,7 +58,7 @@ function AppDocumentationCard({ app }: { app: AppConfig }) {
                 <Badge
                   key={feature}
                   variant="outline"
-                  className="border-white/30 text-white/70 text-xs"
+                  className="border-gray-300 text-gray-700 text-xs"
                 >
                   {feature}
                 </Badge>
@@ -66,7 +66,7 @@ function AppDocumentationCard({ app }: { app: AppConfig }) {
               {app.features.length > 3 && (
                 <Badge
                   variant="outline"
-                  className="border-white/30 text-white/70 text-xs"
+                  className="border-gray-300 text-gray-700 text-xs"
                 >
                   +{app.features.length - 3} more
                 </Badge>
@@ -91,7 +91,7 @@ function AppDocumentationCard({ app }: { app: AppConfig }) {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="flex-1 border-white/30 text-white hover:bg-white/10"
+                  className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50"
                   asChild
                 >
                   <Link href={app.landingPage}>
@@ -104,7 +104,7 @@ function AppDocumentationCard({ app }: { app: AppConfig }) {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="flex-1 border-white/30 text-white hover:bg-white/10"
+                  className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50"
                   asChild
                 >
                   <Link href={app.shopifyUrl} target="_blank">
@@ -126,7 +126,7 @@ export default function DocumentationHubPage() {
   const upcomingApps = appsConfig.filter(app => app.status !== 'available')
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1E0D43] via-[#2a1458] to-[#1E0D43]">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Header />
       
       <main>
@@ -137,13 +137,13 @@ export default function DocumentationHubPage() {
               <Badge className="bg-gradient-to-r from-[#F6B86C]/20 to-[#FF8C42]/20 text-[#F6B86C] border-[#F6B86C]/30 hover:bg-[#F6B86C]/10 mb-6">
                 📚 Documentation Hub
               </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                 Knowledge{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
                   Base
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Comprehensive guides, tutorials, and documentation for all OS² Commerce applications. 
                 Find everything you need to get the most out of our ecosystem.
               </p>
@@ -152,7 +152,7 @@ export default function DocumentationHubPage() {
         </section>
 
         {/* Available Apps Documentation */}
-        <section className="py-20 bg-gradient-to-r from-slate-900/50 to-[#1E0D43]/50">
+        <section className="py-20 bg-slate-800">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">

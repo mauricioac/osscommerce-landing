@@ -27,7 +27,7 @@ export default async function AppPage({ params }: AppPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1E0D43] via-[#2a1458] to-[#1E0D43]">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Header />
 
       {/* Hero Section */}
@@ -56,7 +56,7 @@ export default async function AppPage({ params }: AppPageProps) {
                     />
                   </div>
                   <div>
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
+                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
                       {app.name}
                     </h1>
                     <Badge className={`
@@ -70,7 +70,7 @@ export default async function AppPage({ params }: AppPageProps) {
                   </div>
                 </div>
 
-                <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
+                <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
                   {app.description}
                 </p>
 
@@ -123,32 +123,32 @@ export default async function AppPage({ params }: AppPageProps) {
 
                 {/* Quick Stats */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
+                  <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
                     <BarChart3 className="h-8 w-8 text-[#F6B86C] mx-auto mb-2" />
-                    <div className="text-lg font-bold text-white">99.9%</div>
-                    <div className="text-white/70 text-xs">Uptime</div>
+                    <div className="text-lg font-bold text-gray-900">99.9%</div>
+                    <div className="text-gray-600 text-xs">Uptime</div>
                   </div>
-                  <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
+                  <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
                     <Users className="h-8 w-8 text-emerald-400 mx-auto mb-2" />
-                    <div className="text-lg font-bold text-white">10K+</div>
-                    <div className="text-white/70 text-xs">Active Users</div>
+                    <div className="text-lg font-bold text-gray-900">10K+</div>
+                    <div className="text-gray-600 text-xs">Active Users</div>
                   </div>
-                  <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
+                  <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
                     <Shield className="h-8 w-8 text-purple-400 mx-auto mb-2" />
-                    <div className="text-lg font-bold text-white">5★</div>
-                    <div className="text-white/70 text-xs">App Rating</div>
+                    <div className="text-lg font-bold text-gray-900">5★</div>
+                    <div className="text-gray-600 text-xs">App Rating</div>
                   </div>
-                  <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
+                  <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
                     <Globe className="h-8 w-8 text-blue-400 mx-auto mb-2" />
-                    <div className="text-lg font-bold text-white">24/7</div>
-                    <div className="text-white/70 text-xs">Support</div>
+                    <div className="text-lg font-bold text-gray-900">24/7</div>
+                    <div className="text-gray-600 text-xs">Support</div>
                   </div>
                 </div>
               </div>
 
               {/* Right Content - App Preview */}
               <div className="relative">
-                <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
+                <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
                   <div className="aspect-video bg-gradient-to-br from-[#F6B86C]/20 to-purple-500/20 rounded-xl flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-24 h-24 mx-auto mb-4 relative">
@@ -160,7 +160,7 @@ export default async function AppPage({ params }: AppPageProps) {
                           className="object-contain"
                         />
                       </div>
-                      <p className="text-white/70">App Preview Coming Soon</p>
+                      <p className="text-gray-600">App Preview Coming Soon</p>
                     </div>
                   </div>
                 </div>
@@ -171,7 +171,7 @@ export default async function AppPage({ params }: AppPageProps) {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gradient-to-r from-slate-900/50 to-[#1E0D43]/50">
+      <section className="py-20 bg-slate-800">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -188,15 +188,15 @@ export default async function AppPage({ params }: AppPageProps) {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {app.features.map((feature, index) => (
-                <Card key={index} className="bg-white/10 border-white/20 backdrop-blur-sm hover:bg-white/15 transition-all duration-300">
+                <Card key={index} className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className="w-8 h-8 bg-[#F6B86C] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                         <CheckCircle className="h-5 w-5 text-[#1E0D43]" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-white mb-2">{feature}</h3>
-                        <p className="text-white/80 text-sm">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature}</h3>
+                        <p className="text-gray-700 text-sm">
                           Advanced {feature.toLowerCase()} capabilities designed for modern e-commerce businesses.
                         </p>
                       </div>
@@ -210,43 +210,43 @@ export default async function AppPage({ params }: AppPageProps) {
       </section>
 
       {/* Integration Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Works Better with{" "}
                 <span className="bg-gradient-to-r from-emerald-400 to-[#F6B86C] bg-clip-text text-transparent">
                   OS² Ecosystem
                 </span>
               </h2>
-              <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                 {app.name} is designed to work seamlessly with other OS² Commerce apps, creating a powerful integrated solution.
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
                   <div className="w-16 h-16 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-4">
                     <BarChart3 className="h-8 w-8 text-[#1E0D43]" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Shared Analytics</h3>
-                  <p className="text-white/80">Cross-app insights and unified reporting dashboard.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Shared Analytics</h3>
+                  <p className="text-gray-700">Cross-app insights and unified reporting dashboard.</p>
                 </div>
                 <div>
                   <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Users className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Unified Support</h3>
-                  <p className="text-white/80">One support team for all your OS² Commerce apps.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Unified Support</h3>
+                  <p className="text-gray-700">One support team for all your OS² Commerce apps.</p>
                 </div>
                 <div>
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Star className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Volume Savings</h3>
-                  <p className="text-white/80">Save up to 30% with multiple app installations.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Volume Savings</h3>
+                  <p className="text-gray-700">Save up to 30% with multiple app installations.</p>
                 </div>
               </div>
             </div>
@@ -255,13 +255,13 @@ export default async function AppPage({ params }: AppPageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#F6B86C]/10 to-purple-500/10">
+      <section className="py-20 bg-gray-100">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Ready to Get Started with {app.name}?
             </h2>
-            <p className="text-xl text-white/80 mb-8 leading-relaxed">
+            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
               Join thousands of merchants who are already using {app.name} to enhance their {app.category} operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

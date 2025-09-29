@@ -23,7 +23,7 @@ export default function LandingPage({ params }: HomePageProps) {
   const featuredApps = appsConfig.filter(app => app.status === 'available').slice(0, 3)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1E0D43] via-[#2a1458] to-[#1E0D43]">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Header />
 
       {/* Hero Section */}
@@ -31,15 +31,15 @@ export default function LandingPage({ params }: HomePageProps) {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-5xl mx-auto">
             {/* Floating elements */}
-            <div className="absolute top-10 left-10 w-20 h-20 bg-[#F6B86C]/10 rounded-full blur-xl animate-pulse"></div>
-            <div className="absolute top-40 right-20 w-32 h-32 bg-purple-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
-            <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-emerald-500/10 rounded-full blur-xl animate-pulse delay-500"></div>
+            <div className="absolute top-10 left-10 w-20 h-20 bg-[#F6B86C]/20 rounded-full blur-xl animate-pulse"></div>
+            <div className="absolute top-40 right-20 w-32 h-32 bg-[#F6B86C]/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+            <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-[#F6B86C]/15 rounded-full blur-xl animate-pulse delay-500"></div>
             
             <Badge className="bg-gradient-to-r from-[#F6B86C]/20 to-[#FF8C42]/20 text-[#F6B86C] border-[#F6B86C]/30 hover:bg-[#F6B86C]/10 mb-6 animate-fade-in">
               {t('home.hero.badge')}
             </Badge>
             
-            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white mb-6 leading-tight relative animate-fade-in-up">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-900 mb-6 leading-tight relative animate-fade-in-up">
               Stop Juggling Apps.{" "}
               <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
                 Start Unifying
@@ -56,7 +56,7 @@ export default function LandingPage({ params }: HomePageProps) {
               />
             </h1>
             
-            <p className="text-xl md:text-2xl lg:text-3xl text-white/80 mb-8 max-w-4xl mx-auto leading-relaxed animate-fade-in-up delay-200">
+            <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed animate-fade-in-up delay-200">
               Tired of managing a dozen disconnected apps? OS² Commerce offers a suite of powerful integrated
               applications that work together to streamline your operations, share data seamlessly, and grow your
               business. <a href="/blog/building-integrated-app-ecosystem" className="text-[#F6B86C] hover:underline">Learn why integrated ecosystems outperform standalone tools</a>.
@@ -64,16 +64,16 @@ export default function LandingPage({ params }: HomePageProps) {
             
             {/* Shopify Partnership Indicator */}
             <div className="flex items-center justify-center gap-3 mb-12 animate-fade-in-up delay-300">
-              <span className="text-white/60 text-lg">Built exclusively for</span>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
-                <Image 
-                  src="/shopify_white.png" 
-                  alt="Shopify" 
+              <span className="text-gray-600 text-lg">Built exclusively for</span>
+              <div className="flex items-center gap-2 bg-gray-100 backdrop-blur-sm rounded-lg px-4 py-2 border border-gray-300">
+                <Image
+                  src="/shopify_white.png"
+                  alt="Shopify"
                   width={24}
                   height={24}
-                  className="w-6 h-6 opacity-80 object-contain" 
+                  className="w-6 h-6 opacity-80 object-contain"
                 />
-                <span className="text-white font-semibold text-lg">Shopify</span>
+                <span className="text-gray-900 font-semibold text-lg">Shopify</span>
               </div>
             </div>
             
@@ -102,15 +102,15 @@ export default function LandingPage({ params }: HomePageProps) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto animate-fade-in-up delay-600">
               <div className="text-center">
                 <div className="text-3xl lg:text-4xl font-bold text-[#F6B86C] mb-2">10,000+</div>
-                <div className="text-white/70">Active Merchants</div>
+                <div className="text-gray-600">Active Merchants</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl lg:text-4xl font-bold text-[#F6B86C] mb-2">30%</div>
-                <div className="text-white/70">Average Cost Savings</div>
+                <div className="text-gray-600">Average Cost Savings</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl lg:text-4xl font-bold text-[#F6B86C] mb-2">99.9%</div>
-                <div className="text-white/70">Uptime Guarantee</div>
+                <div className="text-gray-600">Uptime Guarantee</div>
               </div>
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function LandingPage({ params }: HomePageProps) {
       </section>
 
       {/* Problem/Solution Section */}
-      <section className="py-20 bg-gradient-to-r from-slate-900/50 to-[#1E0D43]/50">
+      <section className="py-20 bg-slate-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
@@ -240,23 +240,23 @@ export default function LandingPage({ params }: HomePageProps) {
 
       {/* Featured Apps Section - Enhanced */}
       {featuredApps.length > 0 && (
-        <section className="py-20">
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
                 Featured{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
                   Applications
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
                 Discover our powerful Shopify applications designed to work together seamlessly and transform your e-commerce operations.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
               {featuredApps.map((app, index) => (
-                <Card key={app.id} className={`bg-white/10 border-white/20 backdrop-blur-sm hover:bg-white/15 transition-all duration-300 group relative ${index === 0 ? 'md:scale-105 border-[#F6B86C]/50' : ''}`}>
+                <Card key={app.id} className={`bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group relative ${index === 0 ? 'md:scale-105 border-[#F6B86C]/50' : ''}`}>
                   {index === 0 && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                       <Badge className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] text-[#1E0D43] font-semibold shadow-lg">
@@ -276,14 +276,14 @@ export default function LandingPage({ params }: HomePageProps) {
                           className="object-contain"
                         />
                       </div>
-                      <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30">
+                      <Badge className="bg-emerald-100 text-emerald-800 border-emerald-200">
                         Available Now
                       </Badge>
                     </div>
-                    <h3 className="text-2xl font-semibold text-white group-hover:text-[#F6B86C] transition-colors mb-3">
+                    <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-[#F6B86C] transition-colors mb-3">
                       {app.name}
                     </h3>
-                    <p className="text-white/80 mb-6 leading-relaxed">
+                    <p className="text-gray-700 mb-6 leading-relaxed">
                       {app.description}
                     </p>
                     <div className="space-y-3">
@@ -321,7 +321,7 @@ export default function LandingPage({ params }: HomePageProps) {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="w-full border-white/30 text-white hover:bg-white/10"
+                        className="w-full border-gray-300 text-gray-700 hover:bg-gray-50"
                         asChild
                       >
                         <LocaleLink href={app.landingPage || `/apps/${app.id}`}>
@@ -352,15 +352,15 @@ export default function LandingPage({ params }: HomePageProps) {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#F6B86C]/10 to-purple-500/10 relative overflow-hidden">
+      <section className="py-20 bg-gray-100 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="container mx-auto px-4 text-center relative">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
               Ready to Transform Your Store?
             </h2>
-            <p className="text-xl md:text-2xl text-white/80 mb-12 leading-relaxed max-w-3xl mx-auto">
-              Join thousands of merchants who have upgraded their e-commerce operations with OS² Commerce. 
+            <p className="text-xl md:text-2xl text-gray-700 mb-12 leading-relaxed max-w-3xl mx-auto">
+              Join thousands of merchants who have upgraded their e-commerce operations with OS² Commerce.
               Start with any app and experience the power of an integrated ecosystem.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">

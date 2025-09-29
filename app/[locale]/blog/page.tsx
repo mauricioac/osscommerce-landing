@@ -34,7 +34,7 @@ export default function BlogPage() {
   const tags = getAllTags()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1E0D43] via-[#2a1458] to-[#1E0D43]">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Header />
       
       <main>
@@ -45,22 +45,22 @@ export default function BlogPage() {
               <Badge className="bg-gradient-to-r from-[#F6B86C]/20 to-[#FF8C42]/20 text-[#F6B86C] border-[#F6B86C]/30 hover:bg-[#F6B86C]/10 mb-6">
                 📖 Our Blog
               </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                 Insights &{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
                   Updates
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Stay informed with the latest e-commerce trends, product updates, and insights from the OS² Commerce team.
               </p>
               
               {/* Search Bar */}
               <div className="max-w-2xl mx-auto relative mb-8">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60 h-5 w-5" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 h-5 w-5" />
                 <Input
                   placeholder="Search articles..."
-                  className="pl-12 pr-4 py-3 text-lg bg-white/10 border-white/20 focus:border-[#F6B86C] text-white placeholder:text-white/60 rounded-lg"
+                  className="pl-12 pr-4 py-3 text-lg bg-white border-gray-300 focus:border-[#F6B86C] text-gray-900 placeholder:text-gray-500 rounded-lg shadow-sm"
                 />
               </div>
 
@@ -84,7 +84,7 @@ export default function BlogPage() {
         </section>
 
         {/* Blog Posts */}
-        <section className="py-20 bg-gradient-to-r from-slate-900/50 to-[#1E0D43]/50">
+        <section className="py-20 bg-slate-800">
           <div className="container mx-auto px-4">
             {posts.length === 0 ? (
               // Empty State
@@ -111,7 +111,7 @@ export default function BlogPage() {
                 {/* Posts Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
                   {posts.map((post) => (
-                    <Card key={post.slug} className="bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300 group overflow-hidden">
+                    <Card key={post.slug} className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
                       {post.image && (
                         <div className="aspect-video overflow-hidden">
                           <Image
@@ -140,15 +140,15 @@ export default function BlogPage() {
                             </Badge>
                           ))}
                         </div>
-                        <CardTitle className="text-xl text-white group-hover:text-[#F6B86C] transition-colors line-clamp-2">
+                        <CardTitle className="text-xl text-gray-900 group-hover:text-[#F6B86C] transition-colors line-clamp-2">
                           {post.title}
                         </CardTitle>
-                        <p className="text-white/80 text-sm line-clamp-3 mt-2">
+                        <p className="text-gray-700 text-sm line-clamp-3 mt-2">
                           {post.excerpt}
                         </p>
                       </CardHeader>
                       <CardContent className="p-6 pt-0">
-                        <div className="flex items-center justify-between text-sm text-white/60 mb-4">
+                        <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
                           <div className="flex items-center gap-1">
                             <User className="h-4 w-4" />
                             <span>{post.author}</span>
@@ -161,7 +161,7 @@ export default function BlogPage() {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="w-full border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent group-hover:border-[#F6B86C] transition-colors"
+                          className="w-full border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-white group-hover:border-[#F6B86C] transition-colors"
                           asChild
                         >
                           <Link href={`/blog/${post.slug}`}>
@@ -217,13 +217,13 @@ export default function BlogPage() {
         </section>
 
         {/* Newsletter Signup */}
-        <section className="py-20 bg-gradient-to-r from-[#F6B86C]/10 to-purple-500/10">
+        <section className="py-20 bg-gray-100">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Never Miss an Update
               </h2>
-              <p className="text-xl text-white/80 mb-8">
+              <p className="text-xl text-gray-700 mb-8">
                 Subscribe to our newsletter and get the latest e-commerce insights delivered to your inbox.
               </p>
               <NewsletterForm 

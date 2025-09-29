@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 
 export default function SupportPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1E0D43] via-[#2a1458] to-[#1E0D43]">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Header />
       
       <main>
@@ -51,22 +51,22 @@ export default function SupportPage() {
               <Badge className="bg-gradient-to-r from-[#F6B86C]/20 to-[#FF8C42]/20 text-[#F6B86C] border-[#F6B86C]/30 hover:bg-[#F6B86C]/10 mb-6">
                 🚀 Support Center
               </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                 We're Here to{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
                   Help
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Find answers, get support, and learn how to make the most of your OS² Commerce apps.
               </p>
               
               {/* Search Bar */}
               <div className="max-w-2xl mx-auto relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60 h-5 w-5" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 h-5 w-5" />
                 <Input
                   placeholder="Search for help articles, guides, or FAQs..."
-                  className="pl-12 pr-4 py-4 text-lg bg-white/10 border-white/20 focus:border-[#F6B86C] text-white placeholder:text-white/60 rounded-lg"
+                  className="pl-12 pr-4 py-4 text-lg bg-white border-gray-300 focus:border-[#F6B86C] text-gray-900 placeholder:text-gray-500 rounded-lg shadow-sm"
                 />
                 <Button 
                   size="sm"
@@ -80,7 +80,7 @@ export default function SupportPage() {
         </section>
 
         {/* Quick Support Options */}
-        <section className="py-20 bg-gradient-to-r from-slate-900/50 to-[#1E0D43]/50">
+        <section className="py-20 bg-slate-800">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -95,13 +95,13 @@ export default function SupportPage() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              <Card className="bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300 group">
+              <Card className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25 group-hover:scale-110 transition-transform">
                     <MessageCircle className="h-8 w-8 text-[#1E0D43]" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-4">Live Chat</h3>
-                  <p className="text-white/80 mb-6 text-sm">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Live Chat</h3>
+                  <p className="text-gray-700 mb-6 text-sm">
                     Get instant answers from our support team
                   </p>
                   <Button
@@ -113,19 +113,19 @@ export default function SupportPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300 group">
+              <Card className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-purple-500/25 group-hover:scale-110 transition-transform">
                     <Mail className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-4">Email Support</h3>
-                  <p className="text-white/80 mb-6 text-sm">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Email Support</h3>
+                  <p className="text-gray-700 mb-6 text-sm">
                     Send us a detailed message
                   </p>
                   <Button
                     size="sm"
                     variant="outline"
-                    className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
+                    className="border-gray-300 text-gray-700 hover:bg-gray-50"
                     asChild
                   >
                     <Link href="/contact">Contact Us</Link>
@@ -133,19 +133,19 @@ export default function SupportPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300 group">
+              <Card className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/25 group-hover:scale-110 transition-transform">
                     <Book className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-4">Documentation</h3>
-                  <p className="text-white/80 mb-6 text-sm">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Documentation</h3>
+                  <p className="text-gray-700 mb-6 text-sm">
                     Detailed guides and tutorials
                   </p>
                   <Button
                     size="sm"
                     variant="outline"
-                    className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
+                    className="border-gray-300 text-gray-700 hover:bg-gray-50"
                     asChild
                   >
                     <Link href="/docs">View Docs</Link>
@@ -153,19 +153,19 @@ export default function SupportPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300 group">
+              <Card className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-500/25 group-hover:scale-110 transition-transform">
                     <Video className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-4">Video Tutorials</h3>
-                  <p className="text-white/80 mb-6 text-sm">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Video Tutorials</h3>
+                  <p className="text-gray-700 mb-6 text-sm">
                     Step-by-step video guides
                   </p>
                   <Button
                     size="sm"
                     variant="outline"
-                    className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
+                    className="border-gray-300 text-gray-700 hover:bg-gray-50"
                   >
                     Watch Videos
                   </Button>
@@ -176,11 +176,11 @@ export default function SupportPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20">
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Frequently Asked Questions</h2>
-              <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                 Quick answers to the most common questions about OS² Commerce.
               </p>
             </div>
@@ -189,64 +189,64 @@ export default function SupportPage() {
               <Accordion type="single" collapsible className="w-full space-y-4">
                 <AccordionItem
                   value="item-1"
-                  className="bg-white/10 border-white/20 backdrop-blur-sm rounded-lg px-6"
+                  className="bg-gray-50 border-gray-200 rounded-lg px-6"
                 >
-                  <AccordionTrigger className="text-left text-white hover:text-[#F6B86C] hover:no-underline">
+                  <AccordionTrigger className="text-left text-gray-900 hover:text-[#F6B86C] hover:no-underline">
                     How do I install OS² Commerce apps?
                   </AccordionTrigger>
-                  <AccordionContent className="text-white/80">
-                    Installing our apps is simple! Visit the Shopify App Store, search for any OS² Commerce app, and click "Add app." 
+                  <AccordionContent className="text-gray-700">
+                    Installing our apps is simple! Visit the Shopify App Store, search for any OS² Commerce app, and click "Add app."
                     Our apps integrate seamlessly with your existing Shopify store and can be set up in just a few minutes.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem
                   value="item-2"
-                  className="bg-white/10 border-white/20 backdrop-blur-sm rounded-lg px-6"
+                  className="bg-gray-50 border-gray-200 rounded-lg px-6"
                 >
-                  <AccordionTrigger className="text-left text-white hover:text-[#F6B86C] hover:no-underline">
+                  <AccordionTrigger className="text-left text-gray-900 hover:text-[#F6B86C] hover:no-underline">
                     What makes OS² Commerce apps different?
                   </AccordionTrigger>
-                  <AccordionContent className="text-white/80">
-                    Our apps are designed to work together as an integrated ecosystem. When you install multiple OS² Commerce apps, 
+                  <AccordionContent className="text-gray-700">
+                    Our apps are designed to work together as an integrated ecosystem. When you install multiple OS² Commerce apps,
                     they share data and functionality, creating automated workflows and enhanced features that standalone apps can't provide.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem
                   value="item-3"
-                  className="bg-white/10 border-white/20 backdrop-blur-sm rounded-lg px-6"
+                  className="bg-gray-50 border-gray-200 rounded-lg px-6"
                 >
-                  <AccordionTrigger className="text-left text-white hover:text-[#F6B86C] hover:no-underline">
+                  <AccordionTrigger className="text-left text-gray-900 hover:text-[#F6B86C] hover:no-underline">
                     Do you offer refunds?
                   </AccordionTrigger>
-                  <AccordionContent className="text-white/80">
-                    Yes! We offer a 30-day money-back guarantee on all our apps. If you're not completely satisfied, 
+                  <AccordionContent className="text-gray-700">
+                    Yes! We offer a 30-day money-back guarantee on all our apps. If you're not completely satisfied,
                     contact our support team within 30 days of purchase for a full refund.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem
                   value="item-4"
-                  className="bg-white/10 border-white/20 backdrop-blur-sm rounded-lg px-6"
+                  className="bg-gray-50 border-gray-200 rounded-lg px-6"
                 >
-                  <AccordionTrigger className="text-left text-white hover:text-[#F6B86C] hover:no-underline">
+                  <AccordionTrigger className="text-left text-gray-900 hover:text-[#F6B86C] hover:no-underline">
                     How does the ecosystem discount work?
                   </AccordionTrigger>
-                  <AccordionContent className="text-white/80">
-                    The more OS² Commerce apps you install, the more you save! Discounts are automatically applied: 
+                  <AccordionContent className="text-gray-700">
+                    The more OS² Commerce apps you install, the more you save! Discounts are automatically applied:
                     10% off with 2 apps, 20% off with 3 apps, and 30% off with 4+ apps. No codes needed!
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem
                   value="item-5"
-                  className="bg-white/10 border-white/20 backdrop-blur-sm rounded-lg px-6"
+                  className="bg-gray-50 border-gray-200 rounded-lg px-6"
                 >
-                  <AccordionTrigger className="text-left text-white hover:text-[#F6B86C] hover:no-underline">
+                  <AccordionTrigger className="text-left text-gray-900 hover:text-[#F6B86C] hover:no-underline">
                     What support do you provide?
                   </AccordionTrigger>
-                  <AccordionContent className="text-white/80">
+                  <AccordionContent className="text-gray-700">
                     We provide comprehensive support including live chat, email support, detailed documentation, video tutorials, 
                     and a community forum. Our support team is available Monday-Friday 9 AM - 6 PM EST.
                   </AccordionContent>

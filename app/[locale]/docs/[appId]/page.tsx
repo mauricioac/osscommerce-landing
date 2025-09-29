@@ -16,9 +16,9 @@ interface AppDocumentationPageProps {
 }
 
 const statusColors = {
-  available: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-  'coming-soon': "bg-yellow-500/20 text-yellow-300 border-yellow-500/30",
-  beta: "bg-blue-500/20 text-blue-300 border-blue-500/30"
+  available: "bg-emerald-100 text-emerald-800 border-emerald-200",
+  'coming-soon': "bg-yellow-100 text-yellow-800 border-yellow-200",
+  beta: "bg-blue-100 text-blue-800 border-blue-200"
 }
 
 const statusLabels = {
@@ -36,7 +36,7 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1E0D43] via-[#2a1458] to-[#1E0D43]">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Header />
       
       <main>
@@ -48,7 +48,7 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
               <Button
                 variant="outline"
                 size="sm"
-                className="border-white/30 text-white hover:bg-white/10 mb-8"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50 mb-8"
                 asChild
               >
                 <Link href="/docs">
@@ -71,7 +71,7 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
                 
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-4">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white">
+                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
                       {app.name}
                     </h1>
                     <Badge className={statusColors[app.status]}>
@@ -79,7 +79,7 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
                     </Badge>
                   </div>
                   
-                  <p className="text-xl text-white/80 mb-6 leading-relaxed">
+                  <p className="text-xl text-gray-700 mb-6 leading-relaxed">
                     {app.description}
                   </p>
 
@@ -129,11 +129,11 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
         </section>
 
         {/* Knowledge Base Embed Section */}
-        <section className="py-20 bg-gradient-to-r from-slate-900/50 to-[#1E0D43]/50">
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               {app.knowledgeBaseUrl ? (
-                <Card className="bg-white/10 border-white/20 backdrop-blur-sm overflow-hidden">
+                <Card className="bg-white border-gray-200 shadow-lg overflow-hidden">
                   <CardContent className="p-0">
                     {/* Knowledge Base Embed */}
                     <div className="w-full" style={{ minHeight: '800px' }}>
@@ -151,24 +151,24 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
                 </Card>
               ) : (
                 /* Placeholder for when knowledge base isn't ready */
-                <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
+                <Card className="bg-white border-gray-200 shadow-lg">
                   <CardContent className="p-12 text-center">
                     <div className="w-24 h-24 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25">
                       <Book className="h-12 w-12 text-[#1E0D43]" />
                     </div>
-                    
-                    <h3 className="text-2xl font-bold text-white mb-4">
+
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       Documentation Coming Soon
                     </h3>
-                    
-                    <p className="text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed">
-                      We're currently preparing comprehensive documentation for {app.name}. 
+
+                    <p className="text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
+                      We're currently preparing comprehensive documentation for {app.name}.
                       This will include setup guides, feature tutorials, troubleshooting, and best practices.
                     </p>
 
                     {/* Features Preview */}
                     <div className="mb-8">
-                      <h4 className="text-lg font-semibold text-white mb-4">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">
                         Documentation will cover:
                       </h4>
                       <div className="flex flex-wrap gap-2 justify-center">
@@ -176,7 +176,7 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
                           <Badge
                             key={feature}
                             variant="outline"
-                            className="border-[#F6B86C]/50 text-[#F6B86C]"
+                            className="border-gray-300 text-gray-700"
                           >
                             {feature}
                           </Badge>
@@ -194,10 +194,10 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
                           Contact Support
                         </Link>
                       </Button>
-                      
+
                       <Button
                         variant="outline"
-                        className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
+                        className="border-gray-300 text-gray-700 hover:bg-gray-50"
                         asChild
                       >
                         <Link href="/blog">
@@ -214,10 +214,10 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
         </section>
 
         {/* Additional Resources */}
-        <section className="py-20">
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
                 Additional{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
                   Resources
@@ -225,11 +225,11 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
               </h2>
 
               <div className="grid md:grid-cols-2 gap-8">
-                <Card className="bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300">
+                <Card className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300">
                   <CardContent className="p-8">
-                    <h3 className="text-xl font-bold text-white mb-4">Need Personal Help?</h3>
-                    <p className="text-white/80 mb-6">
-                      Our support team is ready to help you get the most out of {app.name}. 
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">Need Personal Help?</h3>
+                    <p className="text-gray-700 mb-6">
+                      Our support team is ready to help you get the most out of {app.name}.
                       Get personalized assistance and quick answers.
                     </p>
                     <Button
@@ -243,16 +243,16 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
                   </CardContent>
                 </Card>
 
-                <Card className="bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300">
+                <Card className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300">
                   <CardContent className="p-8">
-                    <h3 className="text-xl font-bold text-white mb-4">Explore More Apps</h3>
-                    <p className="text-white/80 mb-6">
-                      {app.name} works even better when combined with other OS² Commerce apps. 
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">Explore More Apps</h3>
+                    <p className="text-gray-700 mb-6">
+                      {app.name} works even better when combined with other OS² Commerce apps.
                       Discover the full ecosystem.
                     </p>
                     <Button
                       variant="outline"
-                      className="w-full border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
+                      className="w-full border-gray-300 text-gray-700 hover:bg-gray-50"
                       asChild
                     >
                       <Link href="/">
