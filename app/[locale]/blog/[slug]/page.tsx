@@ -13,13 +13,13 @@ import { StructuredData } from "@/components/structured-data"
 import { articleSchema } from "@/components/seo"
 
 interface BlogPostPageProps {
-  params: Promise<{
+  params: {
     slug: string
-  }>
+  }
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { slug } = await params
+  const { slug } = params
   const post = getPostBySlug(slug)
   
   if (!post) {
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = await params
+  const { slug } = params
   const post = getPostBySlug(slug)
   
   if (!post) {

@@ -62,7 +62,14 @@ const config: Config = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
+  			'brand-primary': 'hsl(var(--brand-primary))',
+  			'brand-primary-dark': 'hsl(var(--brand-primary-dark))',
+  			'brand-background-dark': 'hsl(var(--brand-background-dark))',
+  			'brand-background-dark-light': 'hsl(var(--brand-background-dark-light))',
+  			'brand-success': 'hsl(var(--brand-success))',
+  			'brand-warning': 'hsl(var(--brand-warning))',
+  			'brand-danger': 'hsl(var(--brand-danger))'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
