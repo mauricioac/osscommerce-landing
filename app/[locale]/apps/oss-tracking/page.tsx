@@ -325,6 +325,76 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
         </div>
       </section>
 
+      {/* Screenshots Section - How It Works */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                See OS² Tracking In Action
+              </h2>
+              <p className="text-xl text-gray-700 max-w-4xl mx-auto">
+                From email notifications to branded tracking pages - see exactly how OS² Tracking transforms your customer experience.
+              </p>
+            </div>
+
+            {/* Screenshots Grid */}
+            <div className="grid lg:grid-cols-2 gap-12 mb-16">
+              {/* Email Notification Screenshot */}
+              <div className="space-y-6">
+                <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
+                  <div className="aspect-[4/3] bg-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center">
+                    <div className="text-center">
+                      <Mail className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                      <p className="text-gray-500 font-medium">Email Notification Screenshot</p>
+                      <p className="text-gray-400 text-sm">Drag & drop your screenshot here</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Smart Email Notifications</h3>
+                  <p className="text-gray-600">Proactive shipping updates with branded design and upsell opportunities</p>
+                </div>
+              </div>
+
+              {/* Tracking Page Screenshot */}
+              <div className="space-y-6">
+                <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
+                  <div className="aspect-[4/3] bg-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center">
+                    <div className="text-center">
+                      <Package className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                      <p className="text-gray-500 font-medium">Tracking Page Screenshot</p>
+                      <p className="text-gray-400 text-sm">Drag & drop your screenshot here</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Branded Tracking Pages</h3>
+                  <p className="text-gray-600">Custom tracking experience with product recommendations and social proof</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Screenshot */}
+            <div className="max-w-md mx-auto">
+              <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
+                <div className="aspect-[2/3] bg-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center">
+                  <div className="text-center">
+                    <Smartphone className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                    <p className="text-gray-500 font-medium">Mobile Experience</p>
+                    <p className="text-gray-400 text-sm">Mobile screenshot here</p>
+                  </div>
+                </div>
+              </div>
+              <div className="text-center mt-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">Mobile Optimized</h3>
+                <p className="text-gray-600">Perfect experience on all devices with fast loading and easy navigation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Customer Success Stories */}
       <section id="features" className="py-20 bg-gradient-to-br from-white to-gray-50">
         <div className="container mx-auto px-4">

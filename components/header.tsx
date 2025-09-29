@@ -8,7 +8,7 @@ import { useLocale } from "@/components/locale-provider"
 export function Header() {
   const { t } = useLocale()
   return (
-    <header className="border-b border-white/10 bg-[#1E0D43]/80 backdrop-blur-sm sticky top-0 z-50">
+    <header className="border-b border-white/10 bg-slate-800/90 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
           <LocaleLink href="/" className="flex items-center space-x-3">

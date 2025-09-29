@@ -10,7 +10,7 @@ import { useLocale } from "@/components/locale-provider"
 export function Footer() {
   const { t } = useLocale()
   return (
-    <footer className="bg-[#1E0D43]/80 border-t border-white/10 backdrop-blur-sm">
+    <footer className="bg-slate-800/90 border-t border-white/10 backdrop-blur-sm">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
