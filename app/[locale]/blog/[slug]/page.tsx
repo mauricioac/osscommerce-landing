@@ -140,7 +140,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <span>{new Date(post.date).toLocaleDateString()}</span>
                   </div>
                 </div>
-                
+
                 <Button
                   variant="outline"
                   size="sm"
@@ -150,19 +150,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   Share
                 </Button>
               </div>
-
-              {/* Featured Image */}
-              {post.image && (
-                <div className="aspect-video overflow-hidden rounded-lg mb-12">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    width={800}
-                    height={450}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              )}
             </div>
           </div>
         </section>
@@ -171,34 +158,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <Card className="bg-white border-gray-200 shadow-lg">
-                <CardContent className="p-8 md:p-12">
-                  <article
-                    className="blog-content prose prose-lg max-w-none
-                      [&_h1]:text-4xl [&_h1]:font-bold [&_h1]:text-gray-900 [&_h1]:mt-8 [&_h1]:mb-6 [&_h1]:leading-tight
-                      [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:text-gray-900 [&_h2]:mt-12 [&_h2]:mb-5 [&_h2]:pb-3 [&_h2]:border-b-2 [&_h2]:border-gray-200 [&_h2]:leading-tight
-                      [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:text-gray-900 [&_h3]:mt-10 [&_h3]:mb-4 [&_h3]:leading-snug
-                      [&_h4]:text-xl [&_h4]:font-semibold [&_h4]:text-gray-900 [&_h4]:mt-8 [&_h4]:mb-3 [&_h4]:leading-snug
-                      [&_p]:text-gray-700 [&_p]:leading-relaxed [&_p]:mb-6 [&_p]:text-lg
-                      [&_a]:text-[#F6B86C] [&_a]:font-medium [&_a]:no-underline hover:[&_a]:underline hover:[&_a]:text-[#FF8C42] [&_a]:transition-colors
-                      [&_strong]:text-gray-900 [&_strong]:font-semibold
-                      [&_em]:text-gray-600 [&_em]:italic
-                      [&_code]:text-[#F6B86C] [&_code]:bg-gray-100 [&_code]:px-2 [&_code]:py-1 [&_code]:rounded-md [&_code]:text-sm [&_code]:font-mono
-                      [&_pre]:bg-gray-900 [&_pre]:text-gray-100 [&_pre]:rounded-xl [&_pre]:p-6 [&_pre]:overflow-x-auto [&_pre]:my-8
-                      [&_pre_code]:bg-transparent [&_pre_code]:text-gray-100 [&_pre_code]:p-0 [&_pre_code]:text-sm
-                      [&_blockquote]:border-l-4 [&_blockquote]:border-[#F6B86C] [&_blockquote]:pl-6 [&_blockquote]:py-4 [&_blockquote]:my-8 [&_blockquote]:bg-gray-50 [&_blockquote]:rounded-r-lg [&_blockquote]:italic [&_blockquote]:text-gray-700
-                      [&_ul]:list-disc [&_ul]:pl-7 [&_ul]:mb-6 [&_ul]:space-y-2
-                      [&_ol]:list-decimal [&_ol]:pl-7 [&_ol]:mb-6 [&_ol]:space-y-2
-                      [&_li]:text-gray-700 [&_li]:leading-relaxed [&_li]:text-lg
-                      [&_img]:rounded-xl [&_img]:my-8 [&_img]:shadow-lg [&_img]:border [&_img]:border-gray-200
-                      [&_hr]:border-gray-300 [&_hr]:my-12 [&_hr]:border-t-2
-                      [&_table]:w-full [&_table]:border-collapse [&_table]:my-8
-                      [&_th]:bg-gray-100 [&_th]:p-3 [&_th]:text-left [&_th]:font-semibold [&_th]:border [&_th]:border-gray-300 [&_th]:text-gray-900
-                      [&_td]:p-3 [&_td]:border [&_td]:border-gray-300 [&_td]:text-gray-700"
-                    dangerouslySetInnerHTML={{ __html: post.content }}
-                  />
-                </CardContent>
-              </Card>
+              <article
+                className="blog-content prose prose-lg max-w-none
+                  [&_h1]:text-4xl [&_h1]:font-bold [&_h1]:text-gray-900 [&_h1]:mt-8 [&_h1]:mb-6 [&_h1]:leading-tight
+                  [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:text-gray-900 [&_h2]:mt-12 [&_h2]:mb-5 [&_h2]:pb-3 [&_h2]:border-b-2 [&_h2]:border-gray-200 [&_h2]:leading-tight
+                  [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:text-gray-900 [&_h3]:mt-10 [&_h3]:mb-4 [&_h3]:leading-snug
+                  [&_h4]:text-xl [&_h4]:font-semibold [&_h4]:text-gray-900 [&_h4]:mt-8 [&_h4]:mb-3 [&_h4]:leading-snug
+                  [&_p]:text-gray-700 [&_p]:leading-relaxed [&_p]:mb-6 [&_p]:text-lg
+                  [&_a]:text-[#F6B86C] [&_a]:font-medium [&_a]:no-underline hover:[&_a]:underline hover:[&_a]:text-[#FF8C42] [&_a]:transition-colors
+                  [&_strong]:text-gray-900 [&_strong]:font-semibold
+                  [&_em]:text-gray-600 [&_em]:italic
+                  [&_code]:text-[#F6B86C] [&_code]:bg-gray-100 [&_code]:px-2 [&_code]:py-1 [&_code]:rounded-md [&_code]:text-sm [&_code]:font-mono
+                  [&_pre]:bg-gray-900 [&_pre]:text-gray-100 [&_pre]:rounded-xl [&_pre]:p-6 [&_pre]:overflow-x-auto [&_pre]:my-8
+                  [&_pre_code]:bg-transparent [&_pre_code]:text-gray-100 [&_pre_code]:p-0 [&_pre_code]:text-sm
+                  [&_blockquote]:border-l-4 [&_blockquote]:border-[#F6B86C] [&_blockquote]:pl-6 [&_blockquote]:py-4 [&_blockquote]:my-8 [&_blockquote]:bg-gray-50 [&_blockquote]:rounded-r-lg [&_blockquote]:italic [&_blockquote]:text-gray-700
+                  [&_ul]:list-disc [&_ul]:pl-7 [&_ul]:mb-6 [&_ul]:space-y-2
+                  [&_ol]:list-decimal [&_ol]:pl-7 [&_ol]:mb-6 [&_ol]:space-y-2
+                  [&_li]:text-gray-700 [&_li]:leading-relaxed [&_li]:text-lg
+                  [&_img]:rounded-xl [&_img]:my-8 [&_img]:shadow-lg [&_img]:border [&_img]:border-gray-200
+                  [&_hr]:border-gray-300 [&_hr]:my-12 [&_hr]:border-t-2
+                  [&_table]:w-full [&_table]:border-collapse [&_table]:my-8
+                  [&_th]:bg-gray-100 [&_th]:p-3 [&_th]:text-left [&_th]:font-semibold [&_th]:border [&_th]:border-gray-300 [&_th]:text-gray-900
+                  [&_td]:p-3 [&_td]:border [&_td]:border-gray-300 [&_td]:text-gray-700"
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              />
             </div>
           </div>
         </section>

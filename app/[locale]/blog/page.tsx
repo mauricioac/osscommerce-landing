@@ -85,17 +85,6 @@ export default function BlogPage() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
                   {posts.map((post) => (
                     <Card key={post.slug} className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
-                      {post.image && (
-                        <div className="aspect-video overflow-hidden">
-                          <Image
-                            src={post.image}
-                            alt={post.title}
-                            width={400}
-                            height={225}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                        </div>
-                      )}
                       <CardHeader className="p-6">
                         <div className="flex items-center gap-2 mb-3">
                           {post.featured && (

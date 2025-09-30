@@ -34,19 +34,23 @@ export function WaitlistDialog({
     }, 2000)
   }
 
+  const getButtonClasses = () => {
+    if (buttonVariant === "outline") {
+      return "border-2 border-[#F6B86C] text-[#F6B86C] hover:bg-[#F6B86C]/10 w-full font-semibold"
+    } else if (buttonVariant === "default") {
+      return "bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] w-full font-semibold"
+    }
+    return "bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] font-semibold"
+  }
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button
-          size="lg"
           variant={buttonVariant}
-          className={
-            buttonVariant === "outline"
-              ? "border-[#F6B86C] text-[#F6B86C] hover:bg-[#F6B86C]/10 px-8 py-4 text-lg"
-              : "bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] px-8 py-4 text-lg font-semibold"
-          }
+          className={getButtonClasses()}
         >
-          <Bell className="mr-2 h-5 w-5" />
+          <Bell className="mr-2 h-4 w-4" />
           {buttonText}
         </Button>
       </DialogTrigger>

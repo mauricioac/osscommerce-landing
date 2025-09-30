@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, ExternalLink, Book, Star, Users, Zap, BarChart3 } from "lucide-react"
+import { ArrowRight, ExternalLink, Book, Star, Users, Zap, BarChart3, Bell } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { LocaleLink } from "@/components/locale-link"
+import { WaitlistDialog } from "@/components/waitlist-dialog"
 import { appsConfig, AppConfig } from "@/lib/apps-config"
 import { Metadata } from "next"
 
@@ -60,13 +61,13 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
       )}
 
       <CardHeader className="p-6">
-        <div className="flex items-center justify-between mb-4">
-          <div className="w-16 h-16 relative">
+        <div className="mb-6">
+          <div className="relative mb-4">
             <Image
               src={app.icon}
               alt={`${app.name} - ${app.category} app for Shopify`}
-              width={64}
-              height={64}
+              width={192}
+              height={112}
               className="object-contain"
             />
           </div>
@@ -125,22 +126,30 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
               </a>
             </Button>
           ) : app.status === 'coming-soon' ? (
-            <Button
-              className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-white font-semibold"
-              disabled
-            >
-              Coming Soon
-            </Button>
+            <WaitlistDialog
+              appName={app.name}
+              appId={app.id}
+              buttonVariant="default"
+              buttonText="Join Waitlist"
+            />
           ) : (
-            <Button
-              className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white font-semibold"
-              asChild
-            >
-              <a href={app.shopifyUrl || '#'} target="_blank" rel="noopener noreferrer">
-                Join Beta
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
+            <>
+              <Button
+                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white font-semibold"
+                asChild
+              >
+                <a href={app.shopifyUrl || '#'} target="_blank" rel="noopener noreferrer">
+                  Join Beta
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+              <WaitlistDialog
+                appName={app.name}
+                appId={app.id}
+                buttonVariant="outline"
+                buttonText="Waitlist for Final Release"
+              />
+            </>
           )}
 
           {/* Secondary Actions */}

@@ -99,11 +99,7 @@ export default function LandingPage({ params }: HomePageProps) {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto animate-fade-in-up delay-600">
-              <div className="text-center">
-                <div className="text-3xl lg:text-4xl font-bold text-[#F6B86C] mb-2">10,000+</div>
-                <div className="text-gray-600">Active Merchants</div>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto animate-fade-in-up delay-600">
               <div className="text-center">
                 <div className="text-3xl lg:text-4xl font-bold text-[#F6B86C] mb-2">30%</div>
                 <div className="text-gray-600">Average Cost Savings</div>
@@ -226,11 +222,6 @@ export default function LandingPage({ params }: HomePageProps) {
                     <div className="text-2xl font-bold text-white">50+</div>
                     <div className="text-white/70 text-sm">Countries</div>
                   </div>
-                  <div className="text-center">
-                    <Package className="h-12 w-12 text-blue-400 mx-auto mb-3" />
-                    <div className="text-2xl font-bold text-white">1M+</div>
-                    <div className="text-white/70 text-sm">Orders Processed</div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -266,13 +257,13 @@ export default function LandingPage({ params }: HomePageProps) {
                     </div>
                   )}
                   <CardContent className="p-8">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-16 h-16 relative">
+                    <div className="mb-8">
+                      <div className="relative mb-4">
                         <Image
                           src={app.icon}
                           alt={app.name}
-                          width={64}
-                          height={64}
+                          width={192}
+                          height={112}
                           className="object-contain"
                         />
                       </div>

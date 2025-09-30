@@ -54,12 +54,12 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
 
                 {/* Large Logo Section */}
                 <div className="mb-4">
-                  <div className="w-80 h-48 mx-auto lg:mx-0 mb-3 relative">
+                  <div className="w-80 h-32 mx-auto lg:mx-0 mb-3 relative">
                     <Image
                       src="/oss-tracking.png"
                       alt="OS² Tracking - Advanced Order Tracking for Shopify"
                       width={320}
-                      height={192}
+                      height={128}
                       className="object-contain w-full h-full"
                     />
                   </div>
@@ -538,6 +538,59 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Volume Savings</h3>
                   <p className="text-gray-700">Save up to 30% with multiple app installations.</p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-brand-primary/10 via-purple-50 to-orange-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-brand-primary/20 to-orange-400/20 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-purple-400/20 to-brand-primary/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+              Ready to Transform Your{" "}
+              <span className="bg-gradient-to-r from-brand-primary to-brand-primary-dark bg-clip-text text-transparent">
+                Order Tracking?
+              </span>
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto">
+              Join forward-thinking merchants who are turning shipping notifications into revenue opportunities.
+              Get started in minutes.
+            </p>
+
+            <div className="flex justify-center mb-8">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-brand-primary to-brand-primary-dark hover:from-brand-primary hover:to-brand-primary-dark text-white px-16 py-8 text-2xl font-semibold shadow-2xl shadow-brand-primary/25 hover:scale-105 transition-all"
+                asChild
+              >
+                <a href="https://apps.shopify.com/oss-tracking" target="_blank" rel="noopener noreferrer">
+                  Get started in 5 minutes
+                  <ArrowRight className="ml-3 h-7 w-7" />
+                </a>
+              </Button>
+            </div>
+
+            {/* Trust Badges */}
+            <div className="flex flex-wrap justify-center items-center gap-8 pt-8 border-t border-gray-200">
+              <div className="flex items-center gap-2 text-gray-600">
+                <CheckCircle className="h-5 w-5 text-emerald-500" />
+                <span className="text-sm font-medium">5-minute setup</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-600">
+                <CheckCircle className="h-5 w-5 text-emerald-500" />
+                <span className="text-sm font-medium">24/7 support</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-600">
+                <CheckCircle className="h-5 w-5 text-emerald-500" />
+                <span className="text-sm font-medium">Cancel anytime</span>
               </div>
             </div>
           </div>

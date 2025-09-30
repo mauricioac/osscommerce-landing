@@ -54,12 +54,12 @@ export default async function OSBundlesPage({ params }: BundlesPageProps) {
 
                 {/* Large Logo Section */}
                 <div className="mb-4">
-                  <div className="w-80 h-48 mx-auto lg:mx-0 mb-3 relative">
+                  <div className="w-80 h-32 mx-auto lg:mx-0 mb-3 relative">
                     <Image
                       src="/oss-bundles.png"
                       alt="OS² Bundles - Product Bundling for Shopify"
                       width={320}
-                      height={192}
+                      height={128}
                       className="object-contain w-full h-full"
                     />
                   </div>
