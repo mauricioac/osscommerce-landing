@@ -2,8 +2,11 @@ server {
   listen {{ $.PORT }};
   server_name _;
 
-  root /app/www/out;
+  root /app/www;
   index index.html;
+
+  # Enable autoindex for debugging (remove in production)
+  autoindex on;
 
   # Gzip compression
   gzip on;
@@ -27,7 +30,7 @@ server {
 
   # Serve static files
   location / {
-    try_files $uri $uri.html $uri/ /index.html =404;
+    try_files $uri $uri.html $uri/ /index.html;
   }
 
   # Error pages
