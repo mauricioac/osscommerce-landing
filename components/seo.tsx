@@ -36,7 +36,7 @@ export function generateMetadata({
     openGraph: {
       title: fullTitle,
       description,
-      type: ogType,
+      type: ogType as "website" | "article",
       images: [
         {
           url: ogImage,

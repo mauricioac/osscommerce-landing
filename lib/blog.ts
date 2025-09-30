@@ -52,7 +52,7 @@ export function getAllPosts(locale: string = 'en'): BlogPost[] {
         const fileContents = fs.readFileSync(fullPath, 'utf8')
         const { data, content } = matter(fileContents)
 
-        const htmlContent = marked(content)
+        const htmlContent = marked(content) as string
         const localizedContent = addLocaleToLinks(htmlContent, locale)
 
         return {
@@ -93,7 +93,7 @@ export function getPostBySlug(slug: string, locale: string = 'en'): BlogPost | n
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const { data, content } = matter(fileContents)
 
-    const htmlContent = marked(content)
+    const htmlContent = marked(content) as string
     const localizedContent = addLocaleToLinks(htmlContent, locale)
 
     return {

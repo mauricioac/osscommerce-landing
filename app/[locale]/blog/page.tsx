@@ -28,9 +28,9 @@ export const metadata: Metadata = {
 }
 
 interface BlogPageProps {
-  params: {
+  params: Promise<{
     locale: string
-  }
+  }>
 }
 
 export default async function BlogPage({ params }: BlogPageProps) {

@@ -11,9 +11,9 @@ import { VideoModal } from "@/components/video-modal";
 import { type Locale } from "@/lib/i18n/config";
 
 interface TrackingPageProps {
-  params: {
+  params: Promise<{
     locale: Locale;
-  };
+  }>;
 }
 
 export default async function OSTrackingPage({ params }: TrackingPageProps) {

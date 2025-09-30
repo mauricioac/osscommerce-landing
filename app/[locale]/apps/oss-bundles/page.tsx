@@ -11,9 +11,9 @@ import { WaitlistDialog } from "@/components/waitlist-dialog";
 import { type Locale } from "@/lib/i18n/config";
 
 interface BundlesPageProps {
-  params: {
+  params: Promise<{
     locale: Locale;
-  };
+  }>;
 }
 
 export default async function OSBundlesPage({ params }: BundlesPageProps) {

@@ -17,17 +17,9 @@ type TranslationKey = {
     : K
 }[keyof typeof en]
 
-type NestedTranslationKey = {
-  [K in keyof typeof en]: typeof en[K] extends object
-    ? {
-        [J in keyof typeof en[K]]: typeof en[K][J] extends object
-          ? `${K}.${J}.${keyof typeof en[K][J] & string}`
-          : `${K}.${J}`
-      }[keyof typeof en[K]]
-    : K
-}[keyof typeof en]
+type NestedTranslationKey = any
 
-type DeepTranslationKey = TranslationKey | NestedTranslationKey
+type DeepTranslationKey = string
 
 // Helper to get nested value from object path
 function getNestedValue(obj: any, path: string): string {

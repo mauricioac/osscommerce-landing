@@ -32,7 +32,7 @@ export const metadata: Metadata = generateMetadata({
   description: 'Transform your Shopify post-purchase experience with OS² Tracking. Proactive notifications, branded tracking pages, AI-driven upsells. Reduce WISMO tickets by 80%. Free trial.',
   keywords: 'Shopify order tracking app, best Shopify tracking app 2025, branded order tracking page Shopify, reduce WISMO customer service, post-purchase experience, Shopify tracking page, order tracking notifications, AI-powered order tracking, multi-carrier tracking, proactive order tracking, Shopify anomaly detection',
   canonical: '/oss-tracking',
-  ogType: 'product'
+  ogType: 'website'
 })
 
 // FAQ data for structured data

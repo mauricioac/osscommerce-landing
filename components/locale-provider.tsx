@@ -8,7 +8,7 @@ import { getTranslations, setStoredLocale } from '@/lib/i18n'
 interface LocaleContextType {
   locale: Locale
   setLocale: (locale: Locale) => void
-  t: (key: string) => string
+  t: (key: any) => string
   isLoading: boolean
 }
 

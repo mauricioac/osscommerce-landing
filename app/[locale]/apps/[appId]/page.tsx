@@ -13,10 +13,10 @@ import { notFound } from "next/navigation"
 import { type Locale } from "@/lib/i18n/config"
 
 interface AppPageProps {
-  params: {
+  params: Promise<{
     locale: Locale
     appId: string
-  }
+  }>
 }
 
 export default async function AppPage({ params }: AppPageProps) {

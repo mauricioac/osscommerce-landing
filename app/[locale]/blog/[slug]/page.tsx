@@ -14,10 +14,10 @@ import { StructuredData } from "@/components/structured-data"
 import { articleSchema } from "@/components/seo"
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string
     locale: string
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
