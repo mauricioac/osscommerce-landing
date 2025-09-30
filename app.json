@@ -1,15 +1,7 @@
 {
   "name": "oss-commerce-landing",
   "description": "OS² Commerce Landing Page - Static Next.js Site",
-  "scripts": {
-    "dokku": {
-      "predeploy": "npm run build"
-    }
-  },
   "buildpacks": [
-    {
-      "url": "heroku/nodejs"
-    },
     {
       "url": "https://github.com/dokku/buildpack-nginx.git"
     }
