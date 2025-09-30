@@ -1,3 +1,5 @@
+export const dynamic = 'force-static'
+
 export async function GET(): Promise<Response> {
   const robotsTxt = `User-agent: *
 Allow: /

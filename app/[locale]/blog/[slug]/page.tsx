@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, User, ArrowLeft, ArrowRight, Share2, Tag } from "lucide-react"
 import Link from "next/link"
+import { LocaleLink } from "@/components/locale-link"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -90,10 +91,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 className="border-gray-300 text-gray-700 hover:bg-gray-50 mb-8"
                 asChild
               >
-                <Link href="/blog">
+                <LocaleLink href="/blog">
                   <ArrowLeft className="mr-2 h-4 w-4" />
                   Back to Blog
-                </Link>
+                </LocaleLink>
               </Button>
 
               {/* Article Meta */}
@@ -172,16 +173,28 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="max-w-4xl mx-auto">
               <Card className="bg-white border-gray-200 shadow-lg">
                 <CardContent className="p-8 md:p-12">
-                  <div
-                    className="prose prose-gray prose-lg max-w-none
-                      prose-headings:text-gray-900 prose-headings:font-bold
-                      prose-p:text-gray-800 prose-p:leading-relaxed
-                      prose-a:text-[#F6B86C] prose-a:no-underline hover:prose-a:underline
-                      prose-strong:text-gray-900 prose-strong:font-semibold
-                      prose-code:text-[#F6B86C] prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded
-                      prose-blockquote:border-l-[#F6B86C] prose-blockquote:text-gray-700
-                      prose-ul:text-gray-800 prose-ol:text-gray-800
-                      prose-li:text-gray-800"
+                  <article
+                    className="blog-content prose prose-lg max-w-none
+                      [&_h1]:text-4xl [&_h1]:font-bold [&_h1]:text-gray-900 [&_h1]:mt-8 [&_h1]:mb-6 [&_h1]:leading-tight
+                      [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:text-gray-900 [&_h2]:mt-12 [&_h2]:mb-5 [&_h2]:pb-3 [&_h2]:border-b-2 [&_h2]:border-gray-200 [&_h2]:leading-tight
+                      [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:text-gray-900 [&_h3]:mt-10 [&_h3]:mb-4 [&_h3]:leading-snug
+                      [&_h4]:text-xl [&_h4]:font-semibold [&_h4]:text-gray-900 [&_h4]:mt-8 [&_h4]:mb-3 [&_h4]:leading-snug
+                      [&_p]:text-gray-700 [&_p]:leading-relaxed [&_p]:mb-6 [&_p]:text-lg
+                      [&_a]:text-[#F6B86C] [&_a]:font-medium [&_a]:no-underline hover:[&_a]:underline hover:[&_a]:text-[#FF8C42] [&_a]:transition-colors
+                      [&_strong]:text-gray-900 [&_strong]:font-semibold
+                      [&_em]:text-gray-600 [&_em]:italic
+                      [&_code]:text-[#F6B86C] [&_code]:bg-gray-100 [&_code]:px-2 [&_code]:py-1 [&_code]:rounded-md [&_code]:text-sm [&_code]:font-mono
+                      [&_pre]:bg-gray-900 [&_pre]:text-gray-100 [&_pre]:rounded-xl [&_pre]:p-6 [&_pre]:overflow-x-auto [&_pre]:my-8
+                      [&_pre_code]:bg-transparent [&_pre_code]:text-gray-100 [&_pre_code]:p-0 [&_pre_code]:text-sm
+                      [&_blockquote]:border-l-4 [&_blockquote]:border-[#F6B86C] [&_blockquote]:pl-6 [&_blockquote]:py-4 [&_blockquote]:my-8 [&_blockquote]:bg-gray-50 [&_blockquote]:rounded-r-lg [&_blockquote]:italic [&_blockquote]:text-gray-700
+                      [&_ul]:list-disc [&_ul]:pl-7 [&_ul]:mb-6 [&_ul]:space-y-2
+                      [&_ol]:list-decimal [&_ol]:pl-7 [&_ol]:mb-6 [&_ol]:space-y-2
+                      [&_li]:text-gray-700 [&_li]:leading-relaxed [&_li]:text-lg
+                      [&_img]:rounded-xl [&_img]:my-8 [&_img]:shadow-lg [&_img]:border [&_img]:border-gray-200
+                      [&_hr]:border-gray-300 [&_hr]:my-12 [&_hr]:border-t-2
+                      [&_table]:w-full [&_table]:border-collapse [&_table]:my-8
+                      [&_th]:bg-gray-100 [&_th]:p-3 [&_th]:text-left [&_th]:font-semibold [&_th]:border [&_th]:border-gray-300 [&_th]:text-gray-900
+                      [&_td]:p-3 [&_td]:border [&_td]:border-gray-300 [&_td]:text-gray-700"
                     dangerouslySetInnerHTML={{ __html: post.content }}
                   />
                 </CardContent>
@@ -199,20 +212,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   {/* Previous Post */}
                   <div>
                     {prevPost ? (
-                      <Card className="bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300 group h-full">
+                      <Card className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group h-full">
                         <CardContent className="p-6">
-                          <div className="flex items-center gap-2 text-white/60 text-sm mb-3">
+                          <div className="flex items-center gap-2 text-gray-600 text-sm mb-3">
                             <ArrowLeft className="h-4 w-4" />
                             <span>Previous Article</span>
                           </div>
-                          <Link href={`/blog/${prevPost.slug}`} className="block">
-                            <h3 className="text-lg font-semibold text-white group-hover:text-[#F6B86C] transition-colors line-clamp-2">
+                          <LocaleLink href={`/blog/${prevPost.slug}`} className="block">
+                            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#F6B86C] transition-colors line-clamp-2">
                               {prevPost.title}
                             </h3>
-                            <p className="text-white/80 text-sm mt-2 line-clamp-2">
+                            <p className="text-gray-700 text-sm mt-2 line-clamp-2">
                               {prevPost.excerpt}
                             </p>
-                          </Link>
+                          </LocaleLink>
                         </CardContent>
                       </Card>
                     ) : (
@@ -223,20 +236,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   {/* Next Post */}
                   <div>
                     {nextPost ? (
-                      <Card className="bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300 group h-full">
+                      <Card className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group h-full">
                         <CardContent className="p-6 text-right">
-                          <div className="flex items-center justify-end gap-2 text-white/60 text-sm mb-3">
+                          <div className="flex items-center justify-end gap-2 text-gray-600 text-sm mb-3">
                             <span>Next Article</span>
                             <ArrowRight className="h-4 w-4" />
                           </div>
-                          <Link href={`/blog/${nextPost.slug}`} className="block">
-                            <h3 className="text-lg font-semibold text-white group-hover:text-[#F6B86C] transition-colors line-clamp-2">
+                          <LocaleLink href={`/blog/${nextPost.slug}`} className="block">
+                            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#F6B86C] transition-colors line-clamp-2">
                               {nextPost.title}
                             </h3>
-                            <p className="text-white/80 text-sm mt-2 line-clamp-2">
+                            <p className="text-gray-700 text-sm mt-2 line-clamp-2">
                               {nextPost.excerpt}
                             </p>
-                          </Link>
+                          </LocaleLink>
                         </CardContent>
                       </Card>
                     ) : (
@@ -251,50 +264,50 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
-          <section className="py-20 bg-gradient-to-r from-slate-900/30 to-[#1E0D43]/30">
+          <section className="py-20 bg-gray-100">
             <div className="container mx-auto px-4">
               <div className="max-w-6xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
                   Related{" "}
                   <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
                     Articles
                   </span>
                 </h2>
-                
+
                 <div className="grid md:grid-cols-3 gap-8">
                   {relatedPosts.map((relatedPost) => (
-                    <Card key={relatedPost.slug} className="bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300 group">
+                    <Card key={relatedPost.slug} className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group">
                       <CardContent className="p-6">
                         <div className="flex items-center gap-2 mb-3">
                           {relatedPost.tags.slice(0, 2).map((tag) => (
                             <Badge
                               key={tag}
                               variant="outline"
-                              className="border-white/30 text-white/70 text-xs"
+                              className="border-gray-300 text-gray-600 text-xs"
                             >
                               {tag}
                             </Badge>
                           ))}
                         </div>
-                        <h3 className="text-lg font-semibold text-white group-hover:text-[#F6B86C] transition-colors line-clamp-2 mb-2">
+                        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#F6B86C] transition-colors line-clamp-2 mb-2">
                           {relatedPost.title}
                         </h3>
-                        <p className="text-white/80 text-sm line-clamp-3 mb-4">
+                        <p className="text-gray-700 text-sm line-clamp-3 mb-4">
                           {relatedPost.excerpt}
                         </p>
-                        <div className="flex items-center justify-between text-xs text-white/60 mb-4">
+                        <div className="flex items-center justify-between text-xs text-gray-600 mb-4">
                           <span>{relatedPost.author}</span>
                           <span>{new Date(relatedPost.date).toLocaleDateString()}</span>
                         </div>
                         <Button
                           variant="outline"
                           size="sm"
-                          className="w-full border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
+                          className="w-full border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-white"
                           asChild
                         >
-                          <Link href={`/blog/${relatedPost.slug}`}>
+                          <LocaleLink href={`/blog/${relatedPost.slug}`}>
                             Read Article
-                          </Link>
+                          </LocaleLink>
                         </Button>
                       </CardContent>
                     </Card>
@@ -309,10 +322,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <section className="py-20 bg-gradient-to-r from-[#F6B86C]/10 to-purple-500/10">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Ready to Transform Your Store?
               </h2>
-              <p className="text-xl text-white/80 mb-8">
+              <p className="text-xl text-gray-700 mb-8">
                 Discover how OS² Commerce can help you implement the strategies discussed in this article.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -321,10 +334,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] px-8 py-4 text-lg font-semibold shadow-lg shadow-[#F6B86C]/25"
                   asChild
                 >
-                  <Link href="/">
+                  <LocaleLink href="/">
                     Explore Our Apps
                     <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
+                  </LocaleLink>
                 </Button>
                 <Button
                   size="lg"
@@ -332,7 +345,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent px-8 py-4 text-lg"
                   asChild
                 >
-                  <Link href="/contact">Get in Touch</Link>
+                  <LocaleLink href="/contact">Get in Touch</LocaleLink>
                 </Button>
               </div>
             </div>

@@ -7,6 +7,7 @@ import { LocaleLink } from "@/components/locale-link";
 import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { VideoModal } from "@/components/video-modal";
 import { type Locale } from "@/lib/i18n/config";
 
 interface TrackingPageProps {
@@ -53,12 +54,12 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
 
                 {/* Large Logo Section */}
                 <div className="mb-4">
-                  <div className="w-56 h-56 mx-auto lg:mx-0 mb-3 relative">
+                  <div className="w-80 h-48 mx-auto lg:mx-0 mb-3 relative">
                     <Image
                       src="/oss-tracking.png"
                       alt="OS² Tracking - Advanced Order Tracking for Shopify"
-                      width={224}
-                      height={224}
+                      width={320}
+                      height={192}
                       className="object-contain w-full h-full"
                     />
                   </div>
@@ -71,11 +72,11 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                 </div>
 
                 <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight text-center lg:text-left">
-                  Stop Losing{" "}
+                  Stop losing{" "}
                   <span className="bg-gradient-to-r from-brand-primary to-brand-primary-dark bg-clip-text text-transparent">
-                    $47,000
+                    $$$
                   </span>{" "}
-                  Per Month
+                  every month
                 </h1>
 
                 <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed text-center lg:text-left">
@@ -95,7 +96,7 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                       <div className="text-gray-600 text-sm">of customers contact support about shipping</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-red-600">$47k</div>
+                      <div className="text-2xl font-bold text-red-600">$2-40k</div>
                       <div className="text-gray-600 text-sm">average monthly loss from missed opportunities</div>
                     </div>
                   </div>
@@ -109,36 +110,32 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                     asChild
                   >
                     <a href="https://apps.shopify.com/oss-tracking" target="_blank" rel="noopener noreferrer">
-                      Install Now - Start Earning in 24h
-                      <TrendingUp className="ml-2 h-6 w-6" />
+                      Get started in 5 minutes
+                      <ArrowRight className="ml-2 h-6 w-6" />
                     </a>
                   </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white bg-white px-8 py-6 text-xl shadow-md"
-                    asChild
-                  >
-                    <a href="#features">
-                      <Eye className="mr-2 h-5 w-5" />
-                      See How It Works
-                    </a>
-                  </Button>
+                  <VideoModal
+                    videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    buttonText="See How It Works"
+                    buttonSize="lg"
+                    buttonVariant="outline"
+                    buttonClassName="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white bg-white px-8 py-6 text-xl shadow-md"
+                  />
                 </div>
 
-                {/* Social Proof */}
+                {/* Key Benefits */}
                 <div className="flex items-center gap-6 text-center lg:text-left">
                   <div>
-                    <div className="text-2xl font-bold text-brand-primary">12,000+</div>
-                    <div className="text-gray-600 text-sm">Active Stores</div>
+                    <div className="text-2xl font-bold text-brand-primary">5 min</div>
+                    <div className="text-gray-600 text-sm">Setup Time</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-brand-primary">$847M</div>
-                    <div className="text-gray-600 text-sm">Orders Tracked</div>
+                    <div className="text-2xl font-bold text-brand-primary">1-Click</div>
+                    <div className="text-gray-600 text-sm">Installation</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-brand-primary">156%</div>
-                    <div className="text-gray-600 text-sm">Avg Revenue Increase</div>
+                    <div className="text-2xl font-bold text-brand-primary">24/7</div>
+                    <div className="text-gray-600 text-sm">Support</div>
                   </div>
                 </div>
               </div>
@@ -202,7 +199,7 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                 <CardContent className="p-8 text-center">
                   <DollarSign className="h-16 w-16 text-orange-600 mx-auto mb-6" />
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">Lost Revenue</h3>
-                  <div className="text-3xl font-bold text-orange-600 mb-2">$47k</div>
+                  <div className="text-3xl font-bold text-orange-600 mb-2">$2-40k</div>
                   <p className="text-gray-700">missed upselling opportunities per month because you're not engaging customers during delivery</p>
                 </CardContent>
               </Card>
@@ -298,29 +295,6 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                 </div>
               </div>
             </div>
-
-            {/* Revenue Growth Stats */}
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Average Results After 30 Days</h3>
-              <div className="grid md:grid-cols-4 gap-6 text-center">
-                <div>
-                  <div className="text-3xl font-bold text-brand-primary">156%</div>
-                  <div className="text-gray-600">Revenue Growth</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-brand-primary">89%</div>
-                  <div className="text-gray-600">Fewer Support Tickets</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-brand-primary">47%</div>
-                  <div className="text-gray-600">More Repeat Orders</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-brand-primary">$24k</div>
-                  <div className="text-gray-600">Additional Monthly Revenue</div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -395,7 +369,8 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
         </div>
       </section>
 
-      {/* Customer Success Stories */}
+      {/* Customer Success Stories - Hidden for now */}
+      {false && (
       <section id="features" className="py-20 bg-gradient-to-br from-white to-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -511,6 +486,59 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                   <ArrowRight className="ml-2 h-6 w-6" />
                 </a>
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+      )}
+
+      {/* Integration Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Works Better with{" "}
+                <span className="bg-gradient-to-r from-emerald-400 to-[#F6B86C] bg-clip-text text-transparent">
+                  OS² Ecosystem
+                </span>
+              </h2>
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+                OS² Tracking is designed to work seamlessly with other OS² Commerce apps, unlocking features across apps that work together in ways not possible otherwise.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div>
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Zap className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Cross-App Features</h3>
+                  <p className="text-gray-700">Unlock powerful integrations when using multiple OS² apps together.</p>
+                </div>
+                <div>
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <BarChart3 className="h-8 w-8 text-[#1E0D43]" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Shared Analytics</h3>
+                  <p className="text-gray-700">Cross-app insights and unified reporting dashboard.</p>
+                </div>
+                <div>
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Unified Support</h3>
+                  <p className="text-gray-700">One support team for all your OS² Commerce apps.</p>
+                </div>
+                <div>
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Star className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Volume Savings</h3>
+                  <p className="text-gray-700">Save up to 30% with multiple app installations.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

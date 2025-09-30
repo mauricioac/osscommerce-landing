@@ -12,14 +12,20 @@ interface NewsletterFormProps {
   placeholder?: string
   buttonText?: string
   showIcon?: boolean
+  variant?: "light" | "dark"
+  source?: string
+  groups?: string[]
 }
 
-export function NewsletterForm({ 
-  size = "md", 
+export function NewsletterForm({
+  size = "md",
   className = "",
   placeholder = "Enter your email address",
   buttonText = "Subscribe",
-  showIcon = false
+  showIcon = false,
+  variant = "dark",
+  source = "website",
+  groups = []
 }: NewsletterFormProps) {
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
@@ -35,19 +41,19 @@ export function NewsletterForm({
     }
 
     setStatus("loading")
-    
+
     try {
       const apiUrl = process.env.NEXT_PUBLIC_NEWSLETTER_API_URL || "/api/newsletter"
-      
+
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           email,
-          source: "website",
-          timestamp: new Date().toISOString()
+          source,
+          groups
         }),
       })
 
@@ -79,13 +85,25 @@ export function NewsletterForm({
     lg: "text-lg py-4 px-8"
   }
 
+  const inputVariantClasses = variant === "light"
+    ? "bg-white border-gray-300 focus:border-[#F6B86C] text-gray-900 placeholder:text-gray-500"
+    : "bg-white/10 border-white/20 focus:border-[#F6B86C] text-white placeholder:text-white/60"
+
+  const iconVariantClasses = variant === "light"
+    ? "text-gray-500"
+    : "text-white/60"
+
+  const textVariantClasses = variant === "light"
+    ? "text-gray-600"
+    : "text-white/60"
+
   return (
     <div className={`w-full max-w-md mx-auto ${className}`}>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="flex flex-col sm:flex-row gap-2">
           <div className="relative flex-1">
             {showIcon && (
-              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 h-4 w-4" />
+              <Mail className={`absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 ${iconVariantClasses}`} />
             )}
             <Input
               type="email"
@@ -94,9 +112,9 @@ export function NewsletterForm({
               placeholder={placeholder}
               disabled={status === "loading"}
               className={`
-                ${showIcon ? "pl-10" : ""} 
+                ${showIcon ? "pl-10" : ""}
                 ${inputSizeClasses[size]}
-                bg-white/10 border-white/20 focus:border-[#F6B86C] text-white placeholder:text-white/60
+                ${inputVariantClasses}
                 disabled:opacity-50 disabled:cursor-not-allowed
               `}
               required
@@ -146,7 +164,7 @@ export function NewsletterForm({
       </form>
 
       {status === "idle" && (
-        <p className="text-xs text-white/60 mt-2 text-center">
+        <p className={`text-xs mt-2 text-center ${textVariantClasses}`}>
           No spam, unsubscribe at any time.
         </p>
       )}

@@ -2,11 +2,12 @@ import React from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, ArrowLeft, ExternalLink, Book, Star, CheckCircle, BarChart3, Shield, Users, Globe } from "lucide-react"
+import { ArrowRight, ArrowLeft, ExternalLink, Book, Star, CheckCircle, BarChart3, Shield, Users, Globe, Zap } from "lucide-react"
 import { LocaleLink } from "@/components/locale-link"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { WaitlistDialog } from "@/components/waitlist-dialog"
 import { getAppById, appsConfig } from "@/lib/apps-config"
 import { notFound } from "next/navigation"
 import { type Locale } from "@/lib/i18n/config"
@@ -45,29 +46,24 @@ export default async function AppPage({ params }: AppPageProps) {
                   Back to Apps
                 </LocaleLink>
                 
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-20 h-20 relative">
+                <div className="mb-6">
+                  <div className="w-64 h-32 relative mb-4">
                     <Image
                       src={app.icon}
                       alt={`${app.name} - ${app.category} app for Shopify`}
-                      width={80}
-                      height={80}
+                      width={256}
+                      height={128}
                       className="object-contain"
                     />
                   </div>
-                  <div>
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
-                      {app.name}
-                    </h1>
-                    <Badge className={`
-                      ${app.status === 'available' ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' : ''}
-                      ${app.status === 'coming-soon' ? 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30' : ''}
-                      ${app.status === 'beta' ? 'bg-blue-500/20 text-blue-300 border-blue-500/30' : ''}
-                    `}>
-                      {app.status === 'available' ? 'Available Now' : 
-                       app.status === 'coming-soon' ? 'Coming Soon' : 'Beta Version'}
-                    </Badge>
-                  </div>
+                  <Badge className={`
+                    ${app.status === 'available' ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' : ''}
+                    ${app.status === 'coming-soon' ? 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30' : ''}
+                    ${app.status === 'beta' ? 'bg-blue-500/20 text-blue-300 border-blue-500/30' : ''}
+                  `}>
+                    {app.status === 'available' ? 'Available Now' :
+                     app.status === 'coming-soon' ? 'Coming Soon' : 'Beta Version'}
+                  </Badge>
                 </div>
 
                 <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
@@ -75,7 +71,7 @@ export default async function AppPage({ params }: AppPageProps) {
                 </p>
 
                 {/* CTAs */}
-                <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <div className="flex flex-wrap gap-4 mb-12">
                   {app.status === 'available' && app.shopifyUrl ? (
                     <Button
                       size="lg"
@@ -96,18 +92,25 @@ export default async function AppPage({ params }: AppPageProps) {
                       Coming Soon
                     </Button>
                   ) : (
-                    <Button
-                      size="lg"
-                      className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white px-8 py-4 text-lg font-semibold"
-                      asChild
-                    >
-                      <a href={app.shopifyUrl || '#'} target="_blank" rel="noopener noreferrer">
-                        Join Beta Program
-                        <ExternalLink className="ml-2 h-5 w-5" />
-                      </a>
-                    </Button>
+                    <>
+                      <Button
+                        size="lg"
+                        className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white px-8 py-4 text-lg font-semibold"
+                        asChild
+                      >
+                        <a href={app.shopifyUrl || '#'} target="_blank" rel="noopener noreferrer">
+                          Join Beta Program
+                          <ExternalLink className="ml-2 h-5 w-5" />
+                        </a>
+                      </Button>
+                      <WaitlistDialog
+                        appName={app.name}
+                        appId={app.id}
+                        buttonVariant="outline"
+                      />
+                    </>
                   )}
-                  
+
                   <Button
                     size="lg"
                     variant="outline"
@@ -122,28 +125,53 @@ export default async function AppPage({ params }: AppPageProps) {
                 </div>
 
                 {/* Quick Stats */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
-                    <BarChart3 className="h-8 w-8 text-[#F6B86C] mx-auto mb-2" />
-                    <div className="text-lg font-bold text-gray-900">99.9%</div>
-                    <div className="text-gray-600 text-xs">Uptime</div>
+                {app.status === 'available' ? (
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
+                      <BarChart3 className="h-8 w-8 text-[#F6B86C] mx-auto mb-2" />
+                      <div className="text-lg font-bold text-gray-900">99.9%</div>
+                      <div className="text-gray-600 text-xs">Uptime</div>
+                    </div>
+                    <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
+                      <Users className="h-8 w-8 text-emerald-400 mx-auto mb-2" />
+                      <div className="text-lg font-bold text-gray-900">10K+</div>
+                      <div className="text-gray-600 text-xs">Active Users</div>
+                    </div>
+                    <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
+                      <Shield className="h-8 w-8 text-purple-400 mx-auto mb-2" />
+                      <div className="text-lg font-bold text-gray-900">5★</div>
+                      <div className="text-gray-600 text-xs">App Rating</div>
+                    </div>
+                    <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
+                      <Globe className="h-8 w-8 text-blue-400 mx-auto mb-2" />
+                      <div className="text-lg font-bold text-gray-900">24/7</div>
+                      <div className="text-gray-600 text-xs">Support</div>
+                    </div>
                   </div>
-                  <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
-                    <Users className="h-8 w-8 text-emerald-400 mx-auto mb-2" />
-                    <div className="text-lg font-bold text-gray-900">10K+</div>
-                    <div className="text-gray-600 text-xs">Active Users</div>
+                ) : (
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
+                      <CheckCircle className="h-8 w-8 text-emerald-400 mx-auto mb-2" />
+                      <div className="text-lg font-bold text-gray-900">Beta</div>
+                      <div className="text-gray-600 text-xs">Early Access</div>
+                    </div>
+                    <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
+                      <Shield className="h-8 w-8 text-purple-400 mx-auto mb-2" />
+                      <div className="text-lg font-bold text-gray-900">100%</div>
+                      <div className="text-gray-600 text-xs">Secure</div>
+                    </div>
+                    <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
+                      <Users className="h-8 w-8 text-blue-400 mx-auto mb-2" />
+                      <div className="text-lg font-bold text-gray-900">Limited</div>
+                      <div className="text-gray-600 text-xs">Spots Available</div>
+                    </div>
+                    <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
+                      <Globe className="h-8 w-8 text-[#F6B86C] mx-auto mb-2" />
+                      <div className="text-lg font-bold text-gray-900">24/7</div>
+                      <div className="text-gray-600 text-xs">Support</div>
+                    </div>
                   </div>
-                  <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
-                    <Shield className="h-8 w-8 text-purple-400 mx-auto mb-2" />
-                    <div className="text-lg font-bold text-gray-900">5★</div>
-                    <div className="text-gray-600 text-xs">App Rating</div>
-                  </div>
-                  <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
-                    <Globe className="h-8 w-8 text-blue-400 mx-auto mb-2" />
-                    <div className="text-lg font-bold text-gray-900">24/7</div>
-                    <div className="text-gray-600 text-xs">Support</div>
-                  </div>
-                </div>
+                )}
               </div>
 
               {/* Right Content - App Preview */}
@@ -221,12 +249,19 @@ export default async function AppPage({ params }: AppPageProps) {
                 </span>
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                {app.name} is designed to work seamlessly with other OS² Commerce apps, creating a powerful integrated solution.
+                {app.name} is designed to work seamlessly with other OS² Commerce apps, unlocking features across apps that work together in ways not possible otherwise.
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
-              <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div>
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Zap className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Cross-App Features</h3>
+                  <p className="text-gray-700">Unlock powerful integrations when using multiple OS² apps together.</p>
+                </div>
                 <div>
                   <div className="w-16 h-16 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-4">
                     <BarChart3 className="h-8 w-8 text-[#1E0D43]" />
@@ -276,13 +311,24 @@ export default async function AppPage({ params }: AppPageProps) {
                     <ArrowRight className="ml-2 h-6 w-6" />
                   </a>
                 </Button>
+              ) : app.status === 'beta' && app.shopifyUrl ? (
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white px-10 py-6 text-xl font-semibold"
+                  asChild
+                >
+                  <a href={app.shopifyUrl} target="_blank" rel="noopener noreferrer">
+                    Join Beta Program
+                    <ArrowRight className="ml-2 h-6 w-6" />
+                  </a>
+                </Button>
               ) : (
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-10 py-6 text-xl font-semibold"
                   disabled
                 >
-                  {app.status === 'coming-soon' ? 'Coming Soon' : 'Join Beta'}
+                  Coming Soon
                 </Button>
               )}
               <Button

@@ -5,6 +5,12 @@ import { marked } from 'marked'
 
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
+// Configure marked for better HTML output
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+})
+
 export interface BlogPost {
   slug: string
   title: string

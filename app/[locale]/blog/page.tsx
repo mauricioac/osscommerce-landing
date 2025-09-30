@@ -1,14 +1,13 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
-import { Calendar, User, ArrowRight, Search, Tag } from "lucide-react"
-import Link from "next/link"
+import { Calendar, User, ArrowRight } from "lucide-react"
+import { LocaleLink } from "@/components/locale-link"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { NewsletterForm } from "@/components/newsletter-form"
-import { getAllPosts, getAllTags, paginatePosts } from "@/lib/blog"
+import { getAllPosts, paginatePosts } from "@/lib/blog"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -31,7 +30,6 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const allPosts = getAllPosts()
   const { posts, totalPages, currentPage } = paginatePosts(allPosts, 1, 6)
-  const tags = getAllTags()
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
@@ -51,40 +49,15 @@ export default function BlogPage() {
                   Updates
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
                 Stay informed with the latest e-commerce trends, product updates, and insights from the OS² Commerce team.
               </p>
-              
-              {/* Search Bar */}
-              <div className="max-w-2xl mx-auto relative mb-8">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 h-5 w-5" />
-                <Input
-                  placeholder="Search articles..."
-                  className="pl-12 pr-4 py-3 text-lg bg-white border-gray-300 focus:border-[#F6B86C] text-gray-900 placeholder:text-gray-500 rounded-lg shadow-sm"
-                />
-              </div>
-
-              {/* Tags */}
-              {tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 justify-center">
-                  {tags.slice(0, 6).map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="outline"
-                      className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent cursor-pointer"
-                    >
-                      <Tag className="mr-1 h-3 w-3" />
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              )}
             </div>
           </div>
         </section>
 
         {/* Blog Posts */}
-        <section className="py-20 bg-slate-800">
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             {posts.length === 0 ? (
               // Empty State
@@ -93,8 +66,8 @@ export default function BlogPage() {
                   <div className="w-24 h-24 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25">
                     <Calendar className="h-12 w-12 text-[#1E0D43]" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">No Posts Yet</h3>
-                  <p className="text-white/80 mb-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">No Posts Yet</h3>
+                  <p className="text-gray-700 mb-8">
                     We're working on some amazing content for you. Check back soon for the latest insights and updates!
                   </p>
                   <Button
@@ -102,7 +75,7 @@ export default function BlogPage() {
                     className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
                     asChild
                   >
-                    <Link href="/">Back to Home</Link>
+                    <LocaleLink href="/">Back to Home</LocaleLink>
                   </Button>
                 </div>
               </div>
@@ -134,7 +107,7 @@ export default function BlogPage() {
                             <Badge
                               key={tag}
                               variant="outline"
-                              className="border-white/30 text-white/70 text-xs"
+                              className="border-gray-300 text-gray-600 text-xs"
                             >
                               {tag}
                             </Badge>
@@ -164,10 +137,10 @@ export default function BlogPage() {
                           className="w-full border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-white group-hover:border-[#F6B86C] transition-colors"
                           asChild
                         >
-                          <Link href={`/blog/${post.slug}`}>
+                          <LocaleLink href={`/blog/${post.slug}`}>
                             Read More
                             <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
+                          </LocaleLink>
                         </Button>
                       </CardContent>
                     </Card>
@@ -180,11 +153,11 @@ export default function BlogPage() {
                     <Button
                       variant="outline"
                       disabled={currentPage === 1}
-                      className="border-white/30 text-white hover:bg-white/10 disabled:opacity-50"
+                      className="border-gray-300 text-gray-700 hover:bg-gray-100 disabled:opacity-50"
                     >
                       Previous
                     </Button>
-                    
+
                     <div className="flex items-center gap-2">
                       {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                         <Button
@@ -194,7 +167,7 @@ export default function BlogPage() {
                           className={
                             currentPage === page
                               ? "bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] text-[#1E0D43]"
-                              : "border-white/30 text-white hover:bg-white/10"
+                              : "border-gray-300 text-gray-700 hover:bg-gray-100"
                           }
                         >
                           {page}
@@ -205,7 +178,7 @@ export default function BlogPage() {
                     <Button
                       variant="outline"
                       disabled={currentPage === totalPages}
-                      className="border-white/30 text-white hover:bg-white/10 disabled:opacity-50"
+                      className="border-gray-300 text-gray-700 hover:bg-gray-100 disabled:opacity-50"
                     >
                       Next
                     </Button>
@@ -226,11 +199,14 @@ export default function BlogPage() {
               <p className="text-xl text-gray-700 mb-8">
                 Subscribe to our newsletter and get the latest e-commerce insights delivered to your inbox.
               </p>
-              <NewsletterForm 
+              <NewsletterForm
                 size="lg"
                 placeholder="Your email address"
                 buttonText="Subscribe"
                 showIcon={true}
+                variant="light"
+                source="blog"
+                groups={process.env.NEXT_PUBLIC_NEWSLETTER_MARKETING_GROUP_ID ? [process.env.NEXT_PUBLIC_NEWSLETTER_MARKETING_GROUP_ID] : []}
               />
             </div>
           </div>

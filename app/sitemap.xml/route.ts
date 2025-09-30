@@ -4,6 +4,8 @@ import { locales } from '@/lib/i18n/config'
 import { readdir } from 'fs/promises'
 import { join } from 'path'
 
+export const dynamic = 'force-static'
+
 export async function GET(): Promise<Response> {
   const baseUrl = 'https://osscommerce.com'
   

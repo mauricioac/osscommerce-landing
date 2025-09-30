@@ -76,8 +76,6 @@ export const appsConfig: AppConfig[] = [
     knowledgeBaseUrl: 'https://your-kb-app.com/embed/oss-bundles',
     features: [
       'Bundle builder',
-      'Discount management',
-      'Inventory sync',
       'Performance analytics',
       'Mobile optimized'
     ],

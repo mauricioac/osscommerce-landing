@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
   try {
-    const { email, source, timestamp } = await request.json()
+    const { email, source, groups } = await request.json()
 
     // Basic email validation
     if (!email || !email.includes('@')) {
@@ -12,24 +12,52 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // This is a fallback endpoint for local development
-    // In production, you should replace this with your actual newsletter service
-    console.log('Newsletter subscription request:', {
-      email,
-      source: source || 'website',
-      timestamp: timestamp || new Date().toISOString(),
-      userAgent: request.headers.get('user-agent'),
-      ip: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip')
+    const apiKey = process.env.NEWSLETTER_API_KEY
+    const generalGroupId = process.env.NEWSLETTER_GENERAL_GROUP_ID
+
+    if (!apiKey) {
+      console.error('NEWSLETTER_API_KEY not configured')
+      return NextResponse.json(
+        { error: 'Newsletter service not configured' },
+        { status: 500 }
+      )
+    }
+
+    // Build groups array - always include general group
+    const groupIds: string[] = []
+    if (generalGroupId) {
+      groupIds.push(generalGroupId)
+    }
+
+    // Add source-specific groups if provided
+    if (groups && Array.isArray(groups)) {
+      groupIds.push(...groups)
+    }
+
+    // Call MailerLite API
+    const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        email,
+        groups: groupIds.length > 0 ? groupIds : undefined,
+        fields: {
+          source: source || 'website'
+        }
+      })
     })
 
-    // Simulate a delay for realistic testing
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    const data = await response.json()
 
-    // Simulate occasional errors for testing
-    if (email.includes('error@')) {
+    if (!response.ok) {
+      console.error('MailerLite API error:', data)
       return NextResponse.json(
-        { error: 'Subscription failed. Please try again.' },
-        { status: 500 }
+        { error: data.message || 'Failed to subscribe. Please try again.' },
+        { status: response.status }
       )
     }
 

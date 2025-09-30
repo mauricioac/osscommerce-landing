@@ -173,3 +173,4 @@ To add a new app to the documentation system:
 - TypeScript strict mode enabled
 - All components follow shadcn/ui patterns and conventions
 - Static generation ready - run `npm run build` to generate static files
+- if you run this project, use port 7777

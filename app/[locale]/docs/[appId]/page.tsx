@@ -68,17 +68,19 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
                     className="object-contain"
                   />
                 </div>
-                
+
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-4">
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-                      {app.name}
-                    </h1>
+                  <div className="mb-4">
+                    <div className="flex items-center gap-3 mb-2">
+                      <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
+                        {app.name}
+                      </h1>
+                    </div>
                     <Badge className={statusColors[app.status]}>
                       {statusLabels[app.status]}
                     </Badge>
                   </div>
-                  
+
                   <p className="text-xl text-gray-700 mb-6 leading-relaxed">
                     {app.description}
                   </p>

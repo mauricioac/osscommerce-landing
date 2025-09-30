@@ -19,8 +19,6 @@ import {
 import Link from "next/link"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Input } from "@/components/ui/input"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Label } from "@/components/ui/label"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -187,58 +185,15 @@ export default function LandingPage() {
                 Transform your Shopify store's post-purchase experience with proactive order tracking that reduces WISMO tickets by 80% and increases revenue by 40%. Our branded tracking pages feature AI-powered upsells and anomaly detection that keeps customers informed and engaged throughout their delivery journey.
               </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button
-                      size="lg"
-                      className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] px-8 py-4 text-lg font-semibold shadow-lg shadow-[#F6B86C]/25"
-                    >
-                      Join the waitlist
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-md bg-white/95 backdrop-blur-sm border-white/20">
-                    <DialogHeader>
-                      <DialogTitle className="text-2xl font-bold text-[#1E0D43]">Join the Waitlist</DialogTitle>
-                      <DialogDescription className="text-[#1E0D43]/70">
-                        Be the first to know when OS² Tracking launches. Get exclusive early access and special pricing!
-                      </DialogDescription>
-                    </DialogHeader>
-                    <div className="space-y-4 py-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="email" className="text-[#1E0D43] font-medium">
-                          Email Address
-                        </Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="Enter your email address"
-                          className="bg-white/50 border-[#1E0D43]/20 focus:border-[#F6B86C] text-[#1E0D43]"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="store" className="text-[#1E0D43] font-medium">
-                          Store Name (Optional)
-                        </Label>
-                        <Input
-                          id="store"
-                          type="text"
-                          placeholder="Your Shopify store name"
-                          className="bg-white/50 border-[#1E0D43]/20 focus:border-[#F6B86C] text-[#1E0D43]"
-                        />
-                      </div>
-                      <div className="flex gap-2 pt-4">
-                        <Button
-                          className="flex-1 bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] font-semibold"
-                        >
-                          Join Waitlist
-                        </Button>
-                      </div>
-                      <p className="text-xs text-[#1E0D43]/60 text-center">
-                        We'll never spam you. Unsubscribe at any time.
-                      </p>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                <Link href="https://apps.shopify.com/oss-tracking" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] px-8 py-4 text-lg font-semibold shadow-lg shadow-[#F6B86C]/25 w-full sm:w-auto"
+                  >
+                    Join as Early Adopter
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
                 <Button
                   variant="outline"
                   size="lg"
@@ -728,13 +683,15 @@ export default function LandingPage() {
                 the ultimate solution for Shopify merchants who demand more than just basic tracking.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] px-8 py-4 text-lg font-semibold shadow-lg shadow-[#F6B86C]/25"
-                >
-                  Start Your Free Trial Today!
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                <Link href="https://apps.shopify.com/oss-tracking" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] px-8 py-4 text-lg font-semibold shadow-lg shadow-[#F6B86C]/25 w-full sm:w-auto"
+                  >
+                    Join as Early Adopter
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"

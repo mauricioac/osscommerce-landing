@@ -10,6 +10,7 @@ const nextConfig = {
     unoptimized: true,
   },
   // We handle i18n manually through our middleware and locale provider
+  output: 'export',
 }
 
 export default nextConfig

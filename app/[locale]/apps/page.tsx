@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, ExternalLink, Book, Star, Users, Zap } from "lucide-react"
+import { ArrowRight, ExternalLink, Book, Star, Users, Zap, BarChart3 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { Header } from "@/components/header"
@@ -197,28 +197,35 @@ export default function AppsPage() {
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Powerful Shopify applications designed to work together seamlessly. Each app excels individually, 
-                but together they create an integrated ecosystem that transforms your e-commerce operations.
+                Powerful Shopify applications designed to work together seamlessly, unlocking features across apps that work together in ways not possible otherwise.
               </p>
-              
+
               {/* Key Benefits */}
-              <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Zap className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="font-semibold text-gray-900 mb-1">Cross-App Features</h3>
+                  <p className="text-gray-600 text-sm">Unlock powerful integrations when using multiple OS² apps together</p>
+                </div>
+
                 <div className="text-center">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Zap className="h-6 w-6 text-[#1E0D43]" />
+                    <BarChart3 className="h-6 w-6 text-[#1E0D43]" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Better Together</h3>
-                  <p className="text-gray-600 text-sm">Apps share data and enhance each other's capabilities</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">Shared Analytics</h3>
+                  <p className="text-gray-600 text-sm">Cross-app insights and unified reporting dashboard</p>
                 </div>
-                
+
                 <div className="text-center">
                   <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Users className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Single Support</h3>
-                  <p className="text-gray-600 text-sm">One team, one experience, no finger-pointing</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">Unified Support</h3>
+                  <p className="text-gray-600 text-sm">One support team for all your OS² Commerce apps</p>
                 </div>
-                
+
                 <div className="text-center">
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Star className="h-6 w-6 text-white" />
@@ -235,13 +242,13 @@ export default function AppsPage() {
         <section className="py-20 bg-slate-800">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Available{" "}
-                <span className="bg-gradient-to-r from-emerald-400 to-[#F6B86C] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-emerald-300 to-[#FFB886] bg-clip-text text-transparent">
                   Applications
                 </span>
               </h2>
-              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              <p className="text-xl text-white/90 max-w-3xl mx-auto">
                 Ready-to-install Shopify applications that are transforming e-commerce businesses worldwide.
               </p>
             </div>

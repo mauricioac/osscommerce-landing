@@ -70,11 +70,12 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">{t('footer.newsletter.title')}</h3>
             <p className="text-white/60 text-sm mb-4">{t('footer.newsletter.subtitle')}</p>
-            <NewsletterForm 
+            <NewsletterForm
               size="sm"
               placeholder={t('footer.newsletter.placeholder')}
               buttonText={t('footer.newsletter.subscribe')}
               className="max-w-none"
+              source="footer"
             />
           </div>
         </div>
