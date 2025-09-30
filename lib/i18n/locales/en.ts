@@ -243,7 +243,7 @@ export const en = {
       placeholder: 'Enter your email',
       subscribe: 'Subscribe'
     },
-    copyright: '© 2024 OS² Commerce. All rights reserved.',
+    copyright: '© 2025 OS² Commerce. All rights reserved.',
     language: 'Language'
   },
   

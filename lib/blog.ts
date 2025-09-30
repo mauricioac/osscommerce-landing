@@ -5,6 +5,18 @@ import { marked } from 'marked'
 
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
+// Function to add locale prefix to internal links
+function addLocaleToLinks(html: string, locale: string = 'en'): string {
+  // Replace internal links (starting with /) with locale-prefixed versions
+  return html.replace(/href="(\/[^"]*)"/g, (match, url) => {
+    // Skip if already has locale or is external
+    if (url.startsWith(`/${locale}/`) || url.startsWith('http')) {
+      return match
+    }
+    return `href="/${locale}${url}"`
+  })
+}
+
 // Configure marked for better HTML output
 marked.setOptions({
   gfm: true,
@@ -23,7 +35,7 @@ export interface BlogPost {
   image?: string
 }
 
-export function getAllPosts(): BlogPost[] {
+export function getAllPosts(locale: string = 'en'): BlogPost[] {
   try {
     // Create posts directory if it doesn't exist
     if (!fs.existsSync(postsDirectory)) {
@@ -40,9 +52,12 @@ export function getAllPosts(): BlogPost[] {
         const fileContents = fs.readFileSync(fullPath, 'utf8')
         const { data, content } = matter(fileContents)
 
+        const htmlContent = marked(content)
+        const localizedContent = addLocaleToLinks(htmlContent, locale)
+
         return {
           slug,
-          content: marked(content),
+          content: localizedContent,
           title: data.title || 'Untitled',
           excerpt: data.excerpt || '',
           date: data.date || new Date().toISOString(),
@@ -67,10 +82,10 @@ export function getAllPosts(): BlogPost[] {
   }
 }
 
-export function getPostBySlug(slug: string): BlogPost | null {
+export function getPostBySlug(slug: string, locale: string = 'en'): BlogPost | null {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.md`)
-    
+
     if (!fs.existsSync(fullPath)) {
       return null
     }
@@ -78,9 +93,12 @@ export function getPostBySlug(slug: string): BlogPost | null {
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const { data, content } = matter(fileContents)
 
+    const htmlContent = marked(content)
+    const localizedContent = addLocaleToLinks(htmlContent, locale)
+
     return {
       slug,
-      content: marked(content),
+      content: localizedContent,
       title: data.title || 'Untitled',
       excerpt: data.excerpt || '',
       date: data.date || new Date().toISOString(),
@@ -95,24 +113,24 @@ export function getPostBySlug(slug: string): BlogPost | null {
   }
 }
 
-export function getFeaturedPosts(limit: number = 3): BlogPost[] {
-  const allPosts = getAllPosts()
+export function getFeaturedPosts(limit: number = 3, locale: string = 'en'): BlogPost[] {
+  const allPosts = getAllPosts(locale)
   return allPosts.filter(post => post.featured).slice(0, limit)
 }
 
-export function getPostsByTag(tag: string): BlogPost[] {
-  const allPosts = getAllPosts()
+export function getPostsByTag(tag: string, locale: string = 'en'): BlogPost[] {
+  const allPosts = getAllPosts(locale)
   return allPosts.filter(post => post.tags.includes(tag))
 }
 
-export function getAllTags(): string[] {
-  const allPosts = getAllPosts()
+export function getAllTags(locale: string = 'en'): string[] {
+  const allPosts = getAllPosts(locale)
   const tags = new Set<string>()
-  
+
   allPosts.forEach(post => {
     post.tags.forEach(tag => tags.add(tag))
   })
-  
+
   return Array.from(tags).sort()
 }
 

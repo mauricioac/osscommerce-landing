@@ -27,8 +27,15 @@ export const metadata: Metadata = {
   }
 }
 
-export default function BlogPage() {
-  const allPosts = getAllPosts()
+interface BlogPageProps {
+  params: {
+    locale: string
+  }
+}
+
+export default async function BlogPage({ params }: BlogPageProps) {
+  const { locale } = await params
+  const allPosts = getAllPosts(locale)
   const { posts, totalPages, currentPage } = paginatePosts(allPosts, 1, 6)
 
   return (

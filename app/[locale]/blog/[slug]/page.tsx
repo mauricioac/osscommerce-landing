@@ -16,12 +16,13 @@ import { articleSchema } from "@/components/seo"
 interface BlogPostPageProps {
   params: {
     slug: string
+    locale: string
   }
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { slug } = await params
-  const post = getPostBySlug(slug)
+  const { slug, locale } = await params
+  const post = getPostBySlug(slug, locale)
   
   if (!post) {
     return {
@@ -53,14 +54,14 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = await params
-  const post = getPostBySlug(slug)
-  
+  const { slug, locale } = await params
+  const post = getPostBySlug(slug, locale)
+
   if (!post) {
     notFound()
   }
 
-  const allPosts = getAllPosts()
+  const allPosts = getAllPosts(locale)
   const currentIndex = allPosts.findIndex(p => p.slug === slug)
   const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null
   const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null

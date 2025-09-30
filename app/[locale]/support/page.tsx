@@ -16,7 +16,7 @@ import {
   ArrowRight,
   Download
 } from "lucide-react"
-import Link from "next/link"
+import { LocaleLink } from "@/components/locale-link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Metadata } from "next"
@@ -80,16 +80,16 @@ export default function SupportPage() {
         </section>
 
         {/* Quick Support Options */}
-        <section className="py-20 bg-slate-800">
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Get{" "}
-                <span className="bg-gradient-to-r from-emerald-400 to-[#F6B86C] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
                   Instant Help
                 </span>
               </h2>
-              <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                 Choose the support option that works best for you.
               </p>
             </div>
@@ -128,7 +128,7 @@ export default function SupportPage() {
                     className="border-gray-300 text-gray-700 hover:bg-gray-50"
                     asChild
                   >
-                    <Link href="/contact">Contact Us</Link>
+                    <LocaleLink href="/contact">Contact Us</LocaleLink>
                   </Button>
                 </CardContent>
               </Card>
@@ -148,7 +148,7 @@ export default function SupportPage() {
                     className="border-gray-300 text-gray-700 hover:bg-gray-50"
                     asChild
                   >
-                    <Link href="/docs">View Docs</Link>
+                    <LocaleLink href="/docs">View Docs</LocaleLink>
                   </Button>
                 </CardContent>
               </Card>
@@ -176,7 +176,7 @@ export default function SupportPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
@@ -247,20 +247,20 @@ export default function SupportPage() {
                     What support do you provide?
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-700">
-                    We provide comprehensive support including live chat, email support, detailed documentation, video tutorials, 
-                    and a community forum. Our support team is available Monday-Friday 9 AM - 6 PM EST.
+                    We provide comprehensive support including live chat, email support, detailed documentation, and video tutorials.
+                    Our support team is available Monday-Friday 9 AM - 6 PM EST.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem
                   value="item-6"
-                  className="bg-white/10 border-white/20 backdrop-blur-sm rounded-lg px-6"
+                  className="bg-gray-50 border-gray-200 rounded-lg px-6"
                 >
-                  <AccordionTrigger className="text-left text-white hover:text-[#F6B86C] hover:no-underline">
+                  <AccordionTrigger className="text-left text-gray-900 hover:text-[#F6B86C] hover:no-underline">
                     Can I migrate data from other apps?
                   </AccordionTrigger>
-                  <AccordionContent className="text-white/80">
-                    Absolutely! We offer free migration assistance for most popular apps. Our team will help you transfer your 
+                  <AccordionContent className="text-gray-700">
+                    Absolutely! We offer free migration assistance for most popular apps. Our team will help you transfer your
                     data and settings to ensure a smooth transition to OS² Commerce apps.
                   </AccordionContent>
                 </AccordionItem>
@@ -270,36 +270,36 @@ export default function SupportPage() {
         </section>
 
         {/* Support Resources */}
-        <section className="py-20 bg-gradient-to-r from-slate-900/30 to-[#1E0D43]/30">
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Support{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
                   Resources
                 </span>
               </h2>
-              <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                 Everything you need to succeed with OS² Commerce.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <Card className="bg-white border-gray-200 shadow-lg">
                 <CardHeader className="p-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-lg flex items-center justify-center mb-4 shadow-lg shadow-[#F6B86C]/25">
                     <Book className="h-6 w-6 text-[#1E0D43]" />
                   </div>
-                  <CardTitle className="text-white text-lg">Getting Started Guide</CardTitle>
+                  <CardTitle className="text-gray-900 text-lg">Getting Started Guide</CardTitle>
                 </CardHeader>
                 <CardContent className="p-6 pt-0">
-                  <p className="text-white/80 text-sm mb-4">
+                  <p className="text-gray-700 text-sm mb-4">
                     Step-by-step instructions to set up and configure your first OS² Commerce app.
                   </p>
                   <Button
                     size="sm"
                     variant="outline"
-                    className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
+                    className="border-gray-300 text-gray-700 hover:bg-gray-50"
                   >
                     <Download className="mr-2 h-4 w-4" />
                     Download Guide
@@ -307,46 +307,24 @@ export default function SupportPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
+              <Card className="bg-white border-gray-200 shadow-lg">
                 <CardHeader className="p-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-lg flex items-center justify-center mb-4 shadow-lg shadow-purple-500/25">
                     <Video className="h-6 w-6 text-white" />
                   </div>
-                  <CardTitle className="text-white text-lg">Video Library</CardTitle>
+                  <CardTitle className="text-gray-900 text-lg">Video Library</CardTitle>
                 </CardHeader>
                 <CardContent className="p-6 pt-0">
-                  <p className="text-white/80 text-sm mb-4">
+                  <p className="text-gray-700 text-sm mb-4">
                     Watch detailed tutorials covering all features and advanced configurations.
                   </p>
                   <Button
                     size="sm"
                     variant="outline"
-                    className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
+                    className="border-gray-300 text-gray-700 hover:bg-gray-50"
                   >
                     <Video className="mr-2 h-4 w-4" />
                     Watch Videos
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
-                <CardHeader className="p-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center mb-4 shadow-lg shadow-emerald-500/25">
-                    <MessageCircle className="h-6 w-6 text-white" />
-                  </div>
-                  <CardTitle className="text-white text-lg">Community Forum</CardTitle>
-                </CardHeader>
-                <CardContent className="p-6 pt-0">
-                  <p className="text-white/80 text-sm mb-4">
-                    Connect with other merchants, share tips, and get community support.
-                  </p>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
-                  >
-                    <ArrowRight className="mr-2 h-4 w-4" />
-                    Join Forum
                   </Button>
                 </CardContent>
               </Card>
@@ -355,13 +333,13 @@ export default function SupportPage() {
         </section>
 
         {/* Contact Support CTA */}
-        <section className="py-20 bg-gradient-to-r from-[#F6B86C]/10 to-purple-500/10">
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Still Need Help?
               </h2>
-              <p className="text-xl text-white/80 mb-8 leading-relaxed">
+              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
                 Our support team is here to help you succeed. Get in touch and we'll resolve your questions quickly.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -375,10 +353,10 @@ export default function SupportPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent px-8 py-4 text-lg"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg"
                   asChild
                 >
-                  <Link href="/contact">Send Message</Link>
+                  <LocaleLink href="/contact">Send Message</LocaleLink>
                 </Button>
               </div>
             </div>
