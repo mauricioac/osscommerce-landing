@@ -1,0 +1,19 @@
+server {
+  listen {{ $.PORT }};
+  server_name _;
+
+  root /app/www/out;
+  index index.html;
+
+  location / {
+    try_files $uri $uri/ $uri.html /index.html;
+  }
+
+  # Cache static assets
+  location /_next/static/ {
+    add_header Cache-Control "public, max-age=31536000, immutable";
+  }
+
+  # Error page
+  error_page 404 /404.html;
+}
