@@ -1,2 +1,12 @@
+server {
+  listen {{ $.PORT }};
+  server_name _;
+  client_max_body_size 1M;
+  root /app/www/out;
+  index index.html;
+  port_in_redirect off;
 
-    root /app/www/out;
+  location / {
+    try_files $uri $uri/ $uri.html /index.html;
+  }
+}
