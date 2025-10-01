@@ -1,9 +1,0 @@
-location / {
-  try_files $uri $uri/ $uri.html /index.html;
-}
-
-location /_next/static/ {
-  add_header Cache-Control "public, max-age=31536000, immutable";
-}
-
-error_page 404 /404.html;
