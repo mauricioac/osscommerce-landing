@@ -2,7 +2,7 @@ server {
   listen {{ $.PORT }};
   server_name _;
 
-  root /app/www/out;
+  root /app/www;
   index index.html;
 
   location / {
