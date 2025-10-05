@@ -46,9 +46,9 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
               <div className="relative z-10">
                 <LocaleLink
                   href="/apps"
-                  className="inline-flex text-brand-primary transition-colors mb-8 font-medium"
+                  className="inline-flex text-[#1E0D43] transition-colors mb-8 font-medium"
                 >
-                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  <ArrowLeft className="mr-2 h-4 w-4 relative top-1" />
                   Back to Apps
                 </LocaleLink>
 
@@ -62,12 +62,6 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                       height={128}
                       className="object-contain w-full h-full"
                     />
-                  </div>
-                  <div className="text-center lg:text-left">
-                    <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 mb-4 shadow-sm">
-                      <Star className="mr-1 h-3 w-3 fill-current" />
-                      Available Now
-                    </Badge>
                   </div>
                 </div>
 
@@ -174,7 +168,7 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
       </section>
 
       {/* Problem Section - The Pain */}
-      <section className="py-20 bg-slate-800">
+      <section className="py-20 bg-[#1E0D43]">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
@@ -300,12 +294,12 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
       </section>
 
       {/* Screenshots Section - How It Works */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-purple-950/15">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                See OS² Tracking In Action
+                See OSS Tracking In Action
               </h2>
               <p className="text-xl text-gray-700 max-w-4xl mx-auto">
                 From email notifications to branded tracking pages - see exactly how OS² Tracking transforms your customer experience.
@@ -511,29 +505,29 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                 <div>
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Zap className="h-8 w-8 text-white" />
+                  <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Zap className="h-8 w-8" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Cross-App Features</h3>
                   <p className="text-gray-700">Unlock powerful integrations when using multiple OS² apps together.</p>
                 </div>
                 <div>
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <BarChart3 className="h-8 w-8 text-[#1E0D43]" />
+                  <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                    <BarChart3 className="h-8 w-8" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Shared Analytics</h3>
                   <p className="text-gray-700">Cross-app insights and unified reporting dashboard.</p>
                 </div>
                 <div>
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-8 w-8 text-white" />
+                  <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="h-8 w-8" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Unified Support</h3>
                   <p className="text-gray-700">One support team for all your OS² Commerce apps.</p>
                 </div>
                 <div>
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Star className="h-8 w-8 text-white" />
+                  <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Star className="h-8 w-8" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Volume Savings</h3>
                   <p className="text-gray-700">Save up to 30% with multiple app installations.</p>
@@ -545,7 +539,7 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-brand-primary/10 via-purple-50 to-orange-50 relative overflow-hidden">
+      <section className="py-20 bg-purple-950/15 relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-brand-primary/20 to-orange-400/20 rounded-full blur-3xl"></div>
@@ -568,7 +562,7 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
             <div className="flex justify-center mb-8">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-brand-primary to-brand-primary-dark hover:from-brand-primary hover:to-brand-primary-dark text-white px-16 py-8 text-2xl font-semibold shadow-2xl shadow-brand-primary/25 hover:scale-105 transition-all"
+                className="bg-[#1E0D43] text-white px-16 py-8 text-2xl font-semibold shadow-2xl shadow-brand-primary/25 hover:scale-105 transition-all"
                 asChild
               >
                 <a href="https://apps.shopify.com/oss-tracking" target="_blank" rel="noopener noreferrer">

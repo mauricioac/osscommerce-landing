@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Our Shopify Apps | OS² Commerce", 
+    title: "Our Shopify Apps | OS² Commerce",
     description: "Integrated Shopify apps that work better together"
   }
 }
@@ -42,7 +42,7 @@ const statusLabels = {
 
 const categoryIcons = {
   tracking: "📦",
-  marketing: "📧", 
+  marketing: "📧",
   analytics: "📊",
   bundles: "🎁",
   other: "⚡"
@@ -61,7 +61,7 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
       )}
 
       <CardHeader className="p-6">
-        <div className="mb-6">
+        <div className="mb-3">
           <div className="relative mb-4">
             <Image
               src={app.icon}
@@ -71,25 +71,15 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
               className="object-contain"
             />
           </div>
-          <Badge className={statusColors[app.status]}>
-            {statusLabels[app.status]}
-          </Badge>
         </div>
-        
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-lg">{categoryIcons[app.category]}</span>
-          <CardTitle className="text-xl text-gray-900 group-hover:text-[#F6B86C] transition-colors">
-            {app.name}
-          </CardTitle>
-        </div>
-        
-        <p className="text-gray-700 text-sm leading-relaxed mb-4">
+
+        <p className="text-gray-700 text-sm leading-relaxed mb-6">
           {app.description}
         </p>
 
         {/* Features */}
-        <div className="space-y-2">
-          <h4 className="text-sm font-medium text-gray-800">Key Features:</h4>
+        <div className="space-y-2 mt-4">
+          <h4 className="text-sm font-medium text-gray-800 mt-4">Key Features:</h4>
           <div className="flex flex-wrap gap-1">
             {app.features.slice(0, 3).map((feature) => (
               <Badge
@@ -117,7 +107,7 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
           {/* Primary CTA */}
           {app.status === 'available' && app.shopifyUrl ? (
             <Button
-              className="w-full bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] font-semibold group-hover:scale-105 transition-transform"
+              className="w-full bg-[#1E0D43] text-white font-semibold group-hover:scale-105 transition-transform"
               asChild
             >
               <a href={app.shopifyUrl} target="_blank" rel="noopener noreferrer">
@@ -135,7 +125,7 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
           ) : (
             <>
               <Button
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white font-semibold"
+                className="w-full bg-[#1E0D43] text-white font-semibold"
                 asChild
               >
                 <a href={app.shopifyUrl || '#'} target="_blank" rel="noopener noreferrer">
@@ -147,7 +137,7 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
                 appName={app.name}
                 appId={app.id}
                 buttonVariant="outline"
-                buttonText="Waitlist for Final Release"
+                buttonText="Launch waitlist"
               />
             </>
           )}
@@ -164,7 +154,7 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
                 <LocaleLink href={app.landingPage}>Learn More</LocaleLink>
               </Button>
             )}
-            
+
             <Button
               variant="outline"
               size="sm"
@@ -190,18 +180,15 @@ export default function AppsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Header />
-      
+
       <main>
         {/* Hero Section */}
         <section className="py-20 lg:py-32">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
-              <Badge className="bg-gradient-to-r from-[#F6B86C]/20 to-[#FF8C42]/20 text-[#F6B86C] border-[#F6B86C]/30 hover:bg-[#F6B86C]/10 mb-6">
-                🚀 Our Shopify Apps
-              </Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                 Integrated{" "}
-                <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-emerald-300 to-[#FFB886] bg-clip-text text-transparent">
                   Ecosystem
                 </span>
               </h1>
@@ -212,32 +199,32 @@ export default function AppsPage() {
               {/* Key Benefits */}
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Zap className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Zap className="h-6 w-6" />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-1">Cross-App Features</h3>
                   <p className="text-gray-600 text-sm">Unlock powerful integrations when using multiple OS² apps together</p>
                 </div>
 
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-3">
-                    <BarChart3 className="h-6 w-6 text-[#1E0D43]" />
+                  <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-3">
+                    <BarChart3 className="h-6 w-6" />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-1">Shared Analytics</h3>
                   <p className="text-gray-600 text-sm">Cross-app insights and unified reporting dashboard</p>
                 </div>
 
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Users className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Users className="h-6 w-6" />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-1">Unified Support</h3>
                   <p className="text-gray-600 text-sm">One support team for all your OS² Commerce apps</p>
                 </div>
 
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Star className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Star className="h-6 w-6" />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-1">Volume Savings</h3>
                   <p className="text-gray-600 text-sm">Save up to 30% with multiple app installations</p>
@@ -248,7 +235,7 @@ export default function AppsPage() {
         </section>
 
         {/* Available Apps */}
-        <section className="py-20 bg-slate-800">
+        <section className="py-20 bg-[#1E0D43]">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -288,9 +275,8 @@ export default function AppsPage() {
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  Coming{" "}
-                  <span className="bg-gradient-to-r from-purple-400 to-[#F6B86C] bg-clip-text text-transparent">
-                    Soon
+                  <span className="bg-gradient-to-r from-emerald-300 to-[#FFB886] bg-clip-text text-transparent">
+                    Coming Soon
                   </span>
                 </h2>
                 <p className="text-xl text-gray-700 max-w-3xl mx-auto">
@@ -308,17 +294,17 @@ export default function AppsPage() {
         )}
 
         {/* Ecosystem Benefits */}
-        <section className="py-20 bg-gray-100">
+        <section className="py-20 bg-purple-950/15">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Ecosystem{" "}
-                <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-emerald-300 to-[#FFB886] bg-clip-text text-transparent">
                   Advantages
                 </span>
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                The more OS² Commerce apps you use, the more powerful and cost-effective your setup becomes.
+                The more OSS Commerce apps you use, the more powerful and cost-effective your setup becomes.
               </p>
             </div>
 
@@ -387,13 +373,13 @@ export default function AppsPage() {
                 Ready to Transform Your Store?
               </h2>
               <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                Start with any OS² Commerce app and experience the power of integrated e-commerce tools. 
+                Start with any OS² Commerce app and experience the power of integrated e-commerce tools.
                 Join thousands of merchants who have already upgraded their operations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] px-8 py-4 text-lg font-semibold shadow-lg shadow-[#F6B86C]/25"
+                  className="bg-[#1E0D43] text-white px-8 py-4 text-lg font-semibold shadow-lg shadow-[#F6B86C]/25"
                   asChild
                 >
                   <Link href="/docs/getting-started">
@@ -404,7 +390,7 @@ export default function AppsPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent px-8 py-4 text-lg"
+                  className="border-[#1E0D43]/50 text-[#1E0D43] hover:bg-[#1E0D43]/10 bg-transparent px-8 py-4 text-lg"
                   asChild
                 >
                   <Link href="/contact">Talk to an Expert</Link>
@@ -414,7 +400,7 @@ export default function AppsPage() {
           </div>
         </section>
       </main>
-      
+
       <Footer />
     </div>
   )

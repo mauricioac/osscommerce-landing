@@ -36,11 +36,11 @@ export function WaitlistDialog({
 
   const getButtonClasses = () => {
     if (buttonVariant === "outline") {
-      return "border-2 border-[#F6B86C] text-[#F6B86C] hover:bg-[#F6B86C]/10 w-full font-semibold"
+      return "border-2 border-[#1E0D43] text-[#1E0D43] hover:bg-[#1E0D43]/10 w-full font-semibold"
     } else if (buttonVariant === "default") {
-      return "bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] w-full font-semibold"
+      return "bg-[#1E0D43] text-white w-full font-semibold"
     }
-    return "bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] font-semibold"
+    return "bg-[#1E0D43] text-white w-full font-semibold"
   }
 
   return (
