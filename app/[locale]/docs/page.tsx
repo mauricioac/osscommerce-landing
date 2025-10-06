@@ -34,11 +34,8 @@ function AppDocumentationCard({ app }: { app: AppConfig }) {
               className="object-contain"
             />
           </div>
-          <Badge className={statusColors[app.status]}>
-            {statusLabels[app.status]}
-          </Badge>
         </div>
-        
+
         <CardTitle className="text-xl text-gray-900 group-hover:text-[#F6B86C] transition-colors">
           {app.name} Documentation
         </CardTitle>
@@ -99,7 +96,7 @@ function AppDocumentationCard({ app }: { app: AppConfig }) {
                   </Link>
                 </Button>
               )}
-              
+
               {app.shopifyUrl && (
                 <Button
                   variant="outline"
@@ -128,15 +125,12 @@ export default function DocumentationHubPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Header />
-      
+
       <main>
         {/* Hero Section */}
         <section className="py-20 lg:py-32">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
-              <Badge className="bg-gradient-to-r from-[#F6B86C]/20 to-[#FF8C42]/20 text-[#F6B86C] border-[#F6B86C]/30 hover:bg-[#F6B86C]/10 mb-6">
-                📚 Documentation Hub
-              </Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                 Knowledge{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
@@ -144,7 +138,7 @@ export default function DocumentationHubPage() {
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Comprehensive guides, tutorials, and documentation for all OS² Commerce applications. 
+                Comprehensive guides, tutorials, and documentation for all OSS Commerce applications.
                 Find everything you need to get the most out of our ecosystem.
               </p>
             </div>
@@ -210,83 +204,8 @@ export default function DocumentationHubPage() {
             </div>
           </section>
         )}
-
-        {/* Quick Links */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Quick{" "}
-                <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
-                  Access
-                </span>
-              </h2>
-              <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                Additional resources to help you succeed with OS² Commerce.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <Card className="bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300 group">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25 group-hover:scale-110 transition-transform">
-                    <Search className="h-8 w-8 text-[#1E0D43]" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-4">Search Knowledge Base</h3>
-                  <p className="text-white/80 mb-6">
-                    Find specific answers across all our documentation.
-                  </p>
-                  <Button
-                    variant="outline"
-                    className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
-                  >
-                    Search Docs
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300 group">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-purple-500/25 group-hover:scale-110 transition-transform">
-                    <Book className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-4">Getting Started</h3>
-                  <p className="text-white/80 mb-6">
-                    New to OS² Commerce? Start with our beginner guides.
-                  </p>
-                  <Button
-                    variant="outline"
-                    className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
-                    asChild
-                  >
-                    <Link href="/docs/getting-started">Get Started</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white/10 border-white/20 backdrop-blur-sm hover:from-white/15 hover:to-white/10 transition-all duration-300 group">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/25 group-hover:scale-110 transition-transform">
-                    <ArrowRight className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-4">Need Help?</h3>
-                  <p className="text-white/80 mb-6">
-                    Can't find what you're looking for? Contact our support team.
-                  </p>
-                  <Button
-                    variant="outline"
-                    className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
-                    asChild
-                  >
-                    <Link href="/support">Get Support</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
       </main>
-      
+
       <Footer />
     </div>
   )

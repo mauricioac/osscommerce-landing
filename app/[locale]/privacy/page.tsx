@@ -14,9 +14,6 @@ export default function PrivacyPage() {
         <section className="py-20 lg:py-32">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
-              <Badge className="bg-gradient-to-r from-[#F6B86C]/20 to-[#FF8C42]/20 text-[#F6B86C] border-[#F6B86C]/30 hover:bg-[#F6B86C]/10 mb-6">
-                🔒 Privacy Policy
-              </Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                 Your Privacy{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
@@ -43,8 +40,8 @@ export default function PrivacyPage() {
               <Card className="bg-white border-gray-200 shadow-lg">
                 <CardHeader className="p-8">
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-lg flex items-center justify-center shadow-lg shadow-[#F6B86C]/25">
-                      <Eye className="h-6 w-6 text-[#1E0D43]" />
+                    <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-lg flex items-center justify-center shadow-lg shadow-[#F6B86C]/25">
+                      <Eye className="h-6 w-6 text-white" />
                     </div>
                     <CardTitle className="text-2xl text-gray-900">Information We Collect</CardTitle>
                   </div>
@@ -77,8 +74,8 @@ export default function PrivacyPage() {
               <Card className="bg-white border-gray-200 shadow-lg">
                 <CardHeader className="p-8">
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/25">
-                      <Users className="h-6 w-6 text-white" />
+                    <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/25">
+                      <Users className="h-6 w-6" />
                     </div>
                     <CardTitle className="text-2xl text-gray-900">How We Use Your Information</CardTitle>
                   </div>
@@ -102,7 +99,7 @@ export default function PrivacyPage() {
               <Card className="bg-white border-gray-200 shadow-lg">
                 <CardHeader className="p-8">
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/25">
+                    <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/25">
                       <Shield className="h-6 w-6 text-white" />
                     </div>
                     <CardTitle className="text-2xl text-gray-900">Information Sharing and Disclosure</CardTitle>
@@ -143,7 +140,7 @@ export default function PrivacyPage() {
               <Card className="bg-white border-gray-200 shadow-lg">
                 <CardHeader className="p-8">
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/25">
+                    <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/25">
                       <Lock className="h-6 w-6 text-white" />
                     </div>
                     <CardTitle className="text-2xl text-gray-900">Data Security and Retention</CardTitle>
@@ -179,7 +176,7 @@ export default function PrivacyPage() {
               <Card className="bg-white border-gray-200 shadow-lg">
                 <CardHeader className="p-8">
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-rose-500 to-pink-600 rounded-lg flex items-center justify-center shadow-lg shadow-rose-500/25">
+                    <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-lg flex items-center justify-center shadow-lg shadow-rose-500/25">
                       <FileText className="h-6 w-6 text-white" />
                     </div>
                     <CardTitle className="text-2xl text-gray-900">Your Rights and Choices</CardTitle>
@@ -207,7 +204,7 @@ export default function PrivacyPage() {
               <Card className="bg-white border-gray-200 shadow-lg">
                 <CardHeader className="p-8">
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-lg flex items-center justify-center shadow-lg shadow-yellow-500/25">
+                    <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-lg flex items-center justify-center shadow-lg shadow-yellow-500/25">
                       <Eye className="h-6 w-6 text-white" />
                     </div>
                     <CardTitle className="text-2xl text-gray-900">Cookies and Tracking</CardTitle>
@@ -234,8 +231,8 @@ export default function PrivacyPage() {
               <Card className="bg-white border-gray-200 shadow-lg">
                 <CardHeader className="p-8">
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-lg flex items-center justify-center shadow-lg shadow-[#F6B86C]/25">
-                      <Mail className="h-6 w-6 text-[#1E0D43]" />
+                    <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-lg flex items-center justify-center shadow-lg shadow-[#F6B86C]/25">
+                      <Mail className="h-6 w-6 text-white" />
                     </div>
                     <CardTitle className="text-2xl text-gray-900">Contact Us</CardTitle>
                   </div>
@@ -276,7 +273,7 @@ export default function PrivacyPage() {
           </div>
         </section>
       </main>
-      
+
       <Footer />
     </div>
   )

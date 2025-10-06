@@ -11,19 +11,19 @@ import { Footer } from "@/components/footer"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Contact Us | OS² Commerce - Get Support & Connect",
-  description: "Contact OS² Commerce for support, partnerships, or questions about our Shopify apps. Get expert help with your e-commerce needs.",
-  keywords: "contact OS² Commerce, Shopify app support, e-commerce help, partnership inquiries, customer service",
+  title: "Contact Us | OSS Commerce - Get Support & Connect",
+  description: "Contact OSS Commerce for support, partnerships, or questions about our Shopify apps. Get expert help with your e-commerce needs.",
+  keywords: "contact OSS Commerce, Shopify app support, e-commerce help, partnership inquiries, customer service",
   openGraph: {
-    title: "Contact Us | OS² Commerce",
-    description: "Contact OS² Commerce for support, partnerships, or questions about our Shopify apps. Expert e-commerce assistance available.",
+    title: "Contact Us | OSS Commerce",
+    description: "Contact OSS Commerce for support, partnerships, or questions about our Shopify apps. Expert e-commerce assistance available.",
     type: "website",
     images: ["/oss-logo.png"]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us | OS² Commerce",
-    description: "Get support and connect with the OS² Commerce team"
+    title: "Contact Us | OSS Commerce",
+    description: "Get support and connect with the OSS Commerce team"
   }
 }
 
@@ -37,9 +37,6 @@ export default function ContactPage() {
         <section className="py-20 lg:py-32">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
-              <Badge className="bg-gradient-to-r from-[#F6B86C]/20 to-[#FF8C42]/20 text-[#F6B86C] border-[#F6B86C]/30 hover:bg-[#F6B86C]/10 mb-6">
-                💬 Get in Touch
-              </Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                 Let's{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
@@ -146,8 +143,8 @@ export default function ContactPage() {
                 <Card className="bg-white border-gray-200 shadow-lg">
                   <CardContent className="p-8">
                     <div className="flex items-center space-x-4 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-lg flex items-center justify-center shadow-lg shadow-[#F6B86C]/25">
-                        <Mail className="h-6 w-6 text-[#1E0D43]" />
+                      <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-lg flex items-center justify-center shadow-lg shadow-[#F6B86C]/25">
+                        <Mail className="h-6 w-6 text-white" />
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-gray-900">Email Us</h3>
@@ -162,7 +159,7 @@ export default function ContactPage() {
                 <Card className="bg-white border-gray-200 shadow-lg">
                   <CardContent className="p-8">
                     <div className="flex items-center space-x-4 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/25">
+                      <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-lg flex items-center justify-center shadow-lg shadow-[#F6B86C]/25">
                         <MessageSquare className="h-6 w-6 text-white" />
                       </div>
                       <div>
@@ -186,7 +183,7 @@ export default function ContactPage() {
                 <Card className="bg-white border-gray-200 shadow-lg">
                   <CardContent className="p-8">
                     <div className="flex items-center space-x-4 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/25">
+                      <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-lg flex items-center justify-center shadow-lg shadow-[#F6B86C]/25">
                         <Clock className="h-6 w-6 text-white" />
                       </div>
                       <div>
@@ -233,8 +230,8 @@ export default function ContactPage() {
             <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
               <Card className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group">
                 <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25 group-hover:scale-110 transition-transform">
-                    <MessageSquare className="h-8 w-8 text-[#1E0D43]" />
+                  <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25 group-hover:scale-110 transition-transform">
+                    <MessageSquare className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Support Center</h3>
                   <p className="text-gray-700 mb-6">
@@ -252,7 +249,7 @@ export default function ContactPage() {
 
               <Card className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group">
                 <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-purple-500/25 group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25 group-hover:scale-110 transition-transform">
                     <Mail className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Documentation</h3>
@@ -271,7 +268,7 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      
+
       <Footer />
     </div>
   )

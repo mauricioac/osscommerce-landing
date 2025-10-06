@@ -1,14 +1,16 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, ArrowLeft, ExternalLink, Book, Star, CheckCircle, BarChart3, Shield, Users, Globe, TrendingUp, Mail, Package, AlertTriangle, DollarSign, Zap, Clock, Target, Award, MessageSquare, Smartphone, Eye, RefreshCw, Bell } from "lucide-react";
+import { ArrowRight, ArrowLeft, ExternalLink, Book, Star, CheckCircle, BarChart3, Shield, Users, Globe, TrendingUp, Mail, Package, AlertTriangle, DollarSign, Zap, Clock, Target, Award, MessageSquare, Smartphone, Eye, RefreshCw, Bell, MessageCircle, Palette } from "lucide-react";
 import { LocaleLink } from "@/components/locale-link";
 import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { VideoModal } from "@/components/video-modal";
 import { type Locale } from "@/lib/i18n/config";
+import { Input } from "@/components/ui/input"
+
 
 interface TrackingPageProps {
   params: Promise<{
@@ -292,6 +294,265 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
           </div>
         </div>
       </section>
+
+      <section id="features" className="py-20 bg-[#1E0D43]">
+          <div className="container mx-auto px-4">
+            <div className="text-center space-y-6 mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold text-white">
+                Advanced Shopify Tracking Features That{" "}
+                <span className="bg-gradient-to-r from-emerald-400 to-[#F6B86C] bg-clip-text text-transparent">
+                  Boost Revenue & Reduce Support
+                </span>
+              </h2>
+              <p className="text-xl text-white/80 max-w-4xl mx-auto">
+                Your post-purchase experience is a powerful tool for customer retention and revenue generation. OS²
+                Tracking transforms every tracking update into an opportunity. <a href="/blog/ultimate-guide-shopify-order-tracking-2025" className="text-[#F6B86C] hover:underline">Learn advanced strategies in our comprehensive guide</a>.
+              </p>
+            </div>
+
+            <div className="space-y-16">
+              {/* Feature 1 - Proactive Problem Solving */}
+              <Card className="bg-white/10 border-white/20 border-white/20 backdrop-blur-sm overflow-hidden">
+                <div className="grid lg:grid-cols-2 gap-8">
+                  <CardHeader className="space-y-6 p-8">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-12 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-lg flex items-center justify-center shadow-lg shadow-[#F6B86C]/25">
+                        <Bell className="h-6 w-6 text-[#1E0D43]" />
+                      </div>
+                      <Badge className="bg-gradient-to-r from-[#F6B86C]/20 to-[#FF8C42]/20 text-[#F6B86C] border-[#F6B86C]/30">
+                        Proactive Intelligence
+                      </Badge>
+                    </div>
+                    <CardTitle className="text-2xl text-white">
+                      Proactive Problem Solving with Anomaly Detection
+                    </CardTitle>
+                    <CardDescription className="text-lg text-white/80">
+                      Our intelligent anomaly detection system actively monitors every order. If a package doesn't show
+                      status changes within X business days, we automatically alert both you and your customer.
+                    </CardDescription>
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-3">
+                        <CheckCircle className="h-5 w-5 text-emerald-400" />
+                        <span className="text-white/90"><a href="/blog/reduce-wismo-support-tickets-80-percent" className="hover:text-[#F6B86C] transition-colors">Eliminate WISMO inquiries by 80%</a></span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <CheckCircle className="h-5 w-5 text-emerald-400" />
+                        <span className="text-white/90">Build customer trust proactively</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <CheckCircle className="h-5 w-5 text-emerald-400" />
+                        <span className="text-white/90">Save support team hours</span>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <div className="bg-gradient-to-br from-[#F6B86C]/10 to-[#FF8C42]/10 h-full flex items-center justify-center p-8">
+                      <div className="w-full max-w-sm bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-6 space-y-4">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
+                          <span className="text-sm font-medium text-white">Anomaly Detected</span>
+                        </div>
+                        <p className="text-sm text-white/80">Package #TF-2024-001 hasn't moved in 3 days</p>
+                        <Button
+                          size="sm"
+                          className="w-full bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] text-[#1E0D43]"
+                        >
+                          Notify Customer
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </div>
+              </Card>
+
+              {/* Feature 2 - Branded Tracking Page */}
+              <Card className="bg-white/10 border-white/20 border-white/20 backdrop-blur-sm overflow-hidden">
+                <div className="grid lg:grid-cols-2 gap-8">
+                  <CardContent className="p-0 order-2 lg:order-1">
+                    <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 h-full flex items-center justify-center p-8">
+                      <div className="w-full max-w-sm bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-6 space-y-4">
+                        <div className="text-center space-y-2">
+                          <h4 className="font-semibold text-white">Your Order is On Its Way!</h4>
+                          <div className="w-full bg-white/20 rounded-full h-2">
+                            <div className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] h-2 rounded-full w-3/4"></div>
+                          </div>
+                        </div>
+                        <div className="border-t border-white/20 pt-4">
+                          <h5 className="font-medium mb-2 text-white">You might also like:</h5>
+                          <div className="flex space-x-2">
+                            <div className="w-16 h-16 bg-white/10 rounded"></div>
+                            <div className="flex-1">
+                              <p className="text-sm font-medium text-white">Premium Case</p>
+                              <p className="text-sm text-[#F6B86C]">$29.99</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                  <CardHeader className="space-y-6 p-8 order-1 lg:order-2">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/25">
+                        <Palette className="h-6 w-6 text-white" />
+                      </div>
+                      <Badge className="bg-gradient-to-r from-purple-500/20 to-violet-600/20 text-purple-300 border-purple-500/30">
+                        Revenue Generator
+                      </Badge>
+                    </div>
+                    <CardTitle className="text-2xl text-white">
+                      Fully Branded Tracking Page & AI-Driven Upsells
+                    </CardTitle>
+                    <CardDescription className="text-lg text-white/80">
+                      Create a 100% branded tracking page that seamlessly integrates with your store's aesthetic.
+                      Features AI-driven product recommendations tailored to your customer's purchase history.
+                    </CardDescription>
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-3">
+                        <CheckCircle className="h-5 w-5 text-emerald-400" />
+                        <span className="text-white/90">Increase Average Order Value</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <CheckCircle className="h-5 w-5 text-emerald-400" />
+                        <span className="text-white/90">Reinforce brand identity</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <CheckCircle className="h-5 w-5 text-emerald-400" />
+                        <span className="text-white/90">Drive repeat purchases</span>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </div>
+              </Card>
+
+              {/* Feature 3 - Real-Time Chat */}
+              <Card className="bg-white/10 border-white/20 border-white/20 backdrop-blur-sm overflow-hidden">
+                <div className="grid lg:grid-cols-2 gap-8">
+                  <CardHeader className="space-y-6 p-8">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/25">
+                        <MessageCircle className="h-6 w-6 text-white" />
+                      </div>
+                      <Badge className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-300 border-blue-500/30">
+                        Real-Time Support
+                      </Badge>
+                    </div>
+                    <CardTitle className="text-2xl text-white">
+                      Real-Time Customer Engagement with In-Page Chat
+                    </CardTitle>
+                    <CardDescription className="text-lg text-white/80">
+                      Our tracking page includes a real-time chat feature, allowing customers to get instant answers
+                      directly where they are tracking their order.
+                    </CardDescription>
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-3">
+                        <CheckCircle className="h-5 w-5 text-emerald-400" />
+                        <span className="text-white/90">Provide immediate support</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <CheckCircle className="h-5 w-5 text-emerald-400" />
+                        <span className="text-white/90">Reduce customer frustration</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <CheckCircle className="h-5 w-5 text-emerald-400" />
+                        <span className="text-white/90">Free up support team</span>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 h-full flex items-center justify-center p-8">
+                      <div className="w-full max-w-sm bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-4 space-y-3">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-8 h-8 bg-[#F6B86C]/20 rounded-full flex items-center justify-center">
+                            <span className="text-xs font-medium text-[#F6B86C]">CS</span>
+                          </div>
+                          <div className="flex-1 bg-white/10 rounded-lg p-2">
+                            <p className="text-sm text-white">Hi! How can I help with your order?</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center space-x-2 justify-end">
+                          <div className="flex-1 bg-[#F6B86C]/20 rounded-lg p-2 text-right">
+                            <p className="text-sm text-white">When will my order arrive?</p>
+                          </div>
+                          <div className="w-8 h-8 bg-white/20 rounded-full"></div>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <MessageCircle className="h-4 w-4 text-white/60" />
+                          <Input
+                            placeholder="Type your message..."
+                            className="text-sm bg-white/10 border-white/20 text-white placeholder:text-white/60"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </div>
+              </Card>
+
+              {/* Additional Features Grid */}
+              <div className="grid md:grid-cols-2 gap-8">
+                <Card className="bg-white/10 border-white/20 border-white/20 backdrop-blur-sm">
+                  <CardHeader className="p-8">
+                    <div className="flex items-center space-x-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/25">
+                        <Mail className="h-6 w-6 text-white" />
+                      </div>
+                      <CardTitle className="text-white">Powerful Email Editor & Liquid Support</CardTitle>
+                    </div>
+                    <CardDescription className="text-white/80">
+                      Take complete control over customer communication with our email editor featuring full Liquid
+                      support. Design stunning, personalized updates that match your brand voice perfectly.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card className="bg-white/10 border-white/20 border-white/20 backdrop-blur-sm">
+                  <CardHeader className="p-8">
+                    <div className="flex items-center space-x-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-lg flex items-center justify-center shadow-lg shadow-[#F6B86C]/25">
+                        <Zap className="h-6 w-6 text-[#1E0D43]" />
+                      </div>
+                      <CardTitle className="text-white">Seamless Klaviyo Integration</CardTitle>
+                    </div>
+                    <CardDescription className="text-white/80">
+                      Deep integration with Klaviyo allows you to leverage tracking data within your existing marketing
+                      automation workflows for highly targeted campaigns.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card className="bg-white/10 border-white/20 border-white/20 backdrop-blur-sm">
+                  <CardHeader className="p-8">
+                    <div className="flex items-center space-x-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-rose-500 to-pink-600 rounded-lg flex items-center justify-center shadow-lg shadow-rose-500/25">
+                        <Shield className="h-6 w-6 text-white" />
+                      </div>
+                      <CardTitle className="text-white">Multi-Provider Tracking</CardTitle>
+                    </div>
+                    <CardDescription className="text-white/80">
+                      Aggregate tracking data from multiple shipping providers, ensuring comprehensive and reliable
+                      tracking information for all your orders, regardless of carrier.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card className="bg-white/10 border-white/20 border-white/20 backdrop-blur-sm">
+                  <CardHeader className="p-8">
+                    <div className="flex items-center space-x-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/25">
+                        <BarChart3 className="h-6 w-6 text-white" />
+                      </div>
+                      <CardTitle className="text-white">Delivery Feedback & Analytics</CardTitle>
+                    </div>
+                    <CardDescription className="text-white/80">
+                      Collect and analyze delivery feedback directly on the tracking page. Gain insights into delivery
+                      performance and identify areas for improvement.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </section>
 
       {/* Screenshots Section - How It Works */}
       <section className="py-20 bg-purple-950/15">

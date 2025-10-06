@@ -29,7 +29,7 @@ export default function LandingPage({ params }: HomePageProps) {
       {/* Hero Section */}
       <section className="py-20 lg:py-32 relative overflow-hidden">
         <div className="container mx-auto px-4 text-center">
-          <div className="max-w-5xl mx-auto grid grid-cols-2">
+          <div className="max-w-6xl mx-auto grid grid-cols-2 gap-24">
             <div>
               <h1 className="text-6xl text-left font-bold text-gray-900 mb-6 leading-tight relative animate-fade-in-up">
                 Run Your Store,<br />Not Your Apps.
@@ -54,7 +54,7 @@ export default function LandingPage({ params }: HomePageProps) {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 animate-fade-in-up delay-400">
+              <div className="flex flex-col sm:flex-row gap-6 justify-start mb-16 animate-fade-in-up delay-400">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] px-10 py-6 text-xl font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-2xl shadow-[#F6B86C]/25 hover:shadow-[#F6B86C]/40"
@@ -97,13 +97,13 @@ export default function LandingPage({ params }: HomePageProps) {
                 </div>
               </div>
             </div>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-end items-center">
             <Image
-                src="/shopify.png"
-                alt="Shopify"
+                src="/merchants.png"
+                alt=""
                 width={192}
                 height={192}
-                className="w-24 h-24 md:w-32 md:h-32 lg:w-48 lg:h-48 opacity-20 -rotate-12 animate-float object-contain"
+                className="w-[450px] h-auto -rotate-12 animate-float object-contain"
               />
             </div>
           </div>

@@ -29,7 +29,7 @@ export function Footer() {
             <h3 className="text-white font-semibold mb-4">{t('footer.products')}</h3>
             <ul className="space-y-2">
               <li>
-                <LocaleLink href="/oss-tracking" className="text-white/60 hover:text-[#F6B86C] text-sm transition-colors">
+                <LocaleLink href="/apps/oss-tracking" className="text-white/60 hover:text-[#F6B86C] text-sm transition-colors">
                   OS² Tracking
                 </LocaleLink>
               </li>

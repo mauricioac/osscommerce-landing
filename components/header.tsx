@@ -8,7 +8,7 @@ import { useLocale } from "@/components/locale-provider"
 export function Header() {
   const { t } = useLocale()
   return (
-    <header className="border-b border-white/10 bg-purple-900/15 backdrop-blur-sm sticky top-0 z-50">
+    <header className="border-b bg-white/80 border-white/10 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
           <LocaleLink href="/" className="flex items-center space-x-3">
@@ -31,7 +31,7 @@ export function Header() {
               {t('nav.support')}
             </LocaleLink>
             <Button size="lg"
-            className="bg-white text-[#1E0D43] hover:bg-[#1E0D43] focus:bg-[#1E0D43] active:bg-[#1E0D43] hover:text-white focus:text-white active:text-white px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-200 hover:scale-105 shadow-lg shadow-[#F6B86C]/25"
+            className="bg-[#1E0D43] text-white px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-200 hover:scale-105 shadow-lg shadow-[#F6B86C]/25"
             asChild>
               <LocaleLink href="/apps">{t('nav.exploreApps')}</LocaleLink>
             </Button>
