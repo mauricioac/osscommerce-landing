@@ -1,28 +1,27 @@
-worker_processes 1;
-error_log stderr;
-pid nginx.pid;
-daemon off;
+server {
+  listen {{ $.PORT }};
+  listen [::]:{{ $.PORT }};
+  server_name {{ $.NOSSL_SERVER_NAME }};
 
-events {
-  worker_connections 768;
-}
+  client_max_body_size 1M;
 
-http {
-  client_body_timeout 5;
-  types_hash_max_size 2048;
-  include mime.types;
-  charset UTF-8;
+  {{ if $.NGINX_ROOT }}
+  root {{ $.NGINX_ROOT }};
+  {{ else }}
+  root /app/www/out;
+  {{ end }}
 
-  server {
-    listen {{ $.PORT }};
-    server_name _;
-    client_max_body_size 1M;
-    root /app/www/out;
-    index index.html;
-    port_in_redirect off;
+  index index.html;
+  port_in_redirect off;
 
-    location / {
-      try_files $uri $uri/ $uri.html /index.html;
-    }
+  # Handle trailing slashes for Next.js export
+  location / {
+    try_files $uri $uri.html $uri/ $uri/index.html /index.html;
+  }
+
+  # Cache static assets
+  location ~* \.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2|ttf|eot)$ {
+    expires 1y;
+    add_header Cache-Control "public, immutable";
   }
 }
