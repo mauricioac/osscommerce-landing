@@ -3,7 +3,10 @@
   "description": "OS² Commerce Landing Page - Static Next.js Site",
   "buildpacks": [
     {
-      "url": "https://github.com/dokku/buildpack-nginx.git"
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-static.git"
     }
   ]
 }
