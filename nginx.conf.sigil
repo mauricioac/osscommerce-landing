@@ -1,12 +1,15 @@
 server {
-  listen {{ $.PORT }};
-  listen [::]:{{ $.PORT }};
-  server_name {{ $.NOSSL_SERVER_NAME }};
+  listen {{ .NGINX_PORT }};
+  listen [::]:{{ .NGINX_PORT }};
+  server_name {{ .NOSSL_SERVER_NAME }};
+
+  access_log /var/log/nginx/{{ .APP }}-access.log;
+  error_log /var/log/nginx/{{ .APP }}-error.log;
 
   client_max_body_size 1M;
 
-  {{ if $.NGINX_ROOT }}
-  root {{ $.NGINX_ROOT }};
+  {{ if .NGINX_ROOT }}
+  root {{ .NGINX_ROOT }};
   {{ else }}
   root /app/www/out;
   {{ end }}
