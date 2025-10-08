@@ -19,26 +19,19 @@ import {
 import { LocaleLink } from "@/components/locale-link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Metadata } from "next"
+import { getTranslations } from "@/lib/i18n"
+import { type Locale } from "@/lib/i18n/config"
 
-export const metadata: Metadata = {
-  title: "Support Center | OSS Commerce - Help & Documentation",
-  description: "Get help with OSS Commerce apps. Find documentation, tutorials, FAQs, and contact our support team for Shopify app assistance.",
-  keywords: "Shopify app support, e-commerce help, OSS Commerce documentation, Shopify app tutorials, customer support",
-  openGraph: {
-    title: "Support Center | OSS Commerce",
-    description: "Get help with OSS Commerce apps. Documentation, tutorials, and expert support for your Shopify store.",
-    type: "website",
-    images: ["/oss-logo.png"]
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Support Center | OSS Commerce",
-    description: "Get help with OSS Commerce apps and documentation"
-  }
+interface SupportPageProps {
+  params: Promise<{
+    locale: string
+  }>
 }
 
-export default function SupportPage() {
+export default async function SupportPage({ params }: SupportPageProps) {
+  const { locale } = await params
+  const t = getTranslations(locale as Locale)
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -49,13 +42,13 @@ export default function SupportPage() {
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                We're Here to{" "}
+                {t('support.hero.title')}{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
-                  Help
+                  {t('support.hero.titleHighlight')}
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Find answers, get support, and learn how to make the most of your OSS Commerce apps.
+                {t('support.hero.subtitle')}
               </p>
             </div>
           </div>
@@ -66,13 +59,13 @@ export default function SupportPage() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Get{" "}
+                {t('support.instantHelp.title')}{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
-                  Instant Help
+                  {t('support.instantHelp.titleHighlight')}
                 </span>
               </h2>
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                Choose the support option that works best for you.
+                {t('support.instantHelp.subtitle')}
               </p>
             </div>
 
@@ -82,15 +75,15 @@ export default function SupportPage() {
                   <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25 group-hover:scale-110 transition-transform">
                     <MessageCircle className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Live Chat</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{t('support.liveChat.title')}</h3>
                   <p className="text-gray-700 mb-6 text-sm">
-                    Get instant answers from our support team
+                    {t('support.liveChat.description')}
                   </p>
                   <Button
                     size="sm"
                     className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] text-[#1E0D43] font-semibold"
                   >
-                    Start Chat
+                    {t('support.liveChat.cta')}
                   </Button>
                 </CardContent>
               </Card>
@@ -100,9 +93,9 @@ export default function SupportPage() {
                   <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-purple-500/25 group-hover:scale-110 transition-transform">
                     <Mail className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Email Support</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{t('support.emailSupport.title')}</h3>
                   <p className="text-gray-700 mb-6 text-sm">
-                    Send us a detailed message
+                    {t('support.emailSupport.description')}
                   </p>
                   <Button
                     size="sm"
@@ -110,7 +103,7 @@ export default function SupportPage() {
                     className="border-gray-300 text-gray-700 hover:bg-gray-50"
                     asChild
                   >
-                    <LocaleLink href="/contact">Contact Us</LocaleLink>
+                    <LocaleLink href="/contact">{t('support.emailSupport.cta')}</LocaleLink>
                   </Button>
                 </CardContent>
               </Card>
@@ -120,9 +113,9 @@ export default function SupportPage() {
                   <div className="w-16 h-16 bg-[#1E0D43] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/25 group-hover:scale-110 transition-transform">
                     <Book className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Documentation</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{t('support.documentation.title')}</h3>
                   <p className="text-gray-700 mb-6 text-sm">
-                    Detailed guides and tutorials
+                    {t('support.documentation.description')}
                   </p>
                   <Button
                     size="sm"
@@ -130,7 +123,7 @@ export default function SupportPage() {
                     className="border-gray-300 text-gray-700 hover:bg-gray-50"
                     asChild
                   >
-                    <LocaleLink href="/docs">View Docs</LocaleLink>
+                    <LocaleLink href="/docs">{t('support.documentation.cta')}</LocaleLink>
                   </Button>
                 </CardContent>
               </Card>
@@ -140,16 +133,16 @@ export default function SupportPage() {
                   <div className="w-16 h-16 bg-[#1E0D43] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-500/25 group-hover:scale-110 transition-transform">
                     <Video className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Video Tutorials</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{t('support.videoTutorials.title')}</h3>
                   <p className="text-gray-700 mb-6 text-sm">
-                    Step-by-step video guides
+                    {t('support.videoTutorials.description')}
                   </p>
                   <Button
                     size="sm"
                     variant="outline"
                     className="border-gray-300 text-gray-700 hover:bg-gray-50"
                   >
-                    Watch Videos
+                    {t('support.videoTutorials.cta')}
                   </Button>
                 </CardContent>
               </Card>
@@ -161,9 +154,9 @@ export default function SupportPage() {
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{t('support.faq.title')}</h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                Quick answers to the most common questions about OSS Commerce.
+                {t('support.faq.subtitle')}
               </p>
             </div>
 
@@ -174,11 +167,10 @@ export default function SupportPage() {
                   className="bg-gray-50 border-gray-200 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left text-gray-900 hover:text-[#F6B86C] hover:no-underline">
-                    How do I install OSS Commerce apps?
+                    {t('support.faq.questions.install.question')}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-700">
-                    Installing our apps is simple! Visit the Shopify App Store, search for any OSS Commerce app, and click "Add app."
-                    Our apps integrate seamlessly with your existing Shopify store and can be set up in just a few minutes.
+                    {t('support.faq.questions.install.answer')}
                   </AccordionContent>
                 </AccordionItem>
 
@@ -187,11 +179,10 @@ export default function SupportPage() {
                   className="bg-gray-50 border-gray-200 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left text-gray-900 hover:text-[#F6B86C] hover:no-underline">
-                    What makes OSS Commerce apps different?
+                    {t('support.faq.questions.whatMakesDifferent.question')}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-700">
-                    Our apps are designed to work together as an integrated ecosystem. When you install multiple OSS Commerce apps,
-                    they share data and functionality, creating automated workflows and enhanced features that standalone apps can't provide.
+                    {t('support.faq.questions.whatMakesDifferent.answer')}
                   </AccordionContent>
                 </AccordionItem>
 
@@ -200,11 +191,10 @@ export default function SupportPage() {
                   className="bg-gray-50 border-gray-200 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left text-gray-900 hover:text-[#F6B86C] hover:no-underline">
-                    Do you offer refunds?
+                    {t('support.faq.questions.refunds.question')}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-700">
-                    Yes! We offer a 30-day money-back guarantee on all our apps. If you're not completely satisfied,
-                    contact our support team within 30 days of purchase for a full refund.
+                    {t('support.faq.questions.refunds.answer')}
                   </AccordionContent>
                 </AccordionItem>
 
@@ -213,11 +203,10 @@ export default function SupportPage() {
                   className="bg-gray-50 border-gray-200 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left text-gray-900 hover:text-[#F6B86C] hover:no-underline">
-                    How does the ecosystem discount work?
+                    {t('support.faq.questions.ecosystemDiscount.question')}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-700">
-                    The more OSS Commerce apps you install, the more you save! Discounts are automatically applied:
-                    10% off with 2 apps, 20% off with 3 apps, and 30% off with 4+ apps. No codes needed!
+                    {t('support.faq.questions.ecosystemDiscount.answer')}
                   </AccordionContent>
                 </AccordionItem>
 
@@ -226,11 +215,10 @@ export default function SupportPage() {
                   className="bg-gray-50 border-gray-200 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left text-gray-900 hover:text-[#F6B86C] hover:no-underline">
-                    What support do you provide?
+                    {t('support.faq.questions.whatSupport.question')}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-700">
-                    We provide comprehensive support including live chat, email support, detailed documentation, and video tutorials.
-                    Our support team is available Monday-Friday 9 AM - 6 PM EST.
+                    {t('support.faq.questions.whatSupport.answer')}
                   </AccordionContent>
                 </AccordionItem>
 
@@ -239,11 +227,10 @@ export default function SupportPage() {
                   className="bg-gray-50 border-gray-200 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left text-gray-900 hover:text-[#F6B86C] hover:no-underline">
-                    Can I migrate data from other apps?
+                    {t('support.faq.questions.migrateData.question')}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-700">
-                    Absolutely! We offer free migration assistance for most popular apps. Our team will help you transfer your
-                    data and settings to ensure a smooth transition to OSS Commerce apps.
+                    {t('support.faq.questions.migrateData.answer')}
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -256,10 +243,10 @@ export default function SupportPage() {
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Still Need Help?
+                {t('support.stillNeedHelp.title')}
               </h2>
               <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                Our support team is here to help you succeed. Get in touch and we'll resolve your questions quickly.
+                {t('support.stillNeedHelp.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -267,7 +254,7 @@ export default function SupportPage() {
                   className="bg-[#1E0D43] text-white px-8 py-4 text-lg font-semibold shadow-lg shadow-[#F6B86C]/25"
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
-                  Start Live Chat
+                  {t('support.stillNeedHelp.ctaChat')}
                 </Button>
                 <Button
                   size="lg"
@@ -275,7 +262,7 @@ export default function SupportPage() {
                   className="border-[#1E0D43] text-[#1E0D43] hover:bg-[#1E0D43] hover:text-white bg-transparent px-8 py-4 text-lg"
                   asChild
                 >
-                  <LocaleLink href="/contact">Send Message</LocaleLink>
+                  <LocaleLink href="/contact">{t('support.stillNeedHelp.ctaMessage')}</LocaleLink>
                 </Button>
               </div>
             </div>

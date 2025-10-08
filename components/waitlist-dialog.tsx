@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dialog"
 import { NewsletterForm } from "@/components/newsletter-form"
 import { Bell } from "lucide-react"
+import { useLocale } from "@/components/locale-provider"
 
 interface WaitlistDialogProps {
   appName: string
@@ -24,9 +25,10 @@ export function WaitlistDialog({
   appName,
   appId,
   buttonVariant = "outline",
-  buttonText = "Join Waitlist"
+  buttonText
 }: WaitlistDialogProps) {
   const [open, setOpen] = useState(false)
+  const { t } = useLocale()
 
   const handleSuccess = () => {
     setTimeout(() => {
@@ -51,21 +53,21 @@ export function WaitlistDialog({
           className={getButtonClasses()}
         >
           <Bell className="mr-2 h-4 w-4" />
-          {buttonText}
+          {buttonText || t('waitlist.button')}
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-2xl">Join the {appName} Waitlist</DialogTitle>
+          <DialogTitle className="text-2xl">{t('waitlist.title').replace('{appName}', appName)}</DialogTitle>
           <DialogDescription className="text-base">
-            Be the first to know when {appName} launches. We'll send you an email as soon as it's available.
+            {t('waitlist.description').replace('{appName}', appName)}
           </DialogDescription>
         </DialogHeader>
         <div className="mt-4">
           <NewsletterForm
             size="md"
-            placeholder="Your email address"
-            buttonText="Join Waitlist"
+            placeholder={t('waitlist.placeholder')}
+            buttonText={t('waitlist.button')}
             showIcon={false}
             variant="light"
             source={`waitlist-${appId}`}

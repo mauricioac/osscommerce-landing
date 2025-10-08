@@ -8,26 +8,19 @@ import { Mail, MessageSquare, MapPin, Phone, Clock, Send } from "lucide-react"
 import { LocaleLink } from "@/components/locale-link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Metadata } from "next"
+import { getTranslations } from "@/lib/i18n"
+import { type Locale } from "@/lib/i18n/config"
 
-export const metadata: Metadata = {
-  title: "Contact Us | OSS Commerce - Get Support & Connect",
-  description: "Contact OSS Commerce for support, partnerships, or questions about our Shopify apps. Get expert help with your e-commerce needs.",
-  keywords: "contact OSS Commerce, Shopify app support, e-commerce help, partnership inquiries, customer service",
-  openGraph: {
-    title: "Contact Us | OSS Commerce",
-    description: "Contact OSS Commerce for support, partnerships, or questions about our Shopify apps. Expert e-commerce assistance available.",
-    type: "website",
-    images: ["/oss-logo.png"]
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contact Us | OSS Commerce",
-    description: "Get support and connect with the OSS Commerce team"
-  }
+interface ContactPageProps {
+  params: Promise<{
+    locale: string
+  }>
 }
 
-export default function ContactPage() {
+export default async function ContactPage({ params }: ContactPageProps) {
+  const { locale } = await params
+  const t = getTranslations(locale as Locale)
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Header />
@@ -38,14 +31,13 @@ export default function ContactPage() {
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Let's{" "}
+                {t('contact.hero.title')}{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
-                  Connect
+                  {t('contact.hero.titleHighlight')}
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Have questions about our products? Need support? Want to partner with us?
-                We'd love to hear from you.
+                {t('contact.hero.subtitle')}
               </p>
             </div>
           </div>
@@ -58,9 +50,9 @@ export default function ContactPage() {
               {/* Contact Form */}
               <Card className="bg-white border-gray-200 shadow-lg">
                 <CardHeader className="p-8">
-                  <CardTitle className="text-2xl text-gray-900 mb-2">Send us a Message</CardTitle>
+                  <CardTitle className="text-2xl text-gray-900 mb-2">{t('contact.form.title')}</CardTitle>
                   <p className="text-gray-700">
-                    Fill out the form below and we'll get back to you within 24 hours.
+                    {t('contact.form.subtitle')}
                   </p>
                 </CardHeader>
                 <CardContent className="p-8 pt-0">
@@ -68,23 +60,23 @@ export default function ContactPage() {
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="firstName" className="text-gray-900 font-medium">
-                          First Name
+                          {t('contact.form.firstName')}
                         </Label>
                         <Input
                           id="firstName"
                           type="text"
-                          placeholder="Your first name"
+                          placeholder={t('contact.form.firstNamePlaceholder')}
                           className="bg-white border-gray-300 focus:border-[#F6B86C] text-gray-900 placeholder:text-gray-500"
                         />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="lastName" className="text-gray-900 font-medium">
-                          Last Name
+                          {t('contact.form.lastName')}
                         </Label>
                         <Input
                           id="lastName"
                           type="text"
-                          placeholder="Your last name"
+                          placeholder={t('contact.form.lastNamePlaceholder')}
                           className="bg-white border-gray-300 focus:border-[#F6B86C] text-gray-900 placeholder:text-gray-500"
                         />
                       </div>
@@ -92,35 +84,35 @@ export default function ContactPage() {
 
                     <div className="space-y-2">
                       <Label htmlFor="email" className="text-gray-900 font-medium">
-                        Email Address
+                        {t('contact.form.email')}
                       </Label>
                       <Input
                         id="email"
                         type="email"
-                        placeholder="your@email.com"
+                        placeholder={t('contact.form.emailPlaceholder')}
                         className="bg-white border-gray-300 focus:border-[#F6B86C] text-gray-900 placeholder:text-gray-500"
                       />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="subject" className="text-gray-900 font-medium">
-                        Subject
+                        {t('contact.form.subject')}
                       </Label>
                       <Input
                         id="subject"
                         type="text"
-                        placeholder="What's this about?"
+                        placeholder={t('contact.form.subjectPlaceholder')}
                         className="bg-white border-gray-300 focus:border-[#F6B86C] text-gray-900 placeholder:text-gray-500"
                       />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="message" className="text-gray-900 font-medium">
-                        Message
+                        {t('contact.form.message')}
                       </Label>
                       <Textarea
                         id="message"
-                        placeholder="Tell us more about your inquiry..."
+                        placeholder={t('contact.form.messagePlaceholder')}
                         rows={5}
                         className="bg-white border-gray-300 focus:border-[#F6B86C] text-gray-900 placeholder:text-gray-500 resize-none"
                       />
@@ -131,7 +123,7 @@ export default function ContactPage() {
                       size="lg"
                       className="w-full bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] font-semibold shadow-lg shadow-[#F6B86C]/25"
                     >
-                      Send Message
+                      {t('contact.form.send')}
                       <Send className="ml-2 h-5 w-5" />
                     </Button>
                   </form>
@@ -147,12 +139,12 @@ export default function ContactPage() {
                         <Mail className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900">Email Us</h3>
-                        <p className="text-gray-600">Get in touch via email</p>
+                        <h3 className="text-lg font-semibold text-gray-900">{t('contact.info.email.title')}</h3>
+                        <p className="text-gray-600">{t('contact.info.email.subtitle')}</p>
                       </div>
                     </div>
-                    <p className="text-gray-900 font-medium">hello@osscommerce.com</p>
-                    <p className="text-gray-700 text-sm mt-1">We typically respond within 24 hours</p>
+                    <p className="text-gray-900 font-medium">{t('contact.info.email.address')}</p>
+                    <p className="text-gray-700 text-sm mt-1">{t('contact.info.email.response')}</p>
                   </CardContent>
                 </Card>
 
@@ -163,19 +155,19 @@ export default function ContactPage() {
                         <MessageSquare className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900">Live Chat</h3>
-                        <p className="text-gray-600">Chat with our support team</p>
+                        <h3 className="text-lg font-semibold text-gray-900">{t('contact.info.chat.title')}</h3>
+                        <p className="text-gray-600">{t('contact.info.chat.subtitle')}</p>
                       </div>
                     </div>
                     <p className="text-gray-700 text-sm">
-                      Available Monday to Friday, 9 AM - 6 PM EST
+                      {t('contact.info.chat.availability')}
                     </p>
                     <Button
                       variant="outline"
                       size="sm"
                       className="mt-3 border-gray-300 text-gray-700 hover:bg-gray-50"
                     >
-                      Start Chat
+                      {t('contact.info.chat.cta')}
                     </Button>
                   </CardContent>
                 </Card>
@@ -187,22 +179,22 @@ export default function ContactPage() {
                         <Clock className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900">Business Hours</h3>
-                        <p className="text-gray-600">When we're available</p>
+                        <h3 className="text-lg font-semibold text-gray-900">{t('contact.info.hours.title')}</h3>
+                        <p className="text-gray-600">{t('contact.info.hours.subtitle')}</p>
                       </div>
                     </div>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-gray-700">Monday - Friday:</span>
-                        <span className="text-gray-900">9:00 AM - 6:00 PM EST</span>
+                        <span className="text-gray-700">{t('contact.info.hours.weekdays')}</span>
+                        <span className="text-gray-900">{t('contact.info.hours.weekdays_hours')}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-gray-700">Saturday:</span>
-                        <span className="text-gray-900">10:00 AM - 2:00 PM EST</span>
+                        <span className="text-gray-700">{t('contact.info.hours.saturday')}</span>
+                        <span className="text-gray-900">{t('contact.info.hours.saturday_hours')}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-gray-700">Sunday:</span>
-                        <span className="text-gray-600">Closed</span>
+                        <span className="text-gray-700">{t('contact.info.hours.sunday')}</span>
+                        <span className="text-gray-600">{t('contact.info.hours.sunday_hours')}</span>
                       </div>
                     </div>
                   </CardContent>
@@ -217,13 +209,13 @@ export default function ContactPage() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Looking for{" "}
+                {t('contact.quickAnswers.title')}{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
-                  Quick Answers?
+                  {t('contact.quickAnswers.titleHighlight')}
                 </span>
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                Check out these helpful resources before reaching out.
+                {t('contact.quickAnswers.subtitle')}
               </p>
             </div>
 
@@ -233,16 +225,16 @@ export default function ContactPage() {
                   <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25 group-hover:scale-110 transition-transform">
                     <MessageSquare className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Support Center</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{t('contact.supportCenter.title')}</h3>
                   <p className="text-gray-700 mb-6">
-                    Find answers to common questions and troubleshooting guides.
+                    {t('contact.supportCenter.description')}
                   </p>
                   <Button
                     variant="outline"
                     className="border-gray-300 text-gray-700 hover:bg-gray-50"
                     asChild
                   >
-                    <LocaleLink href="/support">Visit Support</LocaleLink>
+                    <LocaleLink href="/support">{t('contact.supportCenter.cta')}</LocaleLink>
                   </Button>
                 </CardContent>
               </Card>
@@ -252,15 +244,15 @@ export default function ContactPage() {
                   <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25 group-hover:scale-110 transition-transform">
                     <Mail className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Documentation</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{t('contact.documentation.title')}</h3>
                   <p className="text-gray-700 mb-6">
-                    Detailed guides and API documentation for developers.
+                    {t('contact.documentation.description')}
                   </p>
                   <Button
                     variant="outline"
                     className="border-gray-300 text-gray-700 hover:bg-gray-50"
                   >
-                    View Docs
+                    {t('contact.documentation.cta')}
                   </Button>
                 </CardContent>
               </Card>

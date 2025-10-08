@@ -12,6 +12,8 @@ import { notFound } from "next/navigation"
 import { Metadata } from "next"
 import { StructuredData } from "@/components/structured-data"
 import { articleSchema } from "@/components/seo"
+import { getTranslations } from "@/lib/i18n"
+import { type Locale } from "@/lib/i18n/config"
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -20,41 +22,9 @@ interface BlogPostPageProps {
   }>
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { slug, locale } = await params
-  const post = getPostBySlug(slug, locale)
-  
-  if (!post) {
-    return {
-      title: "Post Not Found | OS² Commerce"
-    }
-  }
-
-  return {
-    title: `${post.title} | OS² Commerce Blog`,
-    description: post.excerpt || `Read ${post.title} on the OS² Commerce blog. Expert e-commerce insights and Shopify tips.`,
-    keywords: `${post.tags.join(", ")}, e-commerce, Shopify, OS² Commerce, ${post.author}`,
-    authors: [{ name: post.author }],
-    openGraph: {
-      title: post.title,
-      description: post.excerpt || `Read ${post.title} on the OS² Commerce blog`,
-      type: "article",
-      images: post.image ? [post.image] : ["/oss-logo.png"],
-      authors: [post.author],
-      publishedTime: post.date,
-      tags: post.tags
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt || `Read ${post.title} on the OS² Commerce blog`,
-      images: post.image ? [post.image] : ["/oss-logo.png"]
-    }
-  }
-}
-
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug, locale } = await params
+  const t = getTranslations(locale as Locale)
   const post = getPostBySlug(slug, locale)
 
   if (!post) {
@@ -94,7 +64,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               >
                 <LocaleLink href="/blog">
                   <ArrowLeft className="mr-2 h-4 w-4" />
-                  Back to Blog
+                  {t('blog.post.backToBlog')}
                 </LocaleLink>
               </Button>
 
@@ -102,7 +72,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <div className="flex flex-wrap items-center gap-3 mb-6">
                 {post.featured && (
                   <Badge className="bg-gradient-to-r from-[#F6B86C]/20 to-[#FF8C42]/20 text-[#F6B86C] border-[#F6B86C]/30">
-                    Featured
+                    {t('blog.featured')}
                   </Badge>
                 )}
                 {post.tags.map((tag) => (
@@ -148,7 +118,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
                 >
                   <Share2 className="mr-2 h-4 w-4" />
-                  Share
+                  {t('blog.post.share')}
                 </Button>
               </div>
             </div>
@@ -200,7 +170,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         <CardContent className="p-6">
                           <div className="flex items-center gap-2 text-gray-600 text-sm mb-3">
                             <ArrowLeft className="h-4 w-4" />
-                            <span>Previous Article</span>
+                            <span>{t('blog.post.previousArticle')}</span>
                           </div>
                           <LocaleLink href={`/blog/${prevPost.slug}`} className="block">
                             <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#F6B86C] transition-colors line-clamp-2">
@@ -223,7 +193,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       <Card className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group h-full">
                         <CardContent className="p-6 text-right">
                           <div className="flex items-center justify-end gap-2 text-gray-600 text-sm mb-3">
-                            <span>Next Article</span>
+                            <span>{t('blog.post.nextArticle')}</span>
                             <ArrowRight className="h-4 w-4" />
                           </div>
                           <LocaleLink href={`/blog/${nextPost.slug}`} className="block">
@@ -252,7 +222,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="container mx-auto px-4">
               <div className="max-w-6xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-                  Related{" "}
+                  {t('blog.post.relatedArticles')}{" "}
                   <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
                     Articles
                   </span>
@@ -290,7 +260,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                           asChild
                         >
                           <LocaleLink href={`/blog/${relatedPost.slug}`}>
-                            Read Article
+                            {t('blog.post.readArticle')}
                           </LocaleLink>
                         </Button>
                       </CardContent>
@@ -307,10 +277,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-2xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Ready to Transform Your Store?
+                {t('blog.post.cta.title')}
               </h2>
               <p className="text-xl text-gray-700 mb-8">
-                Discover how OS² Commerce can help you implement the strategies discussed in this article.
+                {t('blog.post.cta.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -319,7 +289,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   asChild
                 >
                   <LocaleLink href="/">
-                    Explore Our Apps
+                    {t('blog.post.cta.exploreApps')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </LocaleLink>
                 </Button>
@@ -329,7 +299,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent px-8 py-4 text-lg"
                   asChild
                 >
-                  <LocaleLink href="/contact">Get in Touch</LocaleLink>
+                  <LocaleLink href="/contact">{t('blog.post.cta.getInTouch')}</LocaleLink>
                 </Button>
               </div>
             </div>

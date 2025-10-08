@@ -31,17 +31,15 @@ export default function LandingPage({ params }: HomePageProps) {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-6xl mx-auto grid grid-cols-2 gap-24">
             <div>
-              <h1 className="text-6xl text-left font-bold text-gray-900 mb-6 leading-tight relative animate-fade-in-up">
-                Run Your Store,<br />Not Your Apps.
-              </h1>
+              <h1 className="text-6xl text-left font-bold text-gray-900 mb-6 leading-tight relative animate-fade-in-up" dangerouslySetInnerHTML={{ __html: t('home.hero.title') }}></h1>
 
               <p className="text-lg text-left text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed animate-fade-in-up delay-200">
-                OSS Commerce gives Shopify merchants one streamlined system to manage, sell, and scale.
+                {t('home.hero.subtitle')}
               </p>
 
               {/* Shopify Partnership Indicator */}
               <div className="flex items-center gap-3 mb-12 animate-fade-in-up delay-300">
-                <span className="text-gray-600 text-lg">Built exclusively for</span>
+                <span className="text-gray-600 text-lg">{t('home.hero.builtFor')}</span>
                 <div className="flex items-center gap-2 backdrop-blur-sm rounded-lg">
                   <Image
                     src="/shopify_black.png"
@@ -61,7 +59,7 @@ export default function LandingPage({ params }: HomePageProps) {
                   asChild
                 >
                   <LocaleLink href="/apps">
-                    Explore the Suite
+                    {t('home.hero.explore')}
                     <ArrowRight className="ml-3 h-6 w-6" />
                   </LocaleLink>
                 </Button>
@@ -71,7 +69,7 @@ export default function LandingPage({ params }: HomePageProps) {
                   className="border-2 border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent px-10 py-6 text-xl backdrop-blur-sm rounded-xl"
                   asChild
                 >
-                  <LocaleLink href="/about">Learn More</LocaleLink>
+                  <LocaleLink href="/about">{t('home.hero.learnMore')}</LocaleLink>
                 </Button>
               </div>
 
@@ -81,19 +79,19 @@ export default function LandingPage({ params }: HomePageProps) {
                   <div className="w-20 h-20 border-[#F6B86C] border rounded-full flex items-center justify-center mx-auto text-xl mb-3">
                     <Brain className="text-[#F6B86C] w-10 h-10" />
                   </div>
-                  <div className="text-gray-600">powered by AI</div>
+                  <div className="text-gray-600">{t('home.hero.stats.ai')}</div>
                 </div>
                 <div className="text-center">
                   <div className="w-20 h-20 border-[#F6B86C] border rounded-full flex items-center justify-center mx-auto text-xl mb-3">
                     <Brain className="text-[#F6B86C] w-10 h-10" />
                   </div>
-                  <div className="text-gray-600">Multilingual support</div>
+                  <div className="text-gray-600">{t('home.hero.stats.multilingual')}</div>
                 </div>
                 <div className="text-center">
                   <div className="w-20 h-20 border-[#F6B86C] border rounded-full flex items-center justify-center mx-auto text-xl mb-3">
                     <Brain className="text-[#F6B86C] w-10 h-10" />
                   </div>
-                  <div className="text-gray-600">Uptime Guarantee</div>
+                  <div className="text-gray-600">{t('home.hero.stats.uptime')}</div>
                 </div>
               </div>
             </div>
@@ -116,12 +114,11 @@ export default function LandingPage({ params }: HomePageProps) {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               <span className="bg-gradient-to-r from-emerald-400 to-[#F6B86C] bg-clip-text text-transparent">
-                Why choose OSS Commerce?
+                {t('home.why.title')}
               </span>
             </h2>
             <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed">
-              Each app in the OS² Commerce suite is powerful on its own. Together, they create a seamless, unified
-              system for managing and growing your e-commerce business.
+              {t('home.why.subtitle')}
             </p>
           </div>
 
@@ -131,9 +128,9 @@ export default function LandingPage({ params }: HomePageProps) {
                 <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25 group-hover:shadow-[#F6B86C]/40 transition-all">
                   <BarChart3 className="h-10 w-10 text-[#1E0D43]" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Extended Behavior</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{t('home.why.extended.title')}</h3>
                 <p className="text-white/80 leading-relaxed text-lg">
-                  Get behaviors from one app into the other without any extra work. Data flows seamlessly between applications.
+                  {t('home.why.extended.description')}
                 </p>
               </CardContent>
             </Card>
@@ -143,9 +140,9 @@ export default function LandingPage({ params }: HomePageProps) {
                 <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-purple-500/25 group-hover:shadow-purple-500/40 transition-all">
                   <Workflow className="h-10 w-10 text-[#1E0D43]" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Automated Workflows</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{t('home.why.automated.title')}</h3>
                 <p className="text-white/80 leading-relaxed text-lg">
-                  Actions in one app trigger actions in another. Create sophisticated automation without complex setup.
+                  {t('home.why.automated.description')}
                 </p>
               </CardContent>
             </Card>
@@ -155,9 +152,9 @@ export default function LandingPage({ params }: HomePageProps) {
                 <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/25 group-hover:shadow-emerald-500/40 transition-all">
                   <Users className="h-10 w-10 text-[#1E0D43]" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Unified Support</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{t('home.why.unified.title')}</h3>
                 <p className="text-white/80 leading-relaxed text-lg">
-                  One team supports all your apps. No more bouncing between different vendors when issues arise.
+                  {t('home.why.unified.description')}
                 </p>
               </CardContent>
             </Card>
@@ -167,9 +164,9 @@ export default function LandingPage({ params }: HomePageProps) {
                 <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/25 group-hover:shadow-emerald-500/40 transition-all">
                   <Users className="h-10 w-10 text-[#1E0D43]" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Mulilingual Help</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{t('home.why.multilingualHelp.title')}</h3>
                 <p className="text-white/80 leading-relaxed text-lg">
-                  One team speaks English and Portuguese (Brazil).
+                  {t('home.why.multilingualHelp.description')}
                 </p>
               </CardContent>
             </Card>
@@ -179,9 +176,9 @@ export default function LandingPage({ params }: HomePageProps) {
                 <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/25 group-hover:shadow-emerald-500/40 transition-all">
                   <Users className="h-10 w-10 text-[#1E0D43]" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Admin & User Multilanguage</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{t('home.why.adminMultilanguage.title')}</h3>
                 <p className="text-white/80 leading-relaxed text-lg">
-                  Both our admin screens and anything user facing is translatable.
+                  {t('home.why.adminMultilanguage.description')}
                 </p>
               </CardContent>
             </Card>
@@ -191,9 +188,9 @@ export default function LandingPage({ params }: HomePageProps) {
                 <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/25 group-hover:shadow-emerald-500/40 transition-all">
                   <Users className="h-10 w-10 text-[#1E0D43]" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">AI-powered</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{t('home.why.ai.title')}</h3>
                 <p className="text-white/80 leading-relaxed text-lg">
-                  Our apps all have features that use AI to
+                  {t('home.why.ai.description')}
                 </p>
               </CardContent>
             </Card>
@@ -207,13 +204,13 @@ export default function LandingPage({ params }: HomePageProps) {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-                Featured{" "}
+                {t('home.featured.title')}{" "}
                 <span className="bg-gradient-to-r from-emerald-400 to-[#F6B86C] bg-clip-text text-transparent">
-                  Applications
+                  {t('home.featured.titleHighlight')}
                 </span>
               </h2>
               <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-                Discover our powerful Shopify applications designed to work together seamlessly and transform your e-commerce operations.
+                {t('home.featured.subtitle')}
               </p>
             </div>
 
@@ -232,7 +229,7 @@ export default function LandingPage({ params }: HomePageProps) {
                         />
                       </div>
                       <Badge className="bg-emerald-100 text-emerald-800 border-emerald-200">
-                        Available Now
+                        {t('home.featured.available')}
                       </Badge>
                     </div>
                     <p className="text-gray-700 mb-6 leading-relaxed">
@@ -246,7 +243,7 @@ export default function LandingPage({ params }: HomePageProps) {
                           asChild
                         >
                           <a href={app.shopifyUrl} target="_blank" rel="noopener noreferrer">
-                            Install Now
+                            {t('home.featured.install')}
                             <ArrowRight className="ml-2 h-4 w-4" />
                           </a>
                         </Button>
@@ -255,7 +252,7 @@ export default function LandingPage({ params }: HomePageProps) {
                           className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-white font-semibold"
                           disabled
                         >
-                          Coming Soon
+                          {t('home.featured.comingSoon')}
                         </Button>
                       ) : (
                         <Button
@@ -263,7 +260,7 @@ export default function LandingPage({ params }: HomePageProps) {
                           asChild
                         >
                           <a href={app.shopifyUrl || '#'} target="_blank" rel="noopener noreferrer">
-                            Join Beta
+                            {t('home.featured.joinBeta')}
                             <ArrowRight className="ml-2 h-4 w-4" />
                           </a>
                         </Button>
@@ -277,7 +274,7 @@ export default function LandingPage({ params }: HomePageProps) {
                         asChild
                       >
                         <LocaleLink href={app.landingPage || `/apps/${app.id}`}>
-                          Learn More
+                          {t('home.featured.learnMore')}
                         </LocaleLink>
                       </Button>
                     </div>
@@ -294,7 +291,7 @@ export default function LandingPage({ params }: HomePageProps) {
                 asChild
               >
                 <LocaleLink href="/apps">
-                  View All Applications
+                  {t('home.featured.viewAll')}
                   <ArrowRight className="ml-3 h-5 w-5" />
                 </LocaleLink>
               </Button>
@@ -309,11 +306,10 @@ export default function LandingPage({ params }: HomePageProps) {
         <div className="container mx-auto px-4 text-center relative">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              Ready to Transform Your Store?
+              {t('home.cta.title')}
             </h2>
             <p className="text-xl md:text-2xl text-gray-700 mb-12 leading-relaxed max-w-3xl mx-auto">
-              Join thousands of merchants who have upgraded their e-commerce operations with OS² Commerce.
-              Start with any app and experience the power of an integrated ecosystem.
+              {t('home.cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button
@@ -322,7 +318,7 @@ export default function LandingPage({ params }: HomePageProps) {
                 asChild
               >
                 <LocaleLink href="/apps">
-                  Get Started Now
+                  {t('home.cta.getStarted')}
                   <ArrowRight className="ml-3 h-6 w-6" />
                 </LocaleLink>
               </Button>
@@ -332,7 +328,7 @@ export default function LandingPage({ params }: HomePageProps) {
                 className="border-2 border-[#1E0D43]/50 text-[#1E0D43] hover:bg-[#1E0D43]/10 bg-transparent px-10 py-6 text-xl backdrop-blur-sm rounded-xl"
                 asChild
               >
-                <LocaleLink href="/contact">Talk to an Expert</LocaleLink>
+                <LocaleLink href="/contact">{t('home.cta.talkToExpert')}</LocaleLink>
               </Button>
             </div>
           </div>

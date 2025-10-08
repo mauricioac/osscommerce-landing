@@ -8,24 +8,8 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { NewsletterForm } from "@/components/newsletter-form"
 import { getAllPosts, paginatePosts } from "@/lib/blog"
-import { Metadata } from "next"
-
-export const metadata: Metadata = {
-  title: "Blog | OS² Commerce - E-commerce Insights & Updates",
-  description: "Stay informed with the latest e-commerce trends, Shopify tips, product updates, and insights from the OS² Commerce team. Expert advice for growing your online business.",
-  keywords: "e-commerce blog, Shopify tips, online business insights, e-commerce trends, digital marketing, OS² Commerce updates",
-  openGraph: {
-    title: "Blog | OS² Commerce - E-commerce Insights & Updates",
-    description: "Expert e-commerce insights, Shopify tips, and the latest updates from OS² Commerce. Your go-to resource for growing your online business.",
-    type: "website",
-    images: ["/oss-logo.png"]
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Blog | OS² Commerce",
-    description: "Expert e-commerce insights and Shopify tips for growing your online business"
-  }
-}
+import { getTranslations } from "@/lib/i18n"
+import { type Locale } from "@/lib/i18n/config"
 
 interface BlogPageProps {
   params: Promise<{
@@ -35,6 +19,7 @@ interface BlogPageProps {
 
 export default async function BlogPage({ params }: BlogPageProps) {
   const { locale } = await params
+  const t = getTranslations(locale as Locale)
   const allPosts = getAllPosts(locale)
   const { posts, totalPages, currentPage } = paginatePosts(allPosts, 1, 6)
 
@@ -48,16 +33,16 @@ export default async function BlogPage({ params }: BlogPageProps) {
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
               <Badge className="bg-gradient-to-r from-[#F6B86C]/20 to-[#FF8C42]/20 text-[#F6B86C] border-[#F6B86C]/30 hover:bg-[#F6B86C]/10 mb-6">
-                📖 Our Blog
+                {t('blog.hero.badge')}
               </Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Insights &{" "}
+                {t('blog.hero.title')}{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
-                  Updates
+                  {t('blog.hero.titleHighlight')}
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                Stay informed with the latest e-commerce trends, product updates, and insights from the OS² Commerce team.
+                {t('blog.hero.subtitle')}
               </p>
             </div>
           </div>
@@ -73,16 +58,16 @@ export default async function BlogPage({ params }: BlogPageProps) {
                   <div className="w-24 h-24 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25">
                     <Calendar className="h-12 w-12 text-[#1E0D43]" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">No Posts Yet</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{t('blog.empty.title')}</h3>
                   <p className="text-gray-700 mb-8">
-                    We're working on some amazing content for you. Check back soon for the latest insights and updates!
+                    {t('blog.empty.description')}
                   </p>
                   <Button
                     variant="outline"
                     className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent"
                     asChild
                   >
-                    <LocaleLink href="/">Back to Home</LocaleLink>
+                    <LocaleLink href="/">{t('blog.empty.backHome')}</LocaleLink>
                   </Button>
                 </div>
               </div>
@@ -96,7 +81,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
                         <div className="flex items-center gap-2 mb-3">
                           {post.featured && (
                             <Badge className="bg-gradient-to-r from-[#F6B86C]/20 to-[#FF8C42]/20 text-[#F6B86C] border-[#F6B86C]/30">
-                              Featured
+                              {t('blog.featured')}
                             </Badge>
                           )}
                           {post.tags.slice(0, 2).map((tag) => (
@@ -134,7 +119,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
                           asChild
                         >
                           <LocaleLink href={`/blog/${post.slug}`}>
-                            Read More
+                            {t('blog.readMore')}
                             <ArrowRight className="ml-2 h-4 w-4" />
                           </LocaleLink>
                         </Button>
@@ -151,7 +136,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
                       disabled={currentPage === 1}
                       className="border-gray-300 text-gray-700 hover:bg-gray-100 disabled:opacity-50"
                     >
-                      Previous
+                      {t('blog.pagination.previous')}
                     </Button>
 
                     <div className="flex items-center gap-2">
@@ -176,7 +161,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
                       disabled={currentPage === totalPages}
                       className="border-gray-300 text-gray-700 hover:bg-gray-100 disabled:opacity-50"
                     >
-                      Next
+                      {t('blog.pagination.next')}
                     </Button>
                   </div>
                 )}
@@ -190,15 +175,15 @@ export default async function BlogPage({ params }: BlogPageProps) {
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-2xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Never Miss an Update
+                {t('blog.newsletter.title')}
               </h2>
               <p className="text-xl text-gray-700 mb-8">
-                Subscribe to our newsletter and get the latest e-commerce insights delivered to your inbox.
+                {t('blog.newsletter.subtitle')}
               </p>
               <NewsletterForm
                 size="lg"
-                placeholder="Your email address"
-                buttonText="Subscribe"
+                placeholder={t('blog.newsletter.placeholder')}
+                buttonText={t('blog.newsletter.subscribe')}
                 showIcon={true}
                 variant="light"
                 source="blog"

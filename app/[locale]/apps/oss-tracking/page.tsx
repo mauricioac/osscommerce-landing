@@ -10,6 +10,7 @@ import { Footer } from "@/components/footer";
 import { VideoModal } from "@/components/video-modal";
 import { type Locale } from "@/lib/i18n/config";
 import { Input } from "@/components/ui/input"
+import { getTranslations } from "@/lib/i18n"
 
 
 interface TrackingPageProps {
@@ -20,6 +21,7 @@ interface TrackingPageProps {
 
 export default async function OSTrackingPage({ params }: TrackingPageProps) {
   const { locale } = await params;
+  const t = getTranslations(locale);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
@@ -51,7 +53,7 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                   className="inline-flex text-[#1E0D43] transition-colors mb-8 font-medium"
                 >
                   <ArrowLeft className="mr-2 h-4 w-4 relative top-1" />
-                  Back to Apps
+                  {t('tracking.hero.back')}
                 </LocaleLink>
 
                 {/* Large Logo Section */}
@@ -68,32 +70,31 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                 </div>
 
                 <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight text-center lg:text-left">
-                  Stop losing{" "}
+                  {t('tracking.hero.title')}{" "}
                   <span className="bg-gradient-to-r from-brand-primary to-brand-primary-dark bg-clip-text text-transparent">
-                    $$$
+                    {t('tracking.hero.titleHighlight')}
                   </span>{" "}
-                  every month
+                  {t('tracking.hero.titleEnd')}
                 </h1>
 
                 <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed text-center lg:text-left">
-                  Turn your biggest customer service headache into your most powerful revenue driver.
-                  OS² Tracking transforms "Where is my order?" into repeat purchases and upsells.
+                  {t('tracking.hero.subtitle')}
                 </p>
 
                 {/* Problem Stats */}
                 <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-6 mb-8 border border-gray-200 shadow-sm">
                   <div className="flex items-center mb-4">
                     <AlertTriangle className="h-6 w-6 text-red-600 mr-3" />
-                    <h3 className="text-lg font-semibold text-gray-900">The Hidden Cost of Poor Tracking</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">{t('tracking.hero.hiddenCost.title')}</h3>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <div className="text-2xl font-bold text-red-600">73%</div>
-                      <div className="text-gray-600 text-sm">of customers contact support about shipping</div>
+                      <div className="text-gray-600 text-sm">{t('tracking.hero.hiddenCost.customersContact')}</div>
                     </div>
                     <div>
                       <div className="text-2xl font-bold text-red-600">$2-40k</div>
-                      <div className="text-gray-600 text-sm">average monthly loss from missed opportunities</div>
+                      <div className="text-gray-600 text-sm">{t('tracking.hero.hiddenCost.monthlyLoss')}</div>
                     </div>
                   </div>
                 </div>
@@ -106,13 +107,13 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                     asChild
                   >
                     <a href="https://apps.shopify.com/oss-tracking" target="_blank" rel="noopener noreferrer">
-                      Get started in 5 minutes
+                      {t('tracking.hero.cta.getStarted')}
                       <ArrowRight className="ml-2 h-6 w-6" />
                     </a>
                   </Button>
                   <VideoModal
                     videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    buttonText="See How It Works"
+                    buttonText={t('tracking.hero.cta.howItWorks')}
                     buttonSize="lg"
                     buttonVariant="outline"
                     buttonClassName="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white bg-white px-8 py-6 text-xl shadow-md"
@@ -123,15 +124,15 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                 <div className="flex items-center gap-6 text-center lg:text-left">
                   <div>
                     <div className="text-2xl font-bold text-brand-primary">5 min</div>
-                    <div className="text-gray-600 text-sm">Setup Time</div>
+                    <div className="text-gray-600 text-sm">{t('tracking.hero.benefits.setup')}</div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-brand-primary">1-Click</div>
-                    <div className="text-gray-600 text-sm">Installation</div>
+                    <div className="text-gray-600 text-sm">{t('tracking.hero.benefits.install')}</div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-brand-primary">24/7</div>
-                    <div className="text-gray-600 text-sm">Support</div>
+                    <div className="text-gray-600 text-sm">{t('tracking.hero.benefits.support')}</div>
                   </div>
                 </div>
               </div>
@@ -159,8 +160,8 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                     </div>
                   </div>
                   <div className="text-center mt-4">
-                    <p className="text-brand-primary">Branded Tracking Page</p>
-                    <p className="text-gray-600 text-sm">Turn every delivery into a sales opportunity</p>
+                    <p className="text-brand-primary">{t('tracking.hero.brandedPage.title')}</p>
+                    <p className="text-gray-600 text-sm">{t('tracking.hero.brandedPage.subtitle')}</p>
                   </div>
                 </div>
               </div>
@@ -174,38 +175,38 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-              Your Tracking System Is{" "}
-              <span className="text-orange-300">Bleeding Money</span>
+              {t('tracking.problem.title')}{" "}
+              <span className="text-orange-300">{t('tracking.problem.titleHighlight')}</span>
             </h2>
             <p className="text-xl text-slate-300 mb-16 max-w-4xl mx-auto">
-              Every day customers can't track their orders is another day of lost revenue, frustrated customers, and missed opportunities.
+              {t('tracking.problem.subtitle')}
             </p>
 
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="bg-white border-gray-200 shadow-lg">
                 <CardContent className="p-8 text-center">
                   <MessageSquare className="h-16 w-16 text-red-600 mx-auto mb-6" />
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Support Ticket Hell</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{t('tracking.problem.supportHell.title')}</h3>
                   <div className="text-3xl font-bold text-red-600 mb-2">73%</div>
-                  <p className="text-gray-700">of support tickets are "Where is my order?" costing you $2,340 per month in support time</p>
+                  <p className="text-gray-700">{t('tracking.problem.supportHell.description')}</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-white border-gray-200 shadow-lg">
                 <CardContent className="p-8 text-center">
                   <DollarSign className="h-16 w-16 text-orange-600 mx-auto mb-6" />
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Lost Revenue</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{t('tracking.problem.lostRevenue.title')}</h3>
                   <div className="text-3xl font-bold text-orange-600 mb-2">$2-40k</div>
-                  <p className="text-gray-700">missed upselling opportunities per month because you're not engaging customers during delivery</p>
+                  <p className="text-gray-700">{t('tracking.problem.lostRevenue.description')}</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-white border-gray-200 shadow-lg">
                 <CardContent className="p-8 text-center">
                   <TrendingUp className="h-16 w-16 text-red-600 mx-auto mb-6" />
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Customer Churn</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{t('tracking.problem.customerChurn.title')}</h3>
                   <div className="text-3xl font-bold text-red-600 mb-2">34%</div>
-                  <p className="text-gray-700">of customers won't order again after a poor delivery experience</p>
+                  <p className="text-gray-700">{t('tracking.problem.customerChurn.description')}</p>
                 </CardContent>
               </Card>
             </div>
@@ -219,74 +220,73 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Transform Every Delivery Into{" "}
+                {t('tracking.solution.title')}{" "}
                 <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                  Revenue Growth
+                  {t('tracking.solution.titleHighlight')}
                 </span>
               </h2>
               <p className="text-xl text-gray-700 max-w-4xl mx-auto">
-                OS² Tracking turns your biggest customer service problem into your most profitable customer touchpoint.
-                Watch frustrated customers become repeat buyers.
+                {t('tracking.solution.subtitle')}
               </p>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-6">Before OS² Tracking</h3>
+                <h3 className="text-3xl font-bold text-gray-900 mb-6">{t('tracking.solution.before.title')}</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
                       <span className="text-white font-bold">✗</span>
                     </div>
-                    <p className="text-gray-700">Generic carrier tracking pages with zero branding</p>
+                    <p className="text-gray-700">{t('tracking.solution.before.generic')}</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
                       <span className="text-white font-bold">✗</span>
                     </div>
-                    <p className="text-gray-700">Customers calling/emailing about every shipment</p>
+                    <p className="text-gray-700">{t('tracking.solution.before.calls')}</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
                       <span className="text-white font-bold">✗</span>
                     </div>
-                    <p className="text-gray-700">Zero revenue generated during the delivery window</p>
+                    <p className="text-gray-700">{t('tracking.solution.before.zeroRevenue')}</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
                       <span className="text-white font-bold">✗</span>
                     </div>
-                    <p className="text-gray-700">Delivery delays create angry customers</p>
+                    <p className="text-gray-700">{t('tracking.solution.before.delays')}</p>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-6">After OS² Tracking</h3>
+                <h3 className="text-3xl font-bold text-gray-900 mb-6">{t('tracking.solution.after.title')}</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
                       <CheckCircle className="h-5 w-5 text-white" />
                     </div>
-                    <p className="text-gray-700">Branded tracking pages that reinforce your brand</p>
+                    <p className="text-gray-700">{t('tracking.solution.after.branded')}</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
                       <CheckCircle className="h-5 w-5 text-white" />
                     </div>
-                    <p className="text-gray-700">Proactive notifications eliminate 89% of support tickets</p>
+                    <p className="text-gray-700">{t('tracking.solution.after.proactive')}</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
                       <CheckCircle className="h-5 w-5 text-white" />
                     </div>
-                    <p className="text-gray-700">Average 47% increase in repeat purchases</p>
+                    <p className="text-gray-700">{t('tracking.solution.after.repeat')}</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
                       <CheckCircle className="h-5 w-5 text-white" />
                     </div>
-                    <p className="text-gray-700">Delivery delays become upselling opportunities</p>
+                    <p className="text-gray-700">{t('tracking.solution.after.opportunities')}</p>
                   </div>
                 </div>
               </div>
@@ -299,15 +299,12 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
           <div className="container mx-auto px-4">
             <div className="text-center space-y-6 mb-16">
               <h2 className="text-3xl md:text-5xl font-bold text-white">
-                Advanced Shopify Tracking Features That{" "}
+                {t('tracking.features.title')}{" "}
                 <span className="bg-gradient-to-r from-emerald-400 to-[#F6B86C] bg-clip-text text-transparent">
-                  Boost Revenue & Reduce Support
+                  {t('tracking.features.titleHighlight')}
                 </span>
               </h2>
-              <p className="text-xl text-white/80 max-w-4xl mx-auto">
-                Your post-purchase experience is a powerful tool for customer retention and revenue generation. OS²
-                Tracking transforms every tracking update into an opportunity. <a href="/blog/ultimate-guide-shopify-order-tracking-2025" className="text-[#F6B86C] hover:underline">Learn advanced strategies in our comprehensive guide</a>.
-              </p>
+              <p className="text-xl text-white/80 max-w-4xl mx-auto" dangerouslySetInnerHTML={{ __html: t('tracking.features.subtitle') }}></p>
             </div>
 
             <div className="space-y-16">
@@ -320,28 +317,27 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                         <Bell className="h-6 w-6 text-[#1E0D43]" />
                       </div>
                       <Badge className="bg-gradient-to-r from-[#F6B86C]/20 to-[#FF8C42]/20 text-[#F6B86C] border-[#F6B86C]/30">
-                        Proactive Intelligence
+                        {t('tracking.features.proactive.badge')}
                       </Badge>
                     </div>
                     <CardTitle className="text-2xl text-white">
-                      Proactive Problem Solving with Anomaly Detection
+                      {t('tracking.features.proactive.title')}
                     </CardTitle>
                     <CardDescription className="text-lg text-white/80">
-                      Our intelligent anomaly detection system actively monitors every order. If a package doesn't show
-                      status changes within X business days, we automatically alert both you and your customer.
+                      {t('tracking.features.proactive.description')}
                     </CardDescription>
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3">
                         <CheckCircle className="h-5 w-5 text-emerald-400" />
-                        <span className="text-white/90"><a href="/blog/reduce-wismo-support-tickets-80-percent" className="hover:text-[#F6B86C] transition-colors">Eliminate WISMO inquiries by 80%</a></span>
+                        <span className="text-white/90" dangerouslySetInnerHTML={{ __html: t('tracking.features.proactive.benefit1') }}></span>
                       </div>
                       <div className="flex items-center space-x-3">
                         <CheckCircle className="h-5 w-5 text-emerald-400" />
-                        <span className="text-white/90">Build customer trust proactively</span>
+                        <span className="text-white/90">{t('tracking.features.proactive.benefit2')}</span>
                       </div>
                       <div className="flex items-center space-x-3">
                         <CheckCircle className="h-5 w-5 text-emerald-400" />
-                        <span className="text-white/90">Save support team hours</span>
+                        <span className="text-white/90">{t('tracking.features.proactive.benefit3')}</span>
                       </div>
                     </div>
                   </CardHeader>
@@ -350,14 +346,14 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                       <div className="w-full max-w-sm bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-6 space-y-4">
                         <div className="flex items-center space-x-3">
                           <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
-                          <span className="text-sm font-medium text-white">Anomaly Detected</span>
+                          <span className="text-sm font-medium text-white">{t('tracking.features.proactive.detected')}</span>
                         </div>
-                        <p className="text-sm text-white/80">Package #TF-2024-001 hasn't moved in 3 days</p>
+                        <p className="text-sm text-white/80">{t('tracking.features.proactive.package')}</p>
                         <Button
                           size="sm"
                           className="w-full bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] text-[#1E0D43]"
                         >
-                          Notify Customer
+                          {t('tracking.features.proactive.notify')}
                         </Button>
                       </div>
                     </div>
@@ -372,17 +368,17 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                     <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 h-full flex items-center justify-center p-8">
                       <div className="w-full max-w-sm bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-6 space-y-4">
                         <div className="text-center space-y-2">
-                          <h4 className="font-semibold text-white">Your Order is On Its Way!</h4>
+                          <h4 className="font-semibold text-white">{t('tracking.features.branded.orderOnWay')}</h4>
                           <div className="w-full bg-white/20 rounded-full h-2">
                             <div className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] h-2 rounded-full w-3/4"></div>
                           </div>
                         </div>
                         <div className="border-t border-white/20 pt-4">
-                          <h5 className="font-medium mb-2 text-white">You might also like:</h5>
+                          <h5 className="font-medium mb-2 text-white">{t('tracking.features.branded.mightLike')}</h5>
                           <div className="flex space-x-2">
                             <div className="w-16 h-16 bg-white/10 rounded"></div>
                             <div className="flex-1">
-                              <p className="text-sm font-medium text-white">Premium Case</p>
+                              <p className="text-sm font-medium text-white">{t('tracking.features.branded.premiumCase')}</p>
                               <p className="text-sm text-[#F6B86C]">$29.99</p>
                             </div>
                           </div>
@@ -396,28 +392,27 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                         <Palette className="h-6 w-6 text-white" />
                       </div>
                       <Badge className="bg-gradient-to-r from-purple-500/20 to-violet-600/20 text-purple-300 border-purple-500/30">
-                        Revenue Generator
+                        {t('tracking.features.branded.badge')}
                       </Badge>
                     </div>
                     <CardTitle className="text-2xl text-white">
-                      Fully Branded Tracking Page & AI-Driven Upsells
+                      {t('tracking.features.branded.title')}
                     </CardTitle>
                     <CardDescription className="text-lg text-white/80">
-                      Create a 100% branded tracking page that seamlessly integrates with your store's aesthetic.
-                      Features AI-driven product recommendations tailored to your customer's purchase history.
+                      {t('tracking.features.branded.description')}
                     </CardDescription>
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3">
                         <CheckCircle className="h-5 w-5 text-emerald-400" />
-                        <span className="text-white/90">Increase Average Order Value</span>
+                        <span className="text-white/90">{t('tracking.features.branded.benefit1')}</span>
                       </div>
                       <div className="flex items-center space-x-3">
                         <CheckCircle className="h-5 w-5 text-emerald-400" />
-                        <span className="text-white/90">Reinforce brand identity</span>
+                        <span className="text-white/90">{t('tracking.features.branded.benefit2')}</span>
                       </div>
                       <div className="flex items-center space-x-3">
                         <CheckCircle className="h-5 w-5 text-emerald-400" />
-                        <span className="text-white/90">Drive repeat purchases</span>
+                        <span className="text-white/90">{t('tracking.features.branded.benefit3')}</span>
                       </div>
                     </div>
                   </CardHeader>
@@ -433,28 +428,27 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                         <MessageCircle className="h-6 w-6 text-white" />
                       </div>
                       <Badge className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-300 border-blue-500/30">
-                        Real-Time Support
+                        {t('tracking.features.chat.badge')}
                       </Badge>
                     </div>
                     <CardTitle className="text-2xl text-white">
-                      Real-Time Customer Engagement with In-Page Chat
+                      {t('tracking.features.chat.title')}
                     </CardTitle>
                     <CardDescription className="text-lg text-white/80">
-                      Our tracking page includes a real-time chat feature, allowing customers to get instant answers
-                      directly where they are tracking their order.
+                      {t('tracking.features.chat.description')}
                     </CardDescription>
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3">
                         <CheckCircle className="h-5 w-5 text-emerald-400" />
-                        <span className="text-white/90">Provide immediate support</span>
+                        <span className="text-white/90">{t('tracking.features.chat.benefit1')}</span>
                       </div>
                       <div className="flex items-center space-x-3">
                         <CheckCircle className="h-5 w-5 text-emerald-400" />
-                        <span className="text-white/90">Reduce customer frustration</span>
+                        <span className="text-white/90">{t('tracking.features.chat.benefit2')}</span>
                       </div>
                       <div className="flex items-center space-x-3">
                         <CheckCircle className="h-5 w-5 text-emerald-400" />
-                        <span className="text-white/90">Free up support team</span>
+                        <span className="text-white/90">{t('tracking.features.chat.benefit3')}</span>
                       </div>
                     </div>
                   </CardHeader>
@@ -463,22 +457,22 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                       <div className="w-full max-w-sm bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-4 space-y-3">
                         <div className="flex items-center space-x-2">
                           <div className="w-8 h-8 bg-[#F6B86C]/20 rounded-full flex items-center justify-center">
-                            <span className="text-xs font-medium text-[#F6B86C]">CS</span>
+                            <span className="text-xs font-medium text-[#F6B86C]">{t('tracking.features.chat.cs')}</span>
                           </div>
                           <div className="flex-1 bg-white/10 rounded-lg p-2">
-                            <p className="text-sm text-white">Hi! How can I help with your order?</p>
+                            <p className="text-sm text-white">{t('tracking.features.chat.help')}</p>
                           </div>
                         </div>
                         <div className="flex items-center space-x-2 justify-end">
                           <div className="flex-1 bg-[#F6B86C]/20 rounded-lg p-2 text-right">
-                            <p className="text-sm text-white">When will my order arrive?</p>
+                            <p className="text-sm text-white">{t('tracking.features.chat.whenArrive')}</p>
                           </div>
                           <div className="w-8 h-8 bg-white/20 rounded-full"></div>
                         </div>
                         <div className="flex items-center space-x-2">
                           <MessageCircle className="h-4 w-4 text-white/60" />
                           <Input
-                            placeholder="Type your message..."
+                            placeholder={t('tracking.features.chat.placeholder')}
                             className="text-sm bg-white/10 border-white/20 text-white placeholder:text-white/60"
                           />
                         </div>
@@ -496,11 +490,10 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                       <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/25">
                         <Mail className="h-6 w-6 text-white" />
                       </div>
-                      <CardTitle className="text-white">Powerful Email Editor & Liquid Support</CardTitle>
+                      <CardTitle className="text-white">{t('tracking.features.email.title')}</CardTitle>
                     </div>
                     <CardDescription className="text-white/80">
-                      Take complete control over customer communication with our email editor featuring full Liquid
-                      support. Design stunning, personalized updates that match your brand voice perfectly.
+                      {t('tracking.features.email.description')}
                     </CardDescription>
                   </CardHeader>
                 </Card>
@@ -511,11 +504,10 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                       <div className="w-12 h-12 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-lg flex items-center justify-center shadow-lg shadow-[#F6B86C]/25">
                         <Zap className="h-6 w-6 text-[#1E0D43]" />
                       </div>
-                      <CardTitle className="text-white">Seamless Klaviyo Integration</CardTitle>
+                      <CardTitle className="text-white">{t('tracking.features.klaviyo.title')}</CardTitle>
                     </div>
                     <CardDescription className="text-white/80">
-                      Deep integration with Klaviyo allows you to leverage tracking data within your existing marketing
-                      automation workflows for highly targeted campaigns.
+                      {t('tracking.features.klaviyo.description')}
                     </CardDescription>
                   </CardHeader>
                 </Card>
@@ -526,11 +518,10 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                       <div className="w-12 h-12 bg-gradient-to-br from-rose-500 to-pink-600 rounded-lg flex items-center justify-center shadow-lg shadow-rose-500/25">
                         <Shield className="h-6 w-6 text-white" />
                       </div>
-                      <CardTitle className="text-white">Multi-Provider Tracking</CardTitle>
+                      <CardTitle className="text-white">{t('tracking.features.multiProvider.title')}</CardTitle>
                     </div>
                     <CardDescription className="text-white/80">
-                      Aggregate tracking data from multiple shipping providers, ensuring comprehensive and reliable
-                      tracking information for all your orders, regardless of carrier.
+                      {t('tracking.features.multiProvider.description')}
                     </CardDescription>
                   </CardHeader>
                 </Card>
@@ -541,11 +532,10 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                       <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/25">
                         <BarChart3 className="h-6 w-6 text-white" />
                       </div>
-                      <CardTitle className="text-white">Delivery Feedback & Analytics</CardTitle>
+                      <CardTitle className="text-white">{t('tracking.features.analytics.title')}</CardTitle>
                     </div>
                     <CardDescription className="text-white/80">
-                      Collect and analyze delivery feedback directly on the tracking page. Gain insights into delivery
-                      performance and identify areas for improvement.
+                      {t('tracking.features.analytics.description')}
                     </CardDescription>
                   </CardHeader>
                 </Card>
@@ -560,10 +550,10 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                See OSS Tracking In Action
+                {t('tracking.screenshots.title')}
               </h2>
               <p className="text-xl text-gray-700 max-w-4xl mx-auto">
-                From email notifications to branded tracking pages - see exactly how OS² Tracking transforms your customer experience.
+                {t('tracking.screenshots.subtitle')}
               </p>
             </div>
 
@@ -575,14 +565,14 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                   <div className="aspect-[4/3] bg-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center">
                     <div className="text-center">
                       <Mail className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                      <p className="text-gray-500 font-medium">Email Notification Screenshot</p>
-                      <p className="text-gray-400 text-sm">Drag & drop your screenshot here</p>
+                      <p className="text-gray-500 font-medium">{t('tracking.screenshots.email.placeholder')}</p>
+                      <p className="text-gray-400 text-sm">{t('tracking.screenshots.email.dnd')}</p>
                     </div>
                   </div>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Smart Email Notifications</h3>
-                  <p className="text-gray-600">Proactive shipping updates with branded design and upsell opportunities</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{t('tracking.screenshots.email.title')}</h3>
+                  <p className="text-gray-600">{t('tracking.screenshots.email.description')}</p>
                 </div>
               </div>
 
@@ -592,14 +582,14 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                   <div className="aspect-[4/3] bg-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center">
                     <div className="text-center">
                       <Package className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                      <p className="text-gray-500 font-medium">Tracking Page Screenshot</p>
-                      <p className="text-gray-400 text-sm">Drag & drop your screenshot here</p>
+                      <p className="text-gray-500 font-medium">{t('tracking.screenshots.tracking.placeholder')}</p>
+                      <p className="text-gray-400 text-sm">{t('tracking.screenshots.tracking.dnd')}</p>
                     </div>
                   </div>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Branded Tracking Pages</h3>
-                  <p className="text-gray-600">Custom tracking experience with product recommendations and social proof</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{t('tracking.screenshots.tracking.title')}</h3>
+                  <p className="text-gray-600">{t('tracking.screenshots.tracking.description')}</p>
                 </div>
               </div>
             </div>
@@ -610,14 +600,14 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                 <div className="aspect-[2/3] bg-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center">
                   <div className="text-center">
                     <Smartphone className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-500 font-medium">Mobile Experience</p>
-                    <p className="text-gray-400 text-sm">Mobile screenshot here</p>
+                    <p className="text-gray-500 font-medium">{t('tracking.screenshots.mobile.placeholder')}</p>
+                    <p className="text-gray-400 text-sm">{t('tracking.screenshots.mobile.dnd')}</p>
                   </div>
                 </div>
               </div>
               <div className="text-center mt-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Mobile Optimized</h3>
-                <p className="text-gray-600">Perfect experience on all devices with fast loading and easy navigation</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">{t('tracking.screenshots.mobile.title')}</h3>
+                <p className="text-gray-600">{t('tracking.screenshots.mobile.description')}</p>
               </div>
             </div>
           </div>
@@ -631,13 +621,13 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Real Results From{" "}
+                {t('tracking.results.title')}{" "}
                 <span className="bg-gradient-to-r from-brand-primary to-brand-primary-dark bg-clip-text text-transparent">
-                  Real Merchants
+                  {t('tracking.results.titleHighlight')}
                 </span>
               </h2>
               <p className="text-xl text-gray-700 max-w-4xl mx-auto">
-                See how merchants like you are transforming their shipping experience into a revenue machine.
+                {t('tracking.results.subtitle')}
               </p>
             </div>
 
@@ -649,16 +639,15 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                     <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                       <TrendingUp className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Fashion Boutique</h3>
-                    <div className="text-brand-primary font-bold text-2xl">+234% revenue</div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('tracking.results.case1.store')}</h3>
+                    <div className="text-brand-primary font-bold text-2xl">{t('tracking.results.case1.revenue')}</div>
                   </div>
                   <p className="text-gray-700 text-center mb-4">
-                    "Turned our tracking page into our highest converting upsell channel.
-                    Customers love getting style recommendations while waiting for delivery."
+                    {t('tracking.results.case1.quote')}
                   </p>
                   <div className="bg-emerald-50 rounded-lg p-3 border border-emerald-200">
-                    <div className="text-emerald-700 font-bold text-sm">Key Win:</div>
-                    <div className="text-gray-700 text-sm">67% upsell conversion on delayed shipments</div>
+                    <div className="text-emerald-700 font-bold text-sm">{t('tracking.results.case1.win')}</div>
+                    <div className="text-gray-700 text-sm">{t('tracking.results.case1.win_desc')}</div>
                   </div>
                 </CardContent>
               </Card>
@@ -670,16 +659,15 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                     <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Users className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Electronics Store</h3>
-                    <div className="text-brand-primary font-bold text-2xl">-89% support tickets</div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('tracking.results.case2.store')}</h3>
+                    <div className="text-brand-primary font-bold text-2xl">{t('tracking.results.case2.revenue')}</div>
                   </div>
                   <p className="text-gray-700 text-center mb-4">
-                    "Proactive notifications eliminated almost all 'where is my order' tickets.
-                    Our support team now focuses on sales instead of shipping questions."
+                    {t('tracking.results.case2.quote')}
                   </p>
                   <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
-                    <div className="text-purple-700 font-bold text-sm">Key Win:</div>
-                    <div className="text-gray-700 text-sm">$18k/month saved in support costs</div>
+                    <div className="text-purple-700 font-bold text-sm">{t('tracking.results.case2.win')}</div>
+                    <div className="text-gray-700 text-sm">{t('tracking.results.case2.win_desc')}</div>
                   </div>
                 </CardContent>
               </Card>
@@ -691,16 +679,15 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                     <div className="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center mx-auto mb-4">
                       <RefreshCw className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Health & Beauty</h3>
-                    <div className="text-brand-primary font-bold text-2xl">+156% repeat orders</div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('tracking.results.case3.store')}</h3>
+                    <div className="text-brand-primary font-bold text-2xl">{t('tracking.results.case3.revenue')}</div>
                   </div>
                   <p className="text-gray-700 text-center mb-4">
-                    "Smart replenishment reminders in tracking emails boosted our subscription rate.
-                    Customers reorder automatically when they're almost out."
+                    {t('tracking.results.case3.quote')}
                   </p>
                   <div className="bg-gray-50 rounded-lg p-3 border border-gray-200">
-                    <div className="text-brand-primary font-bold text-sm">Key Win:</div>
-                    <div className="text-gray-700 text-sm">$52k/month in recurring revenue</div>
+                    <div className="text-brand-primary font-bold text-sm">{t('tracking.results.case3.win')}</div>
+                    <div className="text-gray-700 text-sm">{t('tracking.results.case3.win_desc')}</div>
                   </div>
                 </CardContent>
               </Card>
@@ -708,23 +695,23 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
 
             {/* Quick Stats */}
             <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 shadow-lg mb-12">
-              <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Average Results Across All Stores</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">{t('tracking.results.average.title')}</h3>
               <div className="grid md:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-brand-primary">47%</div>
-                  <div className="text-gray-600">More Repeat Orders</div>
+                  <div className="text-gray-600">{t('tracking.results.average.repeat')}</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-brand-primary">$24k</div>
-                  <div className="text-gray-600">Extra Monthly Revenue</div>
+                  <div className="text-gray-600">{t('tracking.results.average.revenue')}</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-600">73%</div>
-                  <div className="text-gray-600">Fewer Support Tickets</div>
+                  <div className="text-gray-600">{t('tracking.results.average.tickets')}</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-brand-primary">15 days</div>
-                  <div className="text-gray-600">Average ROI Timeline</div>
+                  <div className="text-gray-600">{t('tracking.results.average.roi')}</div>
                 </div>
               </div>
             </div>
@@ -737,7 +724,7 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                 asChild
               >
                 <a href="https://apps.shopify.com/oss-tracking" target="_blank" rel="noopener noreferrer">
-                  Join These Successful Merchants Today
+                  {t('tracking.results.cta')}
                   <ArrowRight className="ml-2 h-6 w-6" />
                 </a>
               </Button>
@@ -753,13 +740,13 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Works Better with{" "}
+                {t('tracking.ecosystem.title')}{" "}
                 <span className="bg-gradient-to-r from-emerald-400 to-[#F6B86C] bg-clip-text text-transparent">
-                  OS² Ecosystem
+                  {t('tracking.ecosystem.titleHighlight')}
                 </span>
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                OS² Tracking is designed to work seamlessly with other OS² Commerce apps, unlocking features across apps that work together in ways not possible otherwise.
+                {t('tracking.ecosystem.subtitle')}
               </p>
             </div>
 
@@ -769,29 +756,29 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                   <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-4">
                     <Zap className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Cross-App Features</h3>
-                  <p className="text-gray-700">Unlock powerful integrations when using multiple OS² apps together.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t('tracking.ecosystem.crossApp.title')}</h3>
+                  <p className="text-gray-700">{t('tracking.ecosystem.crossApp.description')}</p>
                 </div>
                 <div>
                   <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-4">
                     <BarChart3 className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Shared Analytics</h3>
-                  <p className="text-gray-700">Cross-app insights and unified reporting dashboard.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t('tracking.ecosystem.analytics.title')}</h3>
+                  <p className="text-gray-700">{t('tracking.ecosystem.analytics.description')}</p>
                 </div>
                 <div>
                   <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-4">
                     <Users className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Unified Support</h3>
-                  <p className="text-gray-700">One support team for all your OS² Commerce apps.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t('tracking.ecosystem.support.title')}</h3>
+                  <p className="text-gray-700">{t('tracking.ecosystem.support.description')}</p>
                 </div>
                 <div>
                   <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-4">
                     <Star className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Volume Savings</h3>
-                  <p className="text-gray-700">Save up to 30% with multiple app installations.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t('tracking.ecosystem.savings.title')}</h3>
+                  <p className="text-gray-700">{t('tracking.ecosystem.savings.description')}</p>
                 </div>
               </div>
             </div>
@@ -810,14 +797,13 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              Ready to Transform Your{" "}
+              {t('tracking.finalCta.title')}{" "}
               <span className="bg-gradient-to-r from-brand-primary to-brand-primary-dark bg-clip-text text-transparent">
-                Order Tracking?
+                {t('tracking.finalCta.titleHighlight')}
               </span>
             </h2>
             <p className="text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto">
-              Join forward-thinking merchants who are turning shipping notifications into revenue opportunities.
-              Get started in minutes.
+              {t('tracking.finalCta.subtitle')}
             </p>
 
             <div className="flex justify-center mb-8">
@@ -827,7 +813,7 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                 asChild
               >
                 <a href="https://apps.shopify.com/oss-tracking" target="_blank" rel="noopener noreferrer">
-                  Get started in 5 minutes
+                  {t('tracking.finalCta.cta')}
                   <ArrowRight className="ml-3 h-7 w-7" />
                 </a>
               </Button>
@@ -837,15 +823,15 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
             <div className="flex flex-wrap justify-center items-center gap-8 pt-8 border-t border-gray-200">
               <div className="flex items-center gap-2 text-gray-600">
                 <CheckCircle className="h-5 w-5 text-emerald-500" />
-                <span className="text-sm font-medium">5-minute setup</span>
+                <span className="text-sm font-medium">{t('tracking.finalCta.badges.setup')}</span>
               </div>
               <div className="flex items-center gap-2 text-gray-600">
                 <CheckCircle className="h-5 w-5 text-emerald-500" />
-                <span className="text-sm font-medium">24/7 support</span>
+                <span className="text-sm font-medium">{t('tracking.finalCta.badges.support')}</span>
               </div>
               <div className="flex items-center gap-2 text-gray-600">
                 <CheckCircle className="h-5 w-5 text-emerald-500" />
-                <span className="text-sm font-medium">Cancel anytime</span>
+                <span className="text-sm font-medium">{t('tracking.finalCta.badges.cancel')}</span>
               </div>
             </div>
           </div>

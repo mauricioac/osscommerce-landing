@@ -11,6 +11,7 @@ import { WaitlistDialog } from "@/components/waitlist-dialog"
 import { getAppById, appsConfig } from "@/lib/apps-config"
 import { notFound } from "next/navigation"
 import { type Locale } from "@/lib/i18n/config"
+import { getTranslations } from "@/lib/i18n"
 
 interface AppPageProps {
   params: Promise<{
@@ -21,6 +22,7 @@ interface AppPageProps {
 
 export default async function AppPage({ params }: AppPageProps) {
   const { locale, appId } = await params
+  const t = getTranslations(locale)
   const app = getAppById(appId)
   
   if (!app) {
@@ -43,7 +45,7 @@ export default async function AppPage({ params }: AppPageProps) {
                   className="inline-flex items-center text-[#F6B86C] hover:text-[#FF8C42] transition-colors mb-6"
                 >
                   <ArrowLeft className="mr-2 h-4 w-4" />
-                  Back to Apps
+                  {t('appPage.back')}
                 </LocaleLink>
                 
                 <div className="mb-6">
@@ -61,8 +63,7 @@ export default async function AppPage({ params }: AppPageProps) {
                     ${app.status === 'coming-soon' ? 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30' : ''}
                     ${app.status === 'beta' ? 'bg-blue-500/20 text-blue-300 border-blue-500/30' : ''}
                   `}>
-                    {app.status === 'available' ? 'Available Now' :
-                     app.status === 'coming-soon' ? 'Coming Soon' : 'Beta Version'}
+                    {t(`apps.status.${app.status.replace('-','')}`)}
                   </Badge>
                 </div>
 
@@ -79,7 +80,7 @@ export default async function AppPage({ params }: AppPageProps) {
                       asChild
                     >
                       <a href={app.shopifyUrl} target="_blank" rel="noopener noreferrer">
-                        Install from Shopify App Store
+                        {t('appPage.install')}
                         <ExternalLink className="ml-2 h-5 w-5" />
                       </a>
                     </Button>
@@ -89,7 +90,7 @@ export default async function AppPage({ params }: AppPageProps) {
                       className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-8 py-4 text-lg font-semibold"
                       disabled
                     >
-                      Coming Soon
+                      {t('apps.status.comingSoon')}
                     </Button>
                   ) : (
                     <>
@@ -99,7 +100,7 @@ export default async function AppPage({ params }: AppPageProps) {
                         asChild
                       >
                         <a href={app.shopifyUrl || '#'} target="_blank" rel="noopener noreferrer">
-                          Join Beta Program
+                          {t('appPage.joinBeta')}
                           <ExternalLink className="ml-2 h-5 w-5" />
                         </a>
                       </Button>
@@ -119,7 +120,7 @@ export default async function AppPage({ params }: AppPageProps) {
                   >
                     <LocaleLink href={`/docs/${app.id}`}>
                       <Book className="mr-2 h-5 w-5" />
-                      Documentation
+                      {t('appPage.documentation')}
                     </LocaleLink>
                   </Button>
                 </div>
@@ -130,22 +131,22 @@ export default async function AppPage({ params }: AppPageProps) {
                     <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
                       <BarChart3 className="h-8 w-8 text-[#F6B86C] mx-auto mb-2" />
                       <div className="text-lg font-bold text-gray-900">99.9%</div>
-                      <div className="text-gray-600 text-xs">Uptime</div>
+                      <div className="text-gray-600 text-xs">{t('appPage.stats.uptime')}</div>
                     </div>
                     <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
                       <Users className="h-8 w-8 text-emerald-400 mx-auto mb-2" />
                       <div className="text-lg font-bold text-gray-900">10K+</div>
-                      <div className="text-gray-600 text-xs">Active Users</div>
+                      <div className="text-gray-600 text-xs">{t('appPage.stats.users')}</div>
                     </div>
                     <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
                       <Shield className="h-8 w-8 text-purple-400 mx-auto mb-2" />
                       <div className="text-lg font-bold text-gray-900">5★</div>
-                      <div className="text-gray-600 text-xs">App Rating</div>
+                      <div className="text-gray-600 text-xs">{t('appPage.stats.rating')}</div>
                     </div>
                     <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
                       <Globe className="h-8 w-8 text-blue-400 mx-auto mb-2" />
                       <div className="text-lg font-bold text-gray-900">24/7</div>
-                      <div className="text-gray-600 text-xs">Support</div>
+                      <div className="text-gray-600 text-xs">{t('appPage.stats.support')}</div>
                     </div>
                   </div>
                 ) : (
@@ -153,22 +154,22 @@ export default async function AppPage({ params }: AppPageProps) {
                     <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
                       <CheckCircle className="h-8 w-8 text-emerald-400 mx-auto mb-2" />
                       <div className="text-lg font-bold text-gray-900">Beta</div>
-                      <div className="text-gray-600 text-xs">Early Access</div>
+                      <div className="text-gray-600 text-xs">{t('appPage.stats.earlyAccess')}</div>
                     </div>
                     <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
                       <Shield className="h-8 w-8 text-purple-400 mx-auto mb-2" />
                       <div className="text-lg font-bold text-gray-900">100%</div>
-                      <div className="text-gray-600 text-xs">Secure</div>
+                      <div className="text-gray-600 text-xs">{t('appPage.stats.secure')}</div>
                     </div>
                     <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
                       <Users className="h-8 w-8 text-blue-400 mx-auto mb-2" />
                       <div className="text-lg font-bold text-gray-900">Limited</div>
-                      <div className="text-gray-600 text-xs">Spots Available</div>
+                      <div className="text-gray-600 text-xs">{t('appPage.stats.limitedSpots')}</div>
                     </div>
                     <div className="text-center p-4 bg-white/20 rounded-lg shadow-sm">
                       <Globe className="h-8 w-8 text-[#F6B86C] mx-auto mb-2" />
                       <div className="text-lg font-bold text-gray-900">24/7</div>
-                      <div className="text-gray-600 text-xs">Support</div>
+                      <div className="text-gray-600 text-xs">{t('appPage.stats.support')}</div>
                     </div>
                   </div>
                 )}
@@ -188,7 +189,7 @@ export default async function AppPage({ params }: AppPageProps) {
                           className="object-contain"
                         />
                       </div>
-                      <p className="text-gray-600">App Preview Coming Soon</p>
+                      <p className="text-gray-600">{t('appPage.preview')}</p>
                     </div>
                   </div>
                 </div>
@@ -204,13 +205,13 @@ export default async function AppPage({ params }: AppPageProps) {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Key{" "}
+                {t('appPage.features.title')}{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
-                  Features
+                  {t('appPage.features.titleHighlight')}
                 </span>
               </h2>
               <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                Everything you need to enhance your {app.category} operations with {app.name}.
+                {t('appPage.features.subtitle').replace('{category}', app.category).replace('{appName}', app.name)}
               </p>
             </div>
 
@@ -225,7 +226,7 @@ export default async function AppPage({ params }: AppPageProps) {
                       <div>
                         <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature}</h3>
                         <p className="text-gray-700 text-sm">
-                          Advanced {feature.toLowerCase()} capabilities designed for modern e-commerce businesses.
+                          {t('appPage.features.description').replace('{feature}', feature.toLowerCase())}
                         </p>
                       </div>
                     </div>
@@ -243,13 +244,13 @@ export default async function AppPage({ params }: AppPageProps) {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Works Better with{" "}
+                {t('appPage.ecosystem.title')}{" "}
                 <span className="bg-gradient-to-r from-emerald-400 to-[#F6B86C] bg-clip-text text-transparent">
-                  OS² Ecosystem
+                  {t('appPage.ecosystem.titleHighlight')}
                 </span>
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                {app.name} is designed to work seamlessly with other OS² Commerce apps, unlocking features across apps that work together in ways not possible otherwise.
+                {t('appPage.ecosystem.subtitle').replace('{appName}', app.name)}
               </p>
             </div>
 
@@ -259,29 +260,29 @@ export default async function AppPage({ params }: AppPageProps) {
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Zap className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Cross-App Features</h3>
-                  <p className="text-gray-700">Unlock powerful integrations when using multiple OS² apps together.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t('appPage.ecosystem.crossApp.title')}</h3>
+                  <p className="text-gray-700">{t('appPage.ecosystem.crossApp.description')}</p>
                 </div>
                 <div>
                   <div className="w-16 h-16 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-4">
                     <BarChart3 className="h-8 w-8 text-[#1E0D43]" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Shared Analytics</h3>
-                  <p className="text-gray-700">Cross-app insights and unified reporting dashboard.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t('appPage.ecosystem.analytics.title')}</h3>
+                  <p className="text-gray-700">{t('appPage.ecosystem.analytics.description')}</p>
                 </div>
                 <div>
                   <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Users className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Unified Support</h3>
-                  <p className="text-gray-700">One support team for all your OS² Commerce apps.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t('appPage.ecosystem.support.title')}</h3>
+                  <p className="text-gray-700">{t('appPage.ecosystem.support.description')}</p>
                 </div>
                 <div>
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Star className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Volume Savings</h3>
-                  <p className="text-gray-700">Save up to 30% with multiple app installations.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t('appPage.ecosystem.savings.title')}</h3>
+                  <p className="text-gray-700">{t('appPage.ecosystem.savings.description')}</p>
                 </div>
               </div>
             </div>
@@ -294,10 +295,10 @@ export default async function AppPage({ params }: AppPageProps) {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Ready to Get Started with {app.name}?
+              {t('appPage.cta.title').replace('{appName}', app.name)}
             </h2>
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-              Join thousands of merchants who are already using {app.name} to enhance their {app.category} operations.
+              {t('appPage.cta.subtitle').replace('{appName}', app.name).replace('{category}', app.category)}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               {app.status === 'available' && app.shopifyUrl ? (
@@ -307,7 +308,7 @@ export default async function AppPage({ params }: AppPageProps) {
                   asChild
                 >
                   <a href={app.shopifyUrl} target="_blank" rel="noopener noreferrer">
-                    Install {app.name}
+                    {t('appPage.cta.install').replace('{appName}', app.name)}
                     <ArrowRight className="ml-2 h-6 w-6" />
                   </a>
                 </Button>
@@ -318,7 +319,7 @@ export default async function AppPage({ params }: AppPageProps) {
                   asChild
                 >
                   <a href={app.shopifyUrl} target="_blank" rel="noopener noreferrer">
-                    Join Beta Program
+                    {t('appPage.joinBeta')}
                     <ArrowRight className="ml-2 h-6 w-6" />
                   </a>
                 </Button>
@@ -328,7 +329,7 @@ export default async function AppPage({ params }: AppPageProps) {
                   className="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-10 py-6 text-xl font-semibold"
                   disabled
                 >
-                  Coming Soon
+                  {t('apps.status.comingSoon')}
                 </Button>
               )}
               <Button
@@ -337,7 +338,7 @@ export default async function AppPage({ params }: AppPageProps) {
                 className="border-[#F6B86C]/50 text-[#F6B86C] hover:bg-[#F6B86C]/10 bg-transparent px-10 py-6 text-xl"
                 asChild
               >
-                <LocaleLink href="/apps">View All Apps</LocaleLink>
+                <LocaleLink href="/apps">{t('appPage.cta.viewAll')}</LocaleLink>
               </Button>
             </div>
           </div>

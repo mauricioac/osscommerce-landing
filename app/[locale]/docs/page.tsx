@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -7,6 +9,7 @@ import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { appsConfig, AppConfig } from "@/lib/apps-config"
+import { useLocale } from "@/components/locale-provider"
 
 const statusColors = {
   available: "bg-emerald-100 text-emerald-800 border-emerald-200",
@@ -14,13 +17,8 @@ const statusColors = {
   beta: "bg-blue-100 text-blue-800 border-blue-200"
 }
 
-const statusLabels = {
-  available: "Available",
-  'coming-soon': "Coming Soon",
-  beta: "Beta"
-}
-
 function AppDocumentationCard({ app }: { app: AppConfig }) {
+  const { t } = useLocale()
   return (
     <Card className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group h-full">
       <CardHeader className="p-6">
@@ -37,7 +35,7 @@ function AppDocumentationCard({ app }: { app: AppConfig }) {
         </div>
 
         <CardTitle className="text-xl text-gray-900 group-hover:text-[#F6B86C] transition-colors">
-          {app.name} Documentation
+          {app.name} {t('docs.card.documentation')}
         </CardTitle>
 
         <p className="text-gray-700 text-sm leading-relaxed">
@@ -49,7 +47,7 @@ function AppDocumentationCard({ app }: { app: AppConfig }) {
         <div className="space-y-4">
           {/* Features Preview */}
           <div>
-            <h4 className="text-sm font-medium text-white/90 mb-2">Covered Topics:</h4>
+            <h4 className="text-sm font-medium text-white/90 mb-2">{t('docs.card.coveredTopics')}</h4>
             <div className="flex flex-wrap gap-1">
               {app.features.slice(0, 3).map((feature) => (
                 <Badge
@@ -65,7 +63,7 @@ function AppDocumentationCard({ app }: { app: AppConfig }) {
                   variant="outline"
                   className="border-gray-300 text-gray-700 text-xs"
                 >
-                  +{app.features.length - 3} more
+                  +{app.features.length - 3} {t('docs.card.more')}
                 </Badge>
               )}
             </div>
@@ -79,7 +77,7 @@ function AppDocumentationCard({ app }: { app: AppConfig }) {
             >
               <Link href={`/docs/${app.id}`}>
                 <Book className="mr-2 h-4 w-4" />
-                View Documentation
+                {t('docs.card.viewDocumentation')}
               </Link>
             </Button>
 
@@ -92,7 +90,7 @@ function AppDocumentationCard({ app }: { app: AppConfig }) {
                   asChild
                 >
                   <Link href={app.landingPage}>
-                    App Info
+                    {t('docs.card.appInfo')}
                   </Link>
                 </Button>
               )}
@@ -106,7 +104,7 @@ function AppDocumentationCard({ app }: { app: AppConfig }) {
                 >
                   <Link href={app.shopifyUrl} target="_blank">
                     <ExternalLink className="mr-1 h-3 w-3" />
-                    Shopify
+                    {t('docs.card.shopify')}
                   </Link>
                 </Button>
               )}
@@ -119,8 +117,15 @@ function AppDocumentationCard({ app }: { app: AppConfig }) {
 }
 
 export default function DocumentationHubPage() {
+  const { t } = useLocale()
   const availableApps = appsConfig.filter(app => app.status === 'available')
   const upcomingApps = appsConfig.filter(app => app.status !== 'available')
+
+  const statusLabels = {
+    available: t('docs.status.available'),
+    'coming-soon': t('docs.status.comingSoon'),
+    beta: t('docs.status.beta')
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
@@ -132,14 +137,13 @@ export default function DocumentationHubPage() {
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Knowledge{" "}
+                {t('docs.hero.title')}{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
-                  Base
+                  {t('docs.hero.titleHighlight')}
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Comprehensive guides, tutorials, and documentation for all OSS Commerce applications.
-                Find everything you need to get the most out of our ecosystem.
+                {t('docs.hero.subtitle')}
               </p>
             </div>
           </div>
@@ -150,13 +154,13 @@ export default function DocumentationHubPage() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Available{" "}
+                {t('docs.available.title')}{" "}
                 <span className="bg-gradient-to-r from-emerald-400 to-[#F6B86C] bg-clip-text text-transparent">
-                  Documentation
+                  {t('docs.available.titleHighlight')}
                 </span>
               </h2>
               <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                Complete guides for our live applications with step-by-step tutorials and best practices.
+                {t('docs.available.subtitle')}
               </p>
             </div>
 
@@ -171,9 +175,9 @@ export default function DocumentationHubPage() {
                 <div className="w-24 h-24 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25">
                   <Book className="h-12 w-12 text-[#1E0D43]" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Documentation Coming Soon</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{t('docs.empty.title')}</h3>
                 <p className="text-white/80 mb-8 max-w-md mx-auto">
-                  We're working on comprehensive documentation for all our apps. Check back soon!
+                  {t('docs.empty.subtitle')}
                 </p>
               </div>
             )}
@@ -186,13 +190,13 @@ export default function DocumentationHubPage() {
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                  Coming{" "}
+                  {t('docs.upcoming.title')}{" "}
                   <span className="bg-gradient-to-r from-purple-400 to-[#F6B86C] bg-clip-text text-transparent">
-                    Soon
+                    {t('docs.upcoming.titleHighlight')}
                   </span>
                 </h2>
                 <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                  Documentation for upcoming apps will be available as they launch.
+                  {t('docs.upcoming.subtitle')}
                 </p>
               </div>
 

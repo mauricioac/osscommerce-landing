@@ -6,26 +6,19 @@ import Link from "next/link"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Metadata } from "next"
+import { getTranslations } from "@/lib/i18n"
+import { type Locale } from "@/lib/i18n/config"
 
-export const metadata: Metadata = {
-  title: "About Us | OS² Commerce - E-commerce Innovation Team",
-  description: "Learn about OS² Commerce's mission to empower online merchants with integrated Shopify applications. Meet our team and discover our vision for e-commerce.",
-  keywords: "about OS² Commerce, e-commerce team, Shopify app developers, e-commerce innovation, integrated solutions",
-  openGraph: {
-    title: "About Us | OS² Commerce",
-    description: "Learn about our mission to empower online merchants with integrated Shopify applications and innovative e-commerce solutions.",
-    type: "website",
-    images: ["/oss-logo.png"]
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About Us | OS² Commerce",
-    description: "Empowering online merchants with integrated e-commerce solutions"
-  }
+interface AboutPageProps {
+  params: Promise<{
+    locale: string
+  }>
 }
 
-export default function AboutPage() {
+export default async function AboutPage({ params }: AboutPageProps) {
+  const { locale } = await params
+  const t = getTranslations(locale as Locale)
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Header />
@@ -36,15 +29,14 @@ export default function AboutPage() {
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Building the{" "}
+                {t('about.hero.title')}{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
-                  Future
+                  {t('about.hero.titleHighlight')}
                 </span>{" "}
-                of E-commerce
+                {t('about.hero.titleEnd')}
               </h1>
               <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                We're on a mission to empower online merchants with intelligent, integrated solutions that turn
-                e-commerce complexity into competitive advantage.
+                {t('about.hero.subtitle')}
               </p>
             </div>
           </div>
@@ -59,10 +51,9 @@ export default function AboutPage() {
                   <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25">
                     <Target className="h-8 w-8" />
                   </div>
-                  <CardTitle className="text-2xl text-gray-900 text-center mb-4">Our Mission</CardTitle>
+                  <CardTitle className="text-2xl text-gray-900 text-center mb-4">{t('about.mission.title')}</CardTitle>
                   <p className="text-gray-700 text-center leading-relaxed">
-                    To simplify e-commerce operations by creating powerful, integrated applications that work together
-                    seamlessly, helping merchants focus on what they do best: growing their business.
+                    {t('about.mission.description')}
                   </p>
                 </CardHeader>
               </Card>
@@ -72,10 +63,9 @@ export default function AboutPage() {
                   <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25">
                     <Lightbulb className="h-8 w-8" />
                   </div>
-                  <CardTitle className="text-2xl text-gray-900 text-center mb-4">Our Vision</CardTitle>
+                  <CardTitle className="text-2xl text-gray-900 text-center mb-4">{t('about.vision.title')}</CardTitle>
                   <p className="text-gray-700 text-center leading-relaxed">
-                    A world where every e-commerce business, regardless of size, has access to enterprise-grade tools
-                    that are simple to use, affordable, and designed to scale with their growth.
+                    {t('about.vision.description')}
                   </p>
                 </CardHeader>
               </Card>
@@ -87,10 +77,9 @@ export default function AboutPage() {
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{t('about.story.title')}</h2>
               <p className="text-xl text-gray-700 leading-relaxed">
-                Born from the frustration of managing dozens of disconnected apps, OS² Commerce started as a
-                simple idea: what if e-commerce tools actually worked together?
+                {t('about.story.subtitle')}
               </p>
             </div>
 
@@ -100,10 +89,9 @@ export default function AboutPage() {
                   <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/25">
                     <span className="text-2xl font-bold text-white">1</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">The Problem</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{t('about.story.problem.title')}</h3>
                   <p className="text-gray-700">
-                    Merchants were drowning in app fatigue - managing dozens of tools that didn't communicate,
-                    leading to data silos and operational chaos.
+                    {t('about.story.problem.description')}
                   </p>
                 </CardContent>
               </Card>
@@ -113,10 +101,9 @@ export default function AboutPage() {
                   <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25">
                     <span className="text-2xl font-bold text-white">2</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">The Insight</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{t('about.story.insight.title')}</h3>
                   <p className="text-gray-700">
-                    We realized that the future of e-commerce lies not in more apps, but in smarter integration -
-                    tools that enhance each other's capabilities.
+                    {t('about.story.insight.description')}
                   </p>
                 </CardContent>
               </Card>
@@ -126,10 +113,9 @@ export default function AboutPage() {
                   <div className="w-16 h-16 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25">
                     <span className="text-2xl font-bold text-white">3</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">The Solution</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{t('about.story.solution.title')}</h3>
                   <p className="text-gray-700">
-                    OS² Commerce was born - a suite of applications designed from the ground up to work together,
-                    share data, and amplify each other's impact.
+                    {t('about.story.solution.description')}
                   </p>
                 </CardContent>
               </Card>
@@ -141,9 +127,9 @@ export default function AboutPage() {
         <section className="py-20 bg-gray-100">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Values</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{t('about.values.title')}</h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                These principles guide everything we do, from product development to customer support.
+                {t('about.values.subtitle')}
               </p>
             </div>
 
@@ -152,32 +138,32 @@ export default function AboutPage() {
                 <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-lg shadow-[#F6B86C]/25">
                   <Users className="h-6 w-6" />
                 </div>
-                <h3 className="text-gray-900 font-semibold mb-2">Customer-Centric</h3>
-                <p className="text-gray-600 text-sm">Every decision starts with our merchants' success</p>
+                <h3 className="text-gray-900 font-semibold mb-2">{t('about.values.customerCentric.title')}</h3>
+                <p className="text-gray-600 text-sm">{t('about.values.customerCentric.description')}</p>
               </div>
 
               <div className="text-center p-6 bg-white rounded-lg shadow-lg">
                 <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-lg shadow-[#F6B86C]/25">
                   <Lightbulb className="h-6 w-6" />
                 </div>
-                <h3 className="text-gray-900 font-semibold mb-2">Innovation</h3>
-                <p className="text-gray-600 text-sm">We push boundaries to solve real problems</p>
+                <h3 className="text-gray-900 font-semibold mb-2">{t('about.values.innovation.title')}</h3>
+                <p className="text-gray-600 text-sm">{t('about.values.innovation.description')}</p>
               </div>
 
               <div className="text-center p-6 bg-white rounded-lg shadow-lg">
                 <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-lg shadow-[#F6B86C]/25">
                   <Target className="h-6 w-6" />
                 </div>
-                <h3 className="text-gray-900 font-semibold mb-2">Excellence</h3>
-                <p className="text-gray-600 text-sm">Quality and reliability in everything we build</p>
+                <h3 className="text-gray-900 font-semibold mb-2">{t('about.values.excellence.title')}</h3>
+                <p className="text-gray-600 text-sm">{t('about.values.excellence.description')}</p>
               </div>
 
               <div className="text-center p-6 bg-white rounded-lg shadow-lg">
                 <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-lg shadow-[#F6B86C]/25">
                   <Heart className="h-6 w-6" />
                 </div>
-                <h3 className="text-gray-900 font-semibold mb-2">Empathy</h3>
-                <p className="text-gray-600 text-sm">We understand the challenges you face</p>
+                <h3 className="text-gray-900 font-semibold mb-2">{t('about.values.empathy.title')}</h3>
+                <p className="text-gray-600 text-sm">{t('about.values.empathy.description')}</p>
               </div>
             </div>
           </div>
@@ -188,17 +174,17 @@ export default function AboutPage() {
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Ready to Join Our Journey?
+                {t('about.cta.title')}
               </h2>
               <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                Discover how OS² Commerce can transform your e-commerce operations with our integrated suite of applications.
+                {t('about.cta.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
                   className="bg-[#1E0D43] text-white px-8 py-4 text-lg font-semibold shadow-lg shadow-[#F6B86C]/25"
                 >
-                  Explore Our Apps
+                  {t('about.cta.explore')}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button
@@ -207,7 +193,7 @@ export default function AboutPage() {
                   className="border-[#1E0D43]/50 text-[#1E0D43] hover:bg-[#1E0D43]/10 bg-transparent px-8 py-4 text-lg"
                   asChild
                 >
-                  <Link href="/contact">Contact Us</Link>
+                  <Link href="/contact">{t('about.cta.contact')}</Link>
                 </Button>
               </div>
             </div>

@@ -9,35 +9,13 @@ import { Footer } from "@/components/footer"
 import { LocaleLink } from "@/components/locale-link"
 import { WaitlistDialog } from "@/components/waitlist-dialog"
 import { appsConfig, AppConfig } from "@/lib/apps-config"
-import { Metadata } from "next"
-
-export const metadata: Metadata = {
-  title: "Our Shopify Apps | OS² Commerce - Integrated E-commerce Solutions",
-  description: "Discover the complete suite of OS² Commerce Shopify apps. From order tracking to marketing automation, our integrated ecosystem helps e-commerce businesses grow efficiently.",
-  keywords: "Shopify apps, e-commerce tools, order tracking, email marketing, product bundles, Shopify ecosystem, integrated apps",
-  openGraph: {
-    title: "Our Shopify Apps | OS² Commerce",
-    description: "Discover the complete suite of OS² Commerce Shopify apps designed to work together seamlessly.",
-    type: "website",
-    images: ["/oss-logo.png"]
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Our Shopify Apps | OS² Commerce",
-    description: "Integrated Shopify apps that work better together"
-  }
-}
+import { getTranslations } from "@/lib/i18n"
+import { type Locale } from "@/lib/i18n/config"
 
 const statusColors = {
   available: "bg-emerald-100 text-emerald-800 border-emerald-200",
   'coming-soon': "bg-yellow-100 text-yellow-800 border-yellow-200",
   beta: "bg-blue-100 text-blue-800 border-blue-200"
-}
-
-const statusLabels = {
-  available: "Available Now",
-  'coming-soon': "Coming Soon",
-  beta: "Beta Version"
 }
 
 const categoryIcons = {
@@ -48,14 +26,20 @@ const categoryIcons = {
   other: "⚡"
 }
 
-function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean }) {
+function AppCard({ app, featured = false, t }: { app: AppConfig, featured?: boolean, t: (key: string) => string }) {
+  const statusLabels = {
+    available: t('apps.status.available'),
+    'coming-soon': t('apps.status.comingSoon'),
+    beta: t('apps.status.beta')
+  }
+
   return (
     <Card className={`bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group h-full ${featured ? 'ring-2 ring-[#F6B86C]/50' : ''}`}>
       {featured && (
         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
           <Badge className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] text-[#1E0D43] font-semibold shadow-lg">
             <Star className="mr-1 h-3 w-3 fill-current" />
-            Most Popular
+            {t('apps.card.popular')}
           </Badge>
         </div>
       )}
@@ -65,7 +49,7 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
           <div className="relative mb-4">
             <Image
               src={app.icon}
-              alt={`${app.name} - ${app.category} app for Shopify`}
+              alt={`${t(app.name)} - ${app.category} app for Shopify`}
               width={192}
               height={112}
               className="object-contain"
@@ -74,20 +58,20 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
         </div>
 
         <p className="text-gray-700 text-sm leading-relaxed mb-6">
-          {app.description}
+          {t(app.description)}
         </p>
 
         {/* Features */}
         <div className="space-y-2 mt-4">
-          <h4 className="text-sm font-medium text-gray-800 mt-4">Key Features:</h4>
+          <h4 className="text-sm font-medium text-gray-800 mt-4">{t('apps.card.features')}</h4>
           <div className="flex flex-wrap gap-1">
-            {app.features.slice(0, 3).map((feature) => (
+            {app.features.slice(0, 3).map((feature, index) => (
               <Badge
-                key={feature}
+                key={index}
                 variant="outline"
                 className="border-gray-300 text-gray-700 text-xs"
               >
-                {feature}
+                {t(feature)}
               </Badge>
             ))}
             {app.features.length > 3 && (
@@ -95,7 +79,7 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
                 variant="outline"
                 className="border-gray-300 text-gray-700 text-xs"
               >
-                +{app.features.length - 3} more
+                +{app.features.length - 3} {t('apps.card.more')}
               </Badge>
             )}
           </div>
@@ -111,16 +95,16 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
               asChild
             >
               <a href={app.shopifyUrl} target="_blank" rel="noopener noreferrer">
-                Install Now
+                {t('apps.card.install')}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
           ) : app.status === 'coming-soon' ? (
             <WaitlistDialog
-              appName={app.name}
+              appName={t(app.name)}
               appId={app.id}
               buttonVariant="default"
-              buttonText="Join Waitlist"
+              buttonText={t('apps.card.waitlist')}
             />
           ) : (
             <>
@@ -129,15 +113,15 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
                 asChild
               >
                 <a href={app.shopifyUrl || '#'} target="_blank" rel="noopener noreferrer">
-                  Join Beta
+                  {t('apps.card.beta')}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
               <WaitlistDialog
-                appName={app.name}
+                appName={t(app.name)}
                 appId={app.id}
                 buttonVariant="outline"
-                buttonText="Launch waitlist"
+                buttonText={t('apps.card.launchWaitlist')}
               />
             </>
           )}
@@ -151,7 +135,7 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
                 className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50"
                 asChild
               >
-                <LocaleLink href={app.landingPage}>Learn More</LocaleLink>
+                <LocaleLink href={app.landingPage}>{t('apps.card.learnMore')}</LocaleLink>
               </Button>
             )}
 
@@ -163,7 +147,7 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
             >
               <LocaleLink href={`/docs/${app.id}`}>
                 <Book className="mr-1 h-3 w-3" />
-                Docs
+                {t('apps.card.docs')}
               </LocaleLink>
             </Button>
           </div>
@@ -173,7 +157,15 @@ function AppCard({ app, featured = false }: { app: AppConfig, featured?: boolean
   )
 }
 
-export default function AppsPage() {
+interface AppsPageProps {
+  params: Promise<{
+    locale: string
+  }>
+}
+
+export default async function AppsPage({ params }: AppsPageProps) {
+  const { locale } = await params
+  const t = getTranslations(locale as Locale)
   const availableApps = appsConfig.filter(app => app.status === 'available')
   const upcomingApps = appsConfig.filter(app => app.status !== 'available')
 
@@ -187,13 +179,13 @@ export default function AppsPage() {
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Integrated{" "}
+                {t('apps.hero.title')}{" "}
                 <span className="bg-gradient-to-r from-emerald-300 to-[#FFB886] bg-clip-text text-transparent">
-                  Ecosystem
+                  {t('apps.hero.titleHighlight')}
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Powerful Shopify applications designed to work together seamlessly, unlocking features across apps that work together in ways not possible otherwise.
+                {t('apps.hero.subtitle')}
               </p>
 
               {/* Key Benefits */}
@@ -202,32 +194,32 @@ export default function AppsPage() {
                   <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-3">
                     <Zap className="h-6 w-6" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Cross-App Features</h3>
-                  <p className="text-gray-600 text-sm">Unlock powerful integrations when using multiple OS² apps together</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">{t('apps.hero.benefits.crossApp.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('apps.hero.benefits.crossApp.description')}</p>
                 </div>
 
                 <div className="text-center">
                   <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-3">
                     <BarChart3 className="h-6 w-6" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Shared Analytics</h3>
-                  <p className="text-gray-600 text-sm">Cross-app insights and unified reporting dashboard</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">{t('apps.hero.benefits.analytics.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('apps.hero.benefits.analytics.description')}</p>
                 </div>
 
                 <div className="text-center">
                   <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-3">
                     <Users className="h-6 w-6" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Unified Support</h3>
-                  <p className="text-gray-600 text-sm">One support team for all your OS² Commerce apps</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">{t('apps.hero.benefits.support.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('apps.hero.benefits.support.description')}</p>
                 </div>
 
                 <div className="text-center">
                   <div className="w-12 h-12 bg-[#1E0D43] text-white rounded-full flex items-center justify-center mx-auto mb-3">
                     <Star className="h-6 w-6" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Volume Savings</h3>
-                  <p className="text-gray-600 text-sm">Save up to 30% with multiple app installations</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">{t('apps.hero.benefits.savings.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('apps.hero.benefits.savings.description')}</p>
                 </div>
               </div>
             </div>
@@ -239,20 +231,20 @@ export default function AppsPage() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Available{" "}
+                {t('apps.available.title')}{" "}
                 <span className="bg-gradient-to-r from-emerald-300 to-[#FFB886] bg-clip-text text-transparent">
-                  Applications
+                  {t('apps.available.titleHighlight')}
                 </span>
               </h2>
               <p className="text-xl text-white/90 max-w-3xl mx-auto">
-                Ready-to-install Shopify applications that are transforming e-commerce businesses worldwide.
+                {t('apps.available.subtitle')}
               </p>
             </div>
 
             {availableApps.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                 {availableApps.map((app, index) => (
-                  <AppCard key={app.id} app={app} featured={index === 0} />
+                  <AppCard key={app.id} app={app} featured={index === 0} t={t} />
                 ))}
               </div>
             ) : (
@@ -260,9 +252,9 @@ export default function AppsPage() {
                 <div className="w-24 h-24 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#F6B86C]/25">
                   <Zap className="h-12 w-12 text-[#1E0D43]" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Apps Coming Soon</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{t('apps.available.empty.title')}</h3>
                 <p className="text-gray-700 mb-8 max-w-md mx-auto">
-                  We're putting the finishing touches on our first applications. Check back soon!
+                  {t('apps.available.empty.subtitle')}
                 </p>
               </div>
             )}
@@ -276,17 +268,17 @@ export default function AppsPage() {
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                   <span className="bg-gradient-to-r from-emerald-300 to-[#FFB886] bg-clip-text text-transparent">
-                    Coming Soon
+                    {t('apps.upcoming.title')}
                   </span>
                 </h2>
                 <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                  Exciting new applications in development. Be the first to know when they launch.
+                  {t('apps.upcoming.subtitle')}
                 </p>
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                 {upcomingApps.map((app) => (
-                  <AppCard key={app.id} app={app} />
+                  <AppCard key={app.id} app={app} t={t} />
                 ))}
               </div>
             </div>
@@ -298,13 +290,13 @@ export default function AppsPage() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Ecosystem{" "}
+                {t('apps.ecosystem.title')}{" "}
                 <span className="bg-gradient-to-r from-emerald-300 to-[#FFB886] bg-clip-text text-transparent">
-                  Advantages
+                  {t('apps.ecosystem.titleHighlight')}
                 </span>
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                The more OSS Commerce apps you use, the more powerful and cost-effective your setup becomes.
+                {t('apps.ecosystem.subtitle')}
               </p>
             </div>
 
@@ -316,9 +308,9 @@ export default function AppsPage() {
                     <div className="w-16 h-16 bg-transparent border-2 border-gray-600 rounded-full flex items-center justify-center mx-auto mb-6">
                       <span className="text-2xl font-bold text-gray-900">2</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Starter Ecosystem</h3>
-                    <div className="text-3xl font-bold text-emerald-600 mb-4">Save 10%</div>
-                    <p className="text-gray-700 text-sm">Perfect for growing stores ready to unify their operations</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('apps.ecosystem.tiers.starter.title')}</h3>
+                    <div className="text-3xl font-bold text-emerald-600 mb-4">{t('apps.ecosystem.tiers.starter.save')}</div>
+                    <p className="text-gray-700 text-sm">{t('apps.ecosystem.tiers.starter.description')}</p>
                   </CardContent>
                 </Card>
 
@@ -326,16 +318,16 @@ export default function AppsPage() {
                 <Card className="bg-white border-[#F6B86C] text-center shadow-xl hover:shadow-2xl transition-all duration-300 relative">
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <Badge className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] text-[#1E0D43] font-semibold shadow-lg">
-                      Most Popular
+                      {t('apps.ecosystem.tiers.growth.popular')}
                     </Badge>
                   </div>
                   <CardContent className="p-8">
                     <div className="w-16 h-16 bg-transparent border-2 border-gray-600 rounded-full flex items-center justify-center mx-auto mb-6">
                       <span className="text-2xl font-bold text-gray-900">3</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Growth Ecosystem</h3>
-                    <div className="text-3xl font-bold text-emerald-600 mb-4">Save 20%</div>
-                    <p className="text-gray-700 text-sm">Ideal for established stores scaling their operations</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('apps.ecosystem.tiers.growth.title')}</h3>
+                    <div className="text-3xl font-bold text-emerald-600 mb-4">{t('apps.ecosystem.tiers.growth.save')}</div>
+                    <p className="text-gray-700 text-sm">{t('apps.ecosystem.tiers.growth.description')}</p>
                   </CardContent>
                 </Card>
 
@@ -345,19 +337,18 @@ export default function AppsPage() {
                     <div className="w-16 h-16 bg-transparent border-2 border-gray-600 rounded-full flex items-center justify-center mx-auto mb-6">
                       <span className="text-2xl font-bold text-gray-900">4+</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Complete Ecosystem</h3>
-                    <div className="text-3xl font-bold text-emerald-600 mb-4">Save 30%</div>
-                    <p className="text-gray-700 text-sm">Maximum efficiency and savings for serious merchants</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('apps.ecosystem.tiers.complete.title')}</h3>
+                    <div className="text-3xl font-bold text-emerald-600 mb-4">{t('apps.ecosystem.tiers.complete.save')}</div>
+                    <p className="text-gray-700 text-sm">{t('apps.ecosystem.tiers.complete.description')}</p>
                   </CardContent>
                 </Card>
               </div>
 
               <div className="text-center mt-12">
                 <div className="bg-white rounded-lg p-6 max-w-2xl mx-auto shadow-lg border border-gray-200">
-                  <h4 className="text-gray-900 font-semibold mb-2">🎯 Automatic Discounts</h4>
+                  <h4 className="text-gray-900 font-semibold mb-2">{t('apps.ecosystem.automatic.title')}</h4>
                   <p className="text-gray-700 text-sm">
-                    Volume discounts are automatically applied to your Shopify subscription.
-                    Start with one app and save more as your ecosystem grows.
+                    {t('apps.ecosystem.automatic.description')}
                   </p>
                 </div>
               </div>
@@ -370,11 +361,10 @@ export default function AppsPage() {
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Ready to Transform Your Store?
+                {t('apps.cta.title')}
               </h2>
               <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                Start with any OS² Commerce app and experience the power of integrated e-commerce tools.
-                Join thousands of merchants who have already upgraded their operations.
+                {t('apps.cta.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -383,7 +373,7 @@ export default function AppsPage() {
                   asChild
                 >
                   <Link href="/docs/getting-started">
-                    Get Started Now
+                    {t('apps.cta.getStarted')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -393,7 +383,7 @@ export default function AppsPage() {
                   className="border-[#1E0D43]/50 text-[#1E0D43] hover:bg-[#1E0D43]/10 bg-transparent px-8 py-4 text-lg"
                   asChild
                 >
-                  <Link href="/contact">Talk to an Expert</Link>
+                  <Link href="/contact">{t('apps.cta.talkToExpert')}</Link>
                 </Button>
               </div>
             </div>
