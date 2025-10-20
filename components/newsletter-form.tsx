@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useLocale } from "@/components/locale-provider"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Alert, AlertDescription } from "@/components/ui/alert"
@@ -27,6 +28,7 @@ export function NewsletterForm({
   source = "website",
   groups = []
 }: NewsletterFormProps) {
+  const { t } = useLocale()
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const [message, setMessage] = useState("")
