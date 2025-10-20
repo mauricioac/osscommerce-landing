@@ -52,7 +52,7 @@ export default async function AppPage({ params }: AppPageProps) {
                   <div className="w-64 h-32 relative mb-4">
                     <Image
                       src={app.icon}
-                      alt={`${app.name} - ${app.category} app for Shopify`}
+                      alt={`${t(app.name)} - ${app.category} app for Shopify`}
                       width={256}
                       height={128}
                       className="object-contain"
@@ -68,7 +68,7 @@ export default async function AppPage({ params }: AppPageProps) {
                 </div>
 
                 <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
-                  {app.description}
+                  {t(app.description)}
                 </p>
 
                 {/* CTAs */}
@@ -105,7 +105,7 @@ export default async function AppPage({ params }: AppPageProps) {
                         </a>
                       </Button>
                       <WaitlistDialog
-                        appName={app.name}
+                        appName={t(app.name)}
                         appId={app.id}
                         buttonVariant="outline"
                       />
@@ -183,7 +183,7 @@ export default async function AppPage({ params }: AppPageProps) {
                       <div className="w-24 h-24 mx-auto mb-4 relative">
                         <Image
                           src={app.icon}
-                          alt={app.name}
+                          alt={t(app.name)}
                           width={96}
                           height={96}
                           className="object-contain"
@@ -211,7 +211,7 @@ export default async function AppPage({ params }: AppPageProps) {
                 </span>
               </h2>
               <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                {t('appPage.features.subtitle').replace('{category}', app.category).replace('{appName}', app.name)}
+                {t('appPage.features.subtitle').replace('{category}', app.category).replace('{appName}', t(app.name))}
               </p>
             </div>
 
@@ -224,9 +224,9 @@ export default async function AppPage({ params }: AppPageProps) {
                         <CheckCircle className="h-5 w-5 text-[#1E0D43]" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature}</h3>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">{t(feature)}</h3>
                         <p className="text-gray-700 text-sm">
-                          {t('appPage.features.description').replace('{feature}', feature.toLowerCase())}
+                          {t('appPage.features.description').replace('{feature}', t(feature).toLowerCase())}
                         </p>
                       </div>
                     </div>
@@ -250,7 +250,7 @@ export default async function AppPage({ params }: AppPageProps) {
                 </span>
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                {t('appPage.ecosystem.subtitle').replace('{appName}', app.name)}
+                {t('appPage.ecosystem.subtitle').replace('{appName}', t(app.name))}
               </p>
             </div>
 
@@ -295,10 +295,10 @@ export default async function AppPage({ params }: AppPageProps) {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              {t('appPage.cta.title').replace('{appName}', app.name)}
+              {t('appPage.cta.title').replace('{appName}', t(app.name))}
             </h2>
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-              {t('appPage.cta.subtitle').replace('{appName}', app.name).replace('{category}', app.category)}
+              {t('appPage.cta.subtitle').replace('{appName}', t(app.name)).replace('{category}', app.category)}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               {app.status === 'available' && app.shopifyUrl ? (
@@ -308,7 +308,7 @@ export default async function AppPage({ params }: AppPageProps) {
                   asChild
                 >
                   <a href={app.shopifyUrl} target="_blank" rel="noopener noreferrer">
-                    {t('appPage.cta.install').replace('{appName}', app.name)}
+                    {t('appPage.cta.install').replace('{appName}', t(app.name))}
                     <ArrowRight className="ml-2 h-6 w-6" />
                   </a>
                 </Button>

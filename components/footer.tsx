@@ -16,9 +16,9 @@ export function Footer() {
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-8 h-8 relative">
-                <Image src="/oss-logo.png" alt="OS² Logo" width={32} height={32} className="object-contain" />
+                <Image src="/oss-logo.png" alt="OSS Logo" width={32} height={32} className="object-contain" />
               </div>
-              <span className="text-xl font-bold text-white">OS² Commerce</span>
+              <span className="text-xl font-bold text-white">OSS Commerce</span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed">
               {t('footer.description')}
@@ -30,7 +30,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <LocaleLink href="/apps/oss-tracking" className="text-white/60 hover:text-[#F6B86C] text-sm transition-colors">
-                  OS² Tracking
+                  OSS Tracking
                 </LocaleLink>
               </li>
               <li>

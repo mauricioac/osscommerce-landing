@@ -165,7 +165,7 @@ export function NewsletterForm({
 
       {status === "idle" && (
         <p className={`text-xs mt-2 text-center ${textVariantClasses}`}>
-          No spam, unsubscribe at any time.
+          {t('footer.newsletter.noSpam')}
         </p>
       )}
     </div>

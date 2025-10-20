@@ -107,7 +107,7 @@ Invest first in apps that handle:
 - Analytics
 
 ### 2. Look for Multi-App Discounts
-Providers like OS² Commerce offer:
+Providers like OSS Commerce offer:
 - 10% off with 2 apps
 - 20% off with 3 apps
 - 30% off with 4+ apps
@@ -143,4 +143,4 @@ Remember: the most expensive mistake isn't overpaying for an app—it's choosing
 
 ---
 
-*Looking for apps that deliver exceptional ROI? [Explore OS² Commerce](/) and discover how our integrated ecosystem maximizes your investment.*
+*Looking for apps that deliver exceptional ROI? [Explore OSS Commerce](/) and discover how our integrated ecosystem maximizes your investment.*

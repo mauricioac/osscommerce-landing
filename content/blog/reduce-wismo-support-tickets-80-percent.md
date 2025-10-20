@@ -2,7 +2,7 @@
 title: "How to Reduce WISMO Support Tickets by 80%: A Data-Driven Guide for Shopify Merchants"
 excerpt: "Discover proven strategies to dramatically reduce 'Where Is My Order' support tickets. Learn how top Shopify merchants cut WISMO inquiries by 80% using proactive communication, smart automation, and customer-centric design."
 date: "2025-01-15"
-author: "OS² Commerce Team"
+author: "OSS Commerce Team"
 tags: ["wismo", "customer-support", "shopify", "order-tracking", "automation", "customer-experience"]
 featured: true
 image: "/blog/reduce-wismo-tickets-guide.png"
@@ -27,15 +27,15 @@ ai_keyFacts: [
 # Verified Statistics
 ai_statistics: [
   { metric: "Average ticket cost", value: "$15-25 per WISMO inquiry", source: "Customer support cost analysis 2024" },
-  { metric: "Reduction potential", value: "80% reduction in WISMO tickets", source: "OS² Commerce case study analysis" },
+  { metric: "Reduction potential", value: "80% reduction in WISMO tickets", source: "OSS Commerce case study analysis" },
   { metric: "Support burden", value: "20-40% of tickets are WISMO related", source: "E-commerce support ticket analysis" },
   { metric: "ROI impact", value: "890% ROI on tracking improvements", source: "$2M store case study" }
 ]
 
 # Citation Information
 citation_title: "How to Reduce WISMO Support Tickets by 80%"
-citation_author: "OS² Commerce Team"
-citation_publication: "OS² Commerce Knowledge Base"
+citation_author: "OSS Commerce Team"
+citation_publication: "OSS Commerce Knowledge Base"
 citation_url: "https://osscommerce.com/blog/reduce-wismo-support-tickets-80-percent"
 citation_date: "2025-01-15"
 ---
@@ -473,7 +473,7 @@ const generateWISMOReport = () => {
 
 ### Essential Tools:
 
-1. **Advanced Tracking Platform**: OS² Tracking (proactive anomaly detection)
+1. **Advanced Tracking Platform**: OSS Tracking (proactive anomaly detection)
 2. **Email Marketing**: Klaviyo (behavioral triggers and segmentation)
 3. **SMS Platform**: Postscript (coordinated multi-channel messaging)
 4. **Analytics**: Google Analytics + Mixpanel (comprehensive tracking)
@@ -583,7 +583,7 @@ Remember: every WISMO ticket prevented is a customer experience improved, a supp
 
 ---
 
-**Ready to eliminate WISMO tickets from your support queue?** [OS² Tracking](/oss-tracking) is the only Shopify order tracking app with proactive anomaly detection and intelligent automation designed specifically to reduce WISMO inquiries.
+**Ready to eliminate WISMO tickets from your support queue?** [OSS Tracking](/oss-tracking) is the only Shopify order tracking app with proactive anomaly detection and intelligent automation designed specifically to reduce WISMO inquiries.
 
 **Start your transformation today** with our [free 14-day trial](https://apps.shopify.com/oss-tracking) and join the hundreds of merchants who have already eliminated WISMO from their customer service challenges.
 

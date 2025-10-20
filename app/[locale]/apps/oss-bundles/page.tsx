@@ -57,7 +57,7 @@ export default async function OSBundlesPage({ params }: BundlesPageProps) {
                   <div className="w-80 h-32 mx-auto lg:mx-0 mb-3 relative">
                     <Image
                       src="/oss-bundles.png"
-                      alt="OS² Bundles - Product Bundling for Shopify"
+                      alt="OSS Bundles - Product Bundling for Shopify"
                       width={320}
                       height={128}
                       className="object-contain w-full h-full"
@@ -80,7 +80,7 @@ export default async function OSBundlesPage({ params }: BundlesPageProps) {
 
                 <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed text-center lg:text-left">
                   Create compelling product bundles that increase average order value and delight your customers.
-                  Get started in minutes with OS² Bundles.
+                  Get started in minutes with OSS Bundles.
                 </p>
 
                 {/* Key Benefits */}
@@ -115,7 +115,7 @@ export default async function OSBundlesPage({ params }: BundlesPageProps) {
                   </Button>
 
                   <WaitlistDialog
-                    appName="OS² Bundles"
+                    appName="OSS Bundles"
                     appId="oss-bundles"
                     buttonVariant="outline"
                   />
@@ -252,11 +252,11 @@ export default async function OSBundlesPage({ params }: BundlesPageProps) {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Works Better with{" "}
                 <span className="bg-gradient-to-r from-emerald-400 to-[#F6B86C] bg-clip-text text-transparent">
-                  OS² Ecosystem
+                  OSS Ecosystem
                 </span>
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                OS² Bundles is designed to work seamlessly with other OS² Commerce apps, unlocking features across apps that work together in ways not possible otherwise.
+                OSS Bundles is designed to work seamlessly with other OSS Commerce apps, unlocking features across apps that work together in ways not possible otherwise.
               </p>
             </div>
 
@@ -267,7 +267,7 @@ export default async function OSBundlesPage({ params }: BundlesPageProps) {
                     <Zap className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Cross-App Features</h3>
-                  <p className="text-gray-700">Unlock powerful integrations when using multiple OS² apps together.</p>
+                  <p className="text-gray-700">Unlock powerful integrations when using multiple OSS apps together.</p>
                 </div>
                 <div>
                   <div className="w-16 h-16 bg-gradient-to-br from-[#F6B86C] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-4">
@@ -281,7 +281,7 @@ export default async function OSBundlesPage({ params }: BundlesPageProps) {
                     <Users className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Unified Support</h3>
-                  <p className="text-gray-700">One support team for all your OS² Commerce apps.</p>
+                  <p className="text-gray-700">One support team for all your OSS Commerce apps.</p>
                 </div>
                 <div>
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -301,7 +301,7 @@ export default async function OSBundlesPage({ params }: BundlesPageProps) {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Ready to Get Started with OS² Bundles?
+              Ready to Get Started with OSS Bundles?
             </h2>
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
               Join our beta program and start creating profitable product bundles today.

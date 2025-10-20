@@ -2,7 +2,7 @@
 title: "Building an Integrated App Ecosystem: Why Standalone Solutions Aren't Enough"
 excerpt: "Learn why the future of e-commerce belongs to integrated app ecosystems and how they're transforming business operations."
 date: "2025-01-10"
-author: "OS² Commerce Team"
+author: "OSS Commerce Team"
 tags: ["integration", "ecosystem", "productivity", "growth"]
 featured: true
 image: "/oss-marketing.png"
@@ -60,9 +60,9 @@ When evaluating apps for your business, consider:
 3. **Unified Reporting**: Can you see combined insights across platforms?
 4. **Support Coordination**: Do the app providers work together when issues arise?
 
-## The OS² Commerce Approach
+## The OSS Commerce Approach
 
-At OS² Commerce, we've built our entire suite with integration in mind. Our apps don't just coexist—they enhance each other:
+At OSS Commerce, we've built our entire suite with integration in mind. Our apps don't just coexist—they enhance each other:
 
 - Customer data flows seamlessly between tracking, marketing, and analytics
 - Automated workflows trigger across the entire ecosystem
@@ -86,4 +86,4 @@ The ecosystem era has begun. The question is: will you be part of it?
 
 ---
 
-*Ready to experience the power of integration? [Explore our app ecosystem](/) and discover how OS² Commerce apps work better together.*
+*Ready to experience the power of integration? [Explore our app ecosystem](/) and discover how OSS Commerce apps work better together.*

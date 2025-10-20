@@ -2,7 +2,7 @@
 title: "The Future of E-commerce Tracking: Beyond Basic Notifications"
 excerpt: "Discover how intelligent tracking systems are revolutionizing the post-purchase experience and driving customer loyalty in 2025."
 date: "2025-01-15"
-author: "OS² Commerce Team"
+author: "OSS Commerce Team"
 tags: ["tracking", "ecommerce", "customer experience", "technology"]
 featured: true
 image: "/oss-tracking.png"
@@ -79,4 +79,4 @@ The question isn't whether you can afford to upgrade your tracking system—it's
 
 ---
 
-*Ready to transform your post-purchase experience? [Explore OS² Tracking](/oss-tracking) and see how intelligent tracking can drive growth for your business.*
+*Ready to transform your post-purchase experience? [Explore OSS Tracking](/oss-tracking) and see how intelligent tracking can drive growth for your business.*

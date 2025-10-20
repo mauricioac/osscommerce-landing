@@ -36,12 +36,12 @@ export default function GettingStartedPage() {
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
                 Welcome to{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
-                  OS² Commerce
+                  OSS Commerce
                 </span>
               </h1>
               
               <p className="text-xl text-white/80 leading-relaxed">
-                Get started with the OS² Commerce ecosystem and learn how our integrated apps 
+                Get started with the OSS Commerce ecosystem and learn how our integrated apps 
                 can transform your e-commerce operations.
               </p>
             </div>
@@ -72,20 +72,20 @@ export default function GettingStartedPage() {
                   </CardHeader>
                   <CardContent className="p-8 pt-0">
                     <p className="text-white/80 mb-6 leading-relaxed">
-                      Start with the app that addresses your most pressing need. Each OS² Commerce app is powerful on its own 
+                      Start with the app that addresses your most pressing need. Each OSS Commerce app is powerful on its own 
                       and becomes even more valuable when combined with others.
                     </p>
                     <div className="grid md:grid-cols-3 gap-4">
                       <div className="p-4 bg-white/5 rounded-lg border border-white/10">
-                        <h4 className="font-semibold text-white mb-2">📦 OS² Tracking</h4>
+                        <h4 className="font-semibold text-white mb-2">📦 OSS Tracking</h4>
                         <p className="text-white/70 text-sm">Perfect if you want to reduce WISMO tickets and improve post-purchase experience.</p>
                       </div>
                       <div className="p-4 bg-white/5 rounded-lg border border-white/10">
-                        <h4 className="font-semibold text-white mb-2">📧 OS² Marketing</h4>
+                        <h4 className="font-semibold text-white mb-2">📧 OSS Marketing</h4>
                         <p className="text-white/70 text-sm">Ideal for merchants looking to improve email marketing and automation.</p>
                       </div>
                       <div className="p-4 bg-white/5 rounded-lg border border-white/10">
-                        <h4 className="font-semibold text-white mb-2">🎁 OS² Bundles</h4>
+                        <h4 className="font-semibold text-white mb-2">🎁 OSS Bundles</h4>
                         <p className="text-white/70 text-sm">Great for increasing average order value with compelling product bundles.</p>
                       </div>
                     </div>
@@ -104,12 +104,12 @@ export default function GettingStartedPage() {
                   </CardHeader>
                   <CardContent className="p-8 pt-0">
                     <p className="text-white/80 mb-6 leading-relaxed">
-                      All OS² Commerce apps are available in the official Shopify App Store. Installation is quick and easy.
+                      All OSS Commerce apps are available in the official Shopify App Store. Installation is quick and easy.
                     </p>
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
                         <Check className="h-5 w-5 text-emerald-400" />
-                        <span className="text-white/90">Search for "OS² Commerce" or the specific app name</span>
+                        <span className="text-white/90">Search for "OSS Commerce" or the specific app name</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <Check className="h-5 w-5 text-emerald-400" />
@@ -209,7 +209,7 @@ export default function GettingStartedPage() {
                   <CardContent className="p-8 text-center">
                     <h3 className="text-xl font-bold text-white mb-4">Browse Our Apps</h3>
                     <p className="text-white/80 mb-6">
-                      Explore all available OS² Commerce applications and find the perfect fit for your business.
+                      Explore all available OSS Commerce applications and find the perfect fit for your business.
                     </p>
                     <Button
                       className="w-full bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] font-semibold"

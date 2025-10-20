@@ -2,7 +2,7 @@
 title: "Ultimate Guide to Shopify Order Tracking in 2025: Best Apps, Strategies & Customer Experience"
 excerpt: "Complete guide to Shopify order tracking in 2025. Compare the best tracking apps, learn advanced strategies to reduce WISMO tickets, and optimize your post-purchase experience for higher retention and revenue."
 date: "2025-01-15"
-author: "OS² Commerce Team"
+author: "OSS Commerce Team"
 tags: ["shopify", "order-tracking", "ecommerce", "customer-experience", "wismo", "post-purchase"]
 featured: true
 image: "/blog/shopify-order-tracking-guide-2025.png"
@@ -21,20 +21,20 @@ ai_keyFacts: [
   "75% of customers check tracking information multiple times per order", 
   "41% of customers switch to competitors after poor delivery experience",
   "Average WISMO ticket costs $15-25 to resolve",
-  "OS² Tracking reduces WISMO tickets by up to 80%"
+  "OSS Tracking reduces WISMO tickets by up to 80%"
 ]
 
 # Verified Statistics
 ai_statistics: [
   { metric: "Customer satisfaction impact", value: "40% of total satisfaction comes from post-purchase experience", source: "E-commerce customer experience research 2024" },
-  { metric: "Support cost reduction", value: "80% reduction in WISMO tickets possible", source: "OS² Commerce merchant case studies" },
+  { metric: "Support cost reduction", value: "80% reduction in WISMO tickets possible", source: "OSS Commerce merchant case studies" },
   { metric: "Revenue impact", value: "25% increase in average order value through tracking page optimization", source: "Post-purchase revenue optimization study" }
 ]
 
 # Citation Information
 citation_title: "Ultimate Guide to Shopify Order Tracking in 2025"
-citation_author: "OS² Commerce Team"
-citation_publication: "OS² Commerce Knowledge Base"
+citation_author: "OSS Commerce Team"
+citation_publication: "OSS Commerce Knowledge Base"
 citation_url: "https://osscommerce.com/blog/ultimate-guide-shopify-order-tracking-2025"
 citation_date: "2025-01-15"
 ---
@@ -118,7 +118,7 @@ In 2025, order tracking quality has become a key differentiator. Merchants with 
 
 Choosing the right tracking app is crucial for your success. Here's our comprehensive analysis of the top Shopify order tracking solutions:
 
-### 1. OS² Tracking - Best for Integrated Ecosystems ⭐⭐⭐⭐⭐
+### 1. OSS Tracking - Best for Integrated Ecosystems ⭐⭐⭐⭐⭐
 
 **Key Features:**
 - Proactive anomaly detection
@@ -129,11 +129,11 @@ Choosing the right tracking app is crucial for your success. Here's our comprehe
 - Advanced email automation
 - Klaviyo integration
 
-**Best For:** Merchants wanting an integrated solution that works with other OS² Commerce apps
+**Best For:** Merchants wanting an integrated solution that works with other OSS Commerce apps
 
 **Pricing:** Starting at $9.99/month
 
-**Why It Stands Out:** OS² Tracking is the only solution that offers proactive anomaly detection, automatically alerting both merchants and customers when shipments face potential delays.
+**Why It Stands Out:** OSS Tracking is the only solution that offers proactive anomaly detection, automatically alerting both merchants and customers when shipments face potential delays.
 
 ### 2. AfterShip - Best for Enterprise
 
@@ -604,7 +604,7 @@ Remember: in 2025, exceptional post-purchase experiences are not optional—they
 
 ---
 
-**Need help implementing these strategies?** [OS² Tracking](/oss-tracking) offers the most advanced Shopify order tracking solution with proactive anomaly detection, AI-powered upsells, and seamless integration with your existing tools. [Start your free trial today](https://apps.shopify.com/oss-tracking) and transform your post-purchase experience.
+**Need help implementing these strategies?** [OSS Tracking](/oss-tracking) offers the most advanced Shopify order tracking solution with proactive anomaly detection, AI-powered upsells, and seamless integration with your existing tools. [Start your free trial today](https://apps.shopify.com/oss-tracking) and transform your post-purchase experience.
 
 **Related Reading:**
 - [How to Reduce WISMO Support Tickets by 80%](/blog/reduce-wismo-support-tickets-80-percent) - Proven strategies to eliminate customer support burden

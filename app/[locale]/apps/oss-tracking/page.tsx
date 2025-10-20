@@ -61,7 +61,7 @@ export default async function OSTrackingPage({ params }: TrackingPageProps) {
                   <div className="w-80 h-32 mx-auto lg:mx-0 mb-3 relative">
                     <Image
                       src="/oss-tracking.png"
-                      alt="OS² Tracking - Advanced Order Tracking for Shopify"
+                      alt="OSS Tracking - Advanced Order Tracking for Shopify"
                       width={320}
                       height={128}
                       className="object-contain w-full h-full"

@@ -8,9 +8,12 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { getAppById, getAllAppIds } from "@/lib/apps-config"
 import { notFound } from "next/navigation"
+import { type Locale } from "@/lib/i18n/config"
+import { getTranslations } from "@/lib/i18n"
 
 interface AppDocumentationPageProps {
   params: Promise<{
+    locale: Locale
     appId: string
   }>
 }
@@ -28,9 +31,10 @@ const statusLabels = {
 }
 
 export default async function AppDocumentationPage({ params }: AppDocumentationPageProps) {
-  const { appId } = await params
+  const { locale, appId } = await params
+  const t = getTranslations(locale)
   const app = getAppById(appId)
-  
+
   if (!app) {
     notFound()
   }
@@ -53,7 +57,7 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
               >
                 <Link href="/docs">
                   <ArrowLeft className="mr-2 h-4 w-4" />
-                  Back to Documentation Hub
+                  {t('docs.appDoc.backToDocs')}
                 </Link>
               </Button>
 
@@ -95,11 +99,11 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
                       >
                         <Link href={app.landingPage}>
                           <Book className="mr-2 h-4 w-4" />
-                          App Overview
+                          {t('docs.appDoc.appOverview')}
                         </Link>
                       </Button>
                     )}
-                    
+
                     {app.shopifyUrl && (
                       <Button
                         variant="outline"
@@ -108,7 +112,7 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
                       >
                         <Link href={app.shopifyUrl} target="_blank">
                           <ExternalLink className="mr-2 h-4 w-4" />
-                          Install on Shopify
+                          {t('docs.appDoc.installOnShopify')}
                         </Link>
                       </Button>
                     )}
@@ -120,7 +124,7 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
                     >
                       <Link href="/support">
                         <MessageCircle className="mr-2 h-4 w-4" />
-                        Get Support
+                        {t('docs.appDoc.getSupport')}
                       </Link>
                     </Button>
                   </div>
@@ -160,18 +164,18 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
                     </div>
 
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      Documentation Coming Soon
+                      {t('docs.appDoc.documentationComingSoon')}
                     </h3>
 
                     <p className="text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
-                      We're currently preparing comprehensive documentation for {app.name}.
-                      This will include setup guides, feature tutorials, troubleshooting, and best practices.
+                      {t('docs.appDoc.preparingDocs')} {t(app.name)}.
+                      {t('docs.appDoc.willInclude')}
                     </p>
 
                     {/* Features Preview */}
                     <div className="mb-8">
                       <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                        Documentation will cover:
+                        {t('docs.appDoc.willCover')}
                       </h4>
                       <div className="flex flex-wrap gap-2 justify-center">
                         {app.features.map((feature) => (
@@ -193,7 +197,7 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
                       >
                         <Link href="/support">
                           <MessageCircle className="mr-2 h-4 w-4" />
-                          Contact Support
+                          {t('docs.appDoc.contactSupport')}
                         </Link>
                       </Button>
 
@@ -204,7 +208,7 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
                       >
                         <Link href="/blog">
                           <Book className="mr-2 h-4 w-4" />
-                          Read Our Blog
+                          {t('docs.appDoc.readOurBlog')}
                         </Link>
                       </Button>
                     </div>
@@ -220,19 +224,19 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-                Additional{" "}
+                {t('docs.appDoc.additionalResources').split(' ')[0]}{" "}
                 <span className="bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] bg-clip-text text-transparent">
-                  Resources
+                  {t('docs.appDoc.additionalResources').split(' ').slice(1).join(' ')}
                 </span>
               </h2>
 
               <div className="grid md:grid-cols-2 gap-8">
                 <Card className="bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300">
                   <CardContent className="p-8">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">Need Personal Help?</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">{t('docs.appDoc.needPersonalHelp')}</h3>
                     <p className="text-gray-700 mb-6">
-                      Our support team is ready to help you get the most out of {app.name}.
-                      Get personalized assistance and quick answers.
+                      {t('docs.appDoc.supportTeamReady')} {t(app.name)}.
+                      {t('docs.appDoc.personalizedAssistance')}
                     </p>
                     <Button
                       className="w-full bg-gradient-to-r from-[#F6B86C] to-[#FF8C42] hover:from-[#E6A05C] hover:to-[#F6B86C] text-[#1E0D43] font-semibold"
@@ -249,7 +253,7 @@ export default async function AppDocumentationPage({ params }: AppDocumentationP
                   <CardContent className="p-8">
                     <h3 className="text-xl font-bold text-gray-900 mb-4">Explore More Apps</h3>
                     <p className="text-gray-700 mb-6">
-                      {app.name} works even better when combined with other OS² Commerce apps.
+                      {app.name} works even better when combined with other OSS Commerce apps.
                       Discover the full ecosystem.
                     </p>
                     <Button

@@ -20,16 +20,16 @@ export function generateMetadata({
   ogType = "website",
   noIndex = false
 }: SEOProps): Metadata {
-  const fullTitle = title.includes("OS² Commerce") ? title : `${title} | OS² Commerce`
+  const fullTitle = title.includes("OSS Commerce") ? title : `${title} | OSS Commerce`
   
   return {
     title: fullTitle,
     description,
     keywords,
     robots: noIndex ? "noindex,nofollow" : "index,follow",
-    authors: [{ name: "OS² Commerce Team" }],
-    creator: "OS² Commerce",
-    publisher: "OS² Commerce",
+    authors: [{ name: "OSS Commerce Team" }],
+    creator: "OSS Commerce",
+    publisher: "OSS Commerce",
     alternates: {
       canonical: canonical
     },
@@ -45,7 +45,7 @@ export function generateMetadata({
           alt: title
         }
       ],
-      siteName: "OS² Commerce",
+      siteName: "OSS Commerce",
       locale: "en_US"
     },
     twitter: {
@@ -56,8 +56,8 @@ export function generateMetadata({
       creator: "@osscommerce"
     },
     other: {
-      "application-name": "OS² Commerce",
-      "apple-mobile-web-app-title": "OS² Commerce",
+      "application-name": "OSS Commerce",
+      "apple-mobile-web-app-title": "OSS Commerce",
       "msapplication-TileColor": "#1E0D43",
       "theme-color": "#1E0D43"
     }
@@ -68,7 +68,7 @@ export function generateMetadata({
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "OS² Commerce",
+  "name": "OSS Commerce",
   "alternateName": "OSS Commerce",
   "description": "Integrated Shopify applications that work better together. Powerful e-commerce tools for tracking, marketing, and growth.",
   "url": "https://osscommerce.com",
@@ -96,12 +96,12 @@ export const organizationSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "OS² Commerce",
+  "name": "OSS Commerce",
   "url": "https://osscommerce.com",
   "description": "Integrated Shopify applications designed to work together seamlessly for enhanced e-commerce operations.",
   "publisher": {
     "@type": "Organization",
-    "name": "OS² Commerce"
+    "name": "OSS Commerce"
   },
   "potentialAction": {
     "@type": "SearchAction",
@@ -132,7 +132,7 @@ export const softwareApplicationSchema = (app: {
   },
   "provider": {
     "@type": "Organization",
-    "name": "OS² Commerce"
+    "name": "OSS Commerce"
   },
   "downloadUrl": app.shopifyUrl,
   "featureList": app.features,
@@ -181,7 +181,7 @@ export const articleSchema = (article: {
   },
   "publisher": {
     "@type": "Organization",
-    "name": "OS² Commerce",
+    "name": "OSS Commerce",
     "logo": {
       "@type": "ImageObject",
       "url": "https://osscommerce.com/oss-logo.png"
@@ -206,7 +206,7 @@ export const knowledgeGraphSchema = {
     "operatingSystem": "Web-based",
     "provider": {
       "@type": "Organization",
-      "name": "OS² Commerce"
+      "name": "OSS Commerce"
     }
   },
   "teaches": [
@@ -235,7 +235,7 @@ export const factCheckSchema = (facts: { statement: string; source: string; date
   },
   "author": {
     "@type": "Organization",
-    "name": "OS² Commerce Research Team"
+    "name": "OSS Commerce Research Team"
   },
   "datePublished": facts[0]?.dateChecked || new Date().toISOString(),
   "url": "https://osscommerce.com"
@@ -262,7 +262,7 @@ export const citationSchema = (citation: {
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "publisher": {
     "@type": "Organization",
-    "name": "OS² Commerce"
+    "name": "OSS Commerce"
   }
 })
 
@@ -292,8 +292,8 @@ export const llmOptimizedMetadata = (content: {
   
   // Citation helpers
   "citation:title": content.title,
-  "citation:author": "OS² Commerce Team",
-  "citation:publication": "OS² Commerce Knowledge Base",
+  "citation:author": "OSS Commerce Team",
+  "citation:publication": "OSS Commerce Knowledge Base",
   "citation:date": content.lastUpdated,
   
   // Fact verification

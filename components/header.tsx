@@ -13,9 +13,9 @@ export function Header() {
         <nav className="flex items-center justify-between">
           <LocaleLink href="/" className="flex items-center space-x-3">
             <div className="w-10 h-10 relative">
-              <Image src="/oss-logo.png" alt="OS² Logo" width={40} height={40} className="object-contain" />
+              <Image src="/oss-logo.png" alt="OSS Logo" width={40} height={40} className="object-contain" />
             </div>
-            <span className="text-xl font-bold text-[#1E0D43]">{t('nav.commerce')}</span>
+            <span className="text-xl font-bold text-[#1E0D43]">OSS Commerce</span>
           </LocaleLink>
           <div className="hidden md:flex items-center space-x-8">
             <LocaleLink href="/apps" className="text-[#1E0D43] hover:text-[#1E0D43] transition-colors">

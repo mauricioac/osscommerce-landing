@@ -26,7 +26,7 @@ export const es = {
     },
     why: {
       title: '¿Por qué elegir OSS Commerce?',
-      subtitle: 'Cada app en la suite de OS² Commerce es potente por sí sola. Juntas, crean un sistema unificado y sin interrupciones para administrar y hacer crecer tu negocio de e-commerce.',
+      subtitle: 'Cada app en la suite de OSS Commerce es potente por sí sola. Juntas, crean un sistema unificado y sin interrupciones para administrar y hacer crecer tu negocio de e-commerce.',
       extended: {
         title: 'Comportamiento Extendido',
         description: 'Obtén comportamientos de una app en la otra sin trabajo adicional. Los datos fluyen sin problemas entre aplicaciones.'
@@ -65,7 +65,7 @@ export const es = {
     },
     cta: {
       title: '¿Listo para Transformar tu Tienda?',
-      subtitle: 'Únete a miles de comerciantes que han mejorado sus operaciones de e-commerce con OS² Commerce. Comienza con cualquier app y experimenta el poder de un ecosistema integrado.',
+      subtitle: 'Únete a miles de comerciantes que han mejorado sus operaciones de e-commerce con OSS Commerce. Comienza con cualquier app y experimenta el poder de un ecosistema integrado.',
       getStarted: 'Comenzar Ahora',
       talkToExpert: 'Hablar con un Experto'
     }
@@ -78,7 +78,7 @@ export const es = {
       title: 'Deja de perder',
       titleHighlight: '$$$',
       titleEnd: 'cada mes',
-      subtitle: 'Convierte tu mayor problema de servicio al cliente en tu generador de ingresos más poderoso. OS² Tracking transforma "¿Dónde está mi pedido?" en compras repetidas y ventas adicionales.',
+      subtitle: 'Convierte tu mayor problema de servicio al cliente en tu generador de ingresos más poderoso. OSS Tracking transforma "¿Dónde está mi pedido?" en compras repetidas y ventas adicionales.',
       hiddenCost: {
         title: 'El Costo Oculto del Seguimiento Deficiente',
         customersContact: 'de los clientes contactan al soporte sobre envíos',
@@ -118,16 +118,16 @@ export const es = {
     solution: {
       title: 'Transforma Cada Entrega en',
       titleHighlight: 'Crecimiento de Ingresos',
-      subtitle: 'OS² Tracking convierte tu mayor problema de servicio al cliente en tu punto de contacto más rentable. Observa cómo los clientes frustrados se convierten en compradores recurrentes.',
+      subtitle: 'OSS Tracking convierte tu mayor problema de servicio al cliente en tu punto de contacto más rentable. Observa cómo los clientes frustrados se convierten en compradores recurrentes.',
       before: {
-        title: 'Antes de OS² Tracking',
+        title: 'Antes de OSS Tracking',
         generic: 'Páginas de seguimiento genéricas de transportistas sin marca',
         calls: 'Clientes llamando/enviando correos sobre cada envío',
         zeroRevenue: 'Cero ingresos generados durante la ventana de entrega',
         delays: 'Los retrasos en la entrega crean clientes enojados'
       },
       after: {
-        title: 'Después de OS² Tracking',
+        title: 'Después de OSS Tracking',
         branded: 'Páginas de seguimiento con marca que refuerzan tu marca',
         proactive: 'Notificaciones proactivas eliminan el 89% de los tickets de soporte',
         repeat: 'Aumento del 47% en promedio en compras repetidas',
@@ -137,7 +137,7 @@ export const es = {
     features: {
       title: 'Características Avanzadas de Seguimiento Shopify que',
       titleHighlight: 'Aumentan Ingresos y Reducen Soporte',
-      subtitle: 'Tu experiencia post-compra es una herramienta poderosa para la retención de clientes y generación de ingresos. OS² Tracking transforma cada actualización de seguimiento en una oportunidad. <a href="/blog/ultimate-guide-shopify-order-tracking-2025" className="text-[#F6B86C] hover:underline">Aprende estrategias avanzadas en nuestra guía completa</a>.',
+      subtitle: 'Tu experiencia post-compra es una herramienta poderosa para la retención de clientes y generación de ingresos. OSS Tracking transforma cada actualización de seguimiento en una oportunidad. <a href="/blog/ultimate-guide-shopify-order-tracking-2025" className="text-[#F6B86C] hover:underline">Aprende estrategias avanzadas en nuestra guía completa</a>.',
       proactive: {
         badge: 'Inteligencia Proactiva',
         title: 'Resolución Proactiva de Problemas con Detección de Anomalías',
@@ -191,7 +191,7 @@ export const es = {
     },
     screenshots: {
       title: 'Vea OS Tracking en Acción',
-      subtitle: 'Desde notificaciones por correo hasta páginas de seguimiento marcadas - vea exactamente cómo OS² Tracking transforma la experiencia del cliente.',
+      subtitle: 'Desde notificaciones por correo hasta páginas de seguimiento marcadas - vea exactamente cómo OSS Tracking transforma la experiencia del cliente.',
       email: {
         title: 'Notificaciones Inteligentes por Correo',
         description: 'Actualizaciones proactivas de envío con diseño marcado y oportunidades de venta adicional',
@@ -247,11 +247,11 @@ export const es = {
     },
     ecosystem: {
       title: 'Funciona Mejor con el',
-      titleHighlight: 'Ecosistema OS²',
-      subtitle: 'OS² Tracking está diseñado para funcionar perfectamente con otras apps de OS² Commerce, desbloqueando características entre apps que trabajan juntas de maneras que de otro modo no serían posibles.',
+      titleHighlight: 'Ecosistema OSS',
+      subtitle: 'OSS Tracking está diseñado para funcionar perfectamente con otras apps de OSS Commerce, desbloqueando características entre apps que trabajan juntas de maneras que de otro modo no serían posibles.',
       crossApp: {
         title: 'Características Entre Apps',
-        description: 'Desbloquea integraciones poderosas al usar múltiples apps de OS² juntas.'
+        description: 'Desbloquea integraciones poderosas al usar múltiples apps de OSS juntas.'
       },
       analytics: {
         title: 'Analítica Compartida',
@@ -259,7 +259,7 @@ export const es = {
       },
       support: {
         title: 'Soporte Unificado',
-        description: 'Un equipo de soporte para todas tus apps de OS² Commerce.'
+        description: 'Un equipo de soporte para todas tus apps de OSS Commerce.'
       },
       savings: {
         title: 'Ahorros por Volumen',
@@ -289,7 +289,7 @@ export const es = {
       benefits: {
         crossApp: {
           title: 'Características Entre Apps',
-          description: 'Desbloquea integraciones poderosas al usar múltiples apps de OS² juntas'
+          description: 'Desbloquea integraciones poderosas al usar múltiples apps de OSS juntas'
         },
         analytics: {
           title: 'Analítica Compartida',
@@ -297,7 +297,7 @@ export const es = {
         },
         support: {
           title: 'Soporte Unificado',
-          description: 'Un equipo de soporte para todas tus apps de OS² Commerce'
+          description: 'Un equipo de soporte para todas tus apps de OSS Commerce'
         },
         savings: {
           title: 'Ahorros por Volumen',
@@ -321,7 +321,7 @@ export const es = {
     ecosystem: {
       title: 'Ventajas del',
       titleHighlight: 'Ecosistema',
-      subtitle: 'Cuantas más apps de OS² Commerce uses, más potente y rentable se vuelve tu configuración.',
+      subtitle: 'Cuantas más apps de OSS Commerce uses, más potente y rentable se vuelve tu configuración.',
       tiers: {
         starter: {
           title: 'Ecosistema Inicial',
@@ -347,7 +347,7 @@ export const es = {
     },
     cta: {
       title: '¿Listo para Transformar tu Tienda?',
-      subtitle: 'Comienza con cualquier app de OS² Commerce y experimenta el poder de las herramientas de e-commerce integradas. Únete a miles de comerciantes que ya han mejorado sus operaciones.',
+      subtitle: 'Comienza con cualquier app de OSS Commerce y experimenta el poder de las herramientas de e-commerce integradas. Únete a miles de comerciantes que ya han mejorado sus operaciones.',
       getStarted: 'Comenzar Ahora',
       talkToExpert: 'Hablar con un Experto'
     },
@@ -368,7 +368,7 @@ export const es = {
       beta: 'Versión Beta'
     },
     tracking: {
-      name: 'OS² Tracking',
+      name: 'OSS Tracking',
       shortName: 'Tracking',
       description: 'Seguimiento avanzado de pedidos con notificaciones proactivas y páginas de seguimiento marcadas.',
       features: [
@@ -380,7 +380,7 @@ export const es = {
       ]
     },
     marketing: {
-      name: 'OS² Marketing',
+      name: 'OSS Marketing',
       shortName: 'Marketing',
       description: 'Marketing por correo potente con capacidades de automatización y pruebas A/B.',
       features: [
@@ -392,7 +392,7 @@ export const es = {
       ]
     },
     bundles: {
-      name: 'OS² Bundles',
+      name: 'OSS Bundles',
       shortName: 'Bundles',
       description: 'Crea paquetes de productos convincentes para aumentar el valor promedio del pedido.',
       features: [
@@ -427,11 +427,11 @@ export const es = {
     },
     ecosystem: {
       title: 'Funciona Mejor con el',
-      titleHighlight: 'Ecosistema OS²',
-      subtitle: '{appName} está diseñado para funcionar perfectamente con otras apps de OS² Commerce, desbloqueando características entre apps que trabajan juntas de maneras que de otro modo no serían posibles.',
+      titleHighlight: 'Ecosistema OSS',
+      subtitle: '{appName} está diseñado para funcionar perfectamente con otras apps de OSS Commerce, desbloqueando características entre apps que trabajan juntas de maneras que de otro modo no serían posibles.',
       crossApp: {
         title: 'Características Entre Apps',
-        description: 'Desbloquea integraciones poderosas al usar múltiples apps de OS² juntas.'
+        description: 'Desbloquea integraciones poderosas al usar múltiples apps de OSS juntas.'
       },
       analytics: {
         title: 'Analítica Compartida',
@@ -439,7 +439,7 @@ export const es = {
       },
       support: {
         title: 'Soporte Unificado',
-        description: 'Un equipo de soporte para todas tus apps de OS² Commerce.'
+        description: 'Un equipo de soporte para todas tus apps de OSS Commerce.'
       },
       savings: {
         title: 'Ahorros por Volumen',
@@ -460,7 +460,7 @@ export const es = {
       badge: '📖 Nuestro Blog',
       title: 'Perspectivas y',
       titleHighlight: 'Actualizaciones',
-      subtitle: 'Mantente informado con las últimas tendencias de e-commerce, actualizaciones de productos y perspectivas del equipo de OS² Commerce.',
+      subtitle: 'Mantente informado con las últimas tendencias de e-commerce, actualizaciones de productos y perspectivas del equipo de OSS Commerce.',
       searchPlaceholder: 'Buscar artículos...'
     },
     empty: {
@@ -489,7 +489,7 @@ export const es = {
       readArticle: 'Leer Artículo',
       cta: {
         title: '¿Listo para Transformar tu Tienda?',
-        subtitle: 'Descubre cómo OS² Commerce puede ayudarte a implementar las estrategias discutidas en este artículo.',
+        subtitle: 'Descubre cómo OSS Commerce puede ayudarte a implementar las estrategias discutidas en este artículo.',
         exploreApps: 'Explora Nuestras Apps',
         getInTouch: 'Ponte en Contacto'
       }
@@ -499,7 +499,7 @@ export const es = {
   // About
   about: {
     hero: {
-      badge: '✨ Acerca de OS² Commerce',
+      badge: '✨ Acerca de OSS Commerce',
       title: 'Construyendo el',
       titleHighlight: 'Futuro',
       titleEnd: 'del E-commerce',
@@ -515,7 +515,7 @@ export const es = {
     },
     story: {
       title: 'Nuestra Historia',
-      subtitle: 'Nacida de la frustración de administrar docenas de apps desconectadas, OS² Commerce comenzó como una idea simple: ¿y si las herramientas de e-commerce realmente funcionaran juntas?',
+      subtitle: 'Nacida de la frustración de administrar docenas de apps desconectadas, OSS Commerce comenzó como una idea simple: ¿y si las herramientas de e-commerce realmente funcionaran juntas?',
       problem: {
         title: 'El Problema',
         description: 'Los comerciantes se estaban ahogando en fatiga de apps - administrando docenas de herramientas que no se comunicaban, llevando a silos de datos y caos operacional.'
@@ -526,7 +526,7 @@ export const es = {
       },
       solution: {
         title: 'La Solución',
-        description: 'Nació OS² Commerce - una suite de aplicaciones diseñadas desde cero para trabajar juntas, compartir datos y amplificar el impacto de cada una.'
+        description: 'Nació OSS Commerce - una suite de aplicaciones diseñadas desde cero para trabajar juntas, compartir datos y amplificar el impacto de cada una.'
       }
     },
     values: {
@@ -551,7 +551,7 @@ export const es = {
     },
     cta: {
       title: '¿Listo para Unirte a Nuestro Viaje?',
-      subtitle: 'Descubre cómo OS² Commerce puede transformar tus operaciones de e-commerce con nuestra suite integrada de aplicaciones.',
+      subtitle: 'Descubre cómo OSS Commerce puede transformar tus operaciones de e-commerce con nuestra suite integrada de aplicaciones.',
       explore: 'Explora Nuestras Apps',
       contact: 'Contáctanos'
     }
@@ -562,7 +562,7 @@ export const es = {
     hero: {
       title: 'Tu Privacidad',
       titleHighlight: 'Importa',
-      subtitle: 'Esta Política de Privacidad explica cómo OS² Commerce recopila, usa y protege tu información cuando visitas nuestro sitio web y usas nuestros servicios.',
+      subtitle: 'Esta Política de Privacidad explica cómo OSS Commerce recopila, usa y protege tu información cuando visitas nuestro sitio web y usas nuestros servicios.',
       lastUpdated: 'Última actualización: 15 de enero de 2025'
     },
     collect: {
@@ -752,6 +752,22 @@ export const es = {
       available: 'Disponible',
       comingSoon: 'Próximamente',
       beta: 'Beta'
+    },
+    appDoc: {
+      backToDocs: 'Volver al Centro de Documentación',
+      appOverview: 'Descripción General de la App',
+      installOnShopify: 'Instalar en Shopify',
+      getSupport: 'Obtener Soporte',
+      documentationComingSoon: 'Documentación Próximamente',
+      preparingDocs: 'Actualmente estamos preparando documentación completa para',
+      willInclude: 'Esto incluirá guías de configuración, tutoriales de características, solución de problemas y mejores prácticas.',
+      willCover: 'La documentación cubrirá:',
+      contactSupport: 'Contactar Soporte',
+      readOurBlog: 'Leer Nuestro Blog',
+      additionalResources: 'Recursos Adicionales',
+      needPersonalHelp: '¿Necesitas Ayuda Personal?',
+      supportTeamReady: 'Nuestro equipo de soporte está listo para ayudarte a aprovechar al máximo',
+      personalizedAssistance: 'Obtén asistencia personalizada y respuestas rápidas.'
     }
   },
 
@@ -761,7 +777,7 @@ export const es = {
       badge: '🚀 Centro de Soporte',
       title: 'Estamos Aquí para',
       titleHighlight: 'Ayudar',
-      subtitle: 'Encuentra respuestas, obtén soporte y aprende cómo aprovechar al máximo tus apps de OS² Commerce.',
+      subtitle: 'Encuentra respuestas, obtén soporte y aprende cómo aprovechar al máximo tus apps de OSS Commerce.',
       searchPlaceholder: 'Buscar artículos de ayuda, guías o FAQs...'
     },
     instantHelp: {
@@ -839,9 +855,10 @@ export const es = {
       title: 'Mantente Actualizado',
       subtitle: 'Recibe las últimas actualizaciones y perspectivas en tu bandeja de entrada.',
       placeholder: 'Ingresa tu email',
-      subscribe: 'Suscribirse'
+      subscribe: 'Suscribirse',
+      noSpam: 'No hay spam, cancela la suscripción en cualquier momento.'
     },
-    copyright: '© 2025 OS² Commerce. Todos los derechos reservados.',
+    copyright: '© 2025 OSS Commerce. Todos los derechos reservados.',
     language: 'Idioma'
   },
 
